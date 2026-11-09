@@ -13,6 +13,8 @@ const nextConfig: NextConfig = {
   transpilePackages: ["@zuploop/ui", "@zuploop/sdk"],
   poweredByHeader: false,
   reactStrictMode: true,
+  // Página 404 de fora dos idiomas com <html> próprio (há dois layouts raiz).
+  experimental: { globalNotFound: true },
 };
 
 export default withNextIntl(nextConfig);

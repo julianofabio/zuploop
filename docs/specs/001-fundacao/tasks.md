@@ -155,7 +155,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: testes de componente passam.
   - Verificar: `pnpm --filter @zuploop/web test`
 
-- [ ] **T021 · Página 404 por idioma** `[P]`
+- [x] **T021 · Página 404 por idioma** (8/11/2026) `[P]`
   - Arquivos: entrada `not-found` no registro; `app/not-found.tsx` para fora dos idiomas.
   - Pronto quando: `out/pt/404/index.html` e equivalentes existem, com links para início e jogos.
   - Verificar: `pnpm build`
