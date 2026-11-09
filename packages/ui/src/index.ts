@@ -10,6 +10,7 @@ export {
   type ButtonSize,
   type ButtonVariant,
 } from "./components/Button/Button";
+export { GameBar, type GameBarProps } from "./components/GameBar/GameBar";
 export {
   GameCard,
   type GameCardCategory,

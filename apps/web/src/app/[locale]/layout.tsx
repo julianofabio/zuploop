@@ -2,6 +2,7 @@
 // cabeçalho, barra inferior no celular e rodapé (padrão §6.2 e §6.3).
 import "@zuploop/ui/tokens.css";
 import "@zuploop/ui/base.css";
+import "@/styles/app.css";
 import { NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";

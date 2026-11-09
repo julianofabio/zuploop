@@ -5,6 +5,7 @@ import { examples as badge } from "../src/components/Badge/Badge.examples";
 import { examples as bottomNav } from "../src/components/BottomNav/BottomNav.examples";
 import { examples as banner } from "../src/components/Banner/Banner.examples";
 import { examples as button } from "../src/components/Button/Button.examples";
+import { examples as gameBar } from "../src/components/GameBar/GameBar.examples";
 import { examples as gameCard } from "../src/components/GameCard/GameCard.examples";
 import { examples as iconButton } from "../src/components/IconButton/IconButton.examples";
 import { examples as link } from "../src/components/Link/Link.examples";
@@ -20,6 +21,7 @@ const all = {
   banner,
   bottomNav,
   button,
+  gameBar,
   gameCard,
   iconButton,
   link,

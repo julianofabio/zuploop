@@ -193,7 +193,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: `out/pt/jogos/exemplo/index.html` existe quando o build mostra ocultos.
   - Verificar: `ZUPLOOP_SHOW_HIDDEN_GAMES=true pnpm build`
 
-- [ ] **T027 · GameHost**
+- [x] **T027 · GameHost** (8/11/2026)
   - Arquivos: `components/GameHost.tsx` (`"use client"`), `components/GameBar.tsx` em `packages/ui`.
   - Teste antes:
     - o `import()` do jogo só acontece ao tocar em "Jogar";

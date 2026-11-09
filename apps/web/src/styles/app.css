@@ -1,0 +1,6 @@
+/* Estilos de montagem do site (globais). Tokens e base vêm de @zuploop/ui. */
+
+/* Jogo aberto em tela cheia: a página por trás não rola (padrão §6.5). */
+html[data-game-open] {
+  overflow: hidden;
+}

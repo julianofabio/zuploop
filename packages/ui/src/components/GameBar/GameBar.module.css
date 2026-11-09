@@ -1,0 +1,25 @@
+/* Barra do jogo (padrão de interface §6.5): 56 px, Voltar à esquerda. */
+.bar {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: var(--space-3);
+  min-block-size: var(--game-bar-height);
+  padding: var(--space-2) var(--space-5);
+  border-block-end: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.title {
+  flex: 1;
+  min-inline-size: 0;
+  overflow: hidden;
+  font-size: var(--text-xl);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-2);
+}

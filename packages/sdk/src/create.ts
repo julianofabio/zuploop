@@ -19,6 +19,8 @@ export interface CreatePortalSdkOptions {
   dev: boolean;
   /** Recebe os erros de infraestrutura (o portal decide como mostrar ou registrar). */
   onError?: ErrorReporter;
+  /** Recebe cada evento do jogo e do SDK (por exemplo, `save_discarded`, para avisar a pessoa). */
+  onEvent?: PortalSdk["events"]["track"];
   /** Onde ouvir `pagehide` e `visibilitychange`; por padrão, a janela. */
   target?: EventTarget | undefined;
   visibilityState?: () => DocumentVisibilityState;
@@ -42,11 +44,17 @@ function defaultVisibility(): DocumentVisibilityState {
 
 export async function createPortalSdk(options: CreatePortalSdkOptions): Promise<PortalSdkHandle> {
   const { game, dev } = options;
-  const events = createEvents({
+  const devEvents = createEvents({
     gameId: game.id,
     dev,
     ...(options.log ? { log: options.log } : {}),
   });
+  const events: PortalSdk["events"] = {
+    track(name, props) {
+      devEvents.track(name, props);
+      options.onEvent?.(name, props);
+    },
+  };
   const onError: ErrorReporter = (code, props?: DiagnosticProps) => {
     if (dev) console.warn("[zuploop/error]", code, { gameId: game.id, ...props });
     options.onError?.(code, props);

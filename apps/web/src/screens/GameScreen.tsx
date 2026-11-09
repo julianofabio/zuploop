@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { findGame } from "@/games/registry";
 import { isLocale } from "@/i18n/config";
 import styles from "./GameScreen.module.css";
-import { PlayArea } from "./PlayArea";
+import { GameHost } from "@/components/GameHost";
 
 export async function GameScreen({ gameId }: { gameId: string }) {
   const game = findGame(gameId);
@@ -19,7 +19,7 @@ export async function GameScreen({ gameId }: { gameId: string }) {
       <header className={styles.header}>
         <h1 className={styles.title}>{messages.name}</h1>
         <p className={styles.description}>{messages.description}</p>
-        <PlayArea gameId={game.id} />
+        <GameHost gameId={game.id} name={messages.name} />
       </header>
       <section className={styles.howTo} aria-labelledby="how-to-play">
         <h2 id="how-to-play" className={styles.sectionTitle}>

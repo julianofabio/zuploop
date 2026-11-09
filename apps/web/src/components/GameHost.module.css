@@ -1,0 +1,55 @@
+/* Jogo em tela cheia (padrão de interface §6.5): sem cabeçalho, sem barra inferior, sem anúncio. */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-game);
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+}
+
+.area {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  padding: var(--space-4) var(--space-5) calc(var(--space-6) + env(safe-area-inset-bottom, 0));
+}
+
+.area:focus {
+  outline: none;
+}
+
+.status {
+  margin-block: auto;
+  color: var(--color-text-muted);
+}
+
+.problem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  max-inline-size: var(--measure);
+  margin-block: auto;
+  text-align: center;
+}
+
+.problemIcon {
+  display: inline-flex;
+  color: var(--color-danger);
+}
+
+.problemActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+@media (min-width: 64rem) {
+  .area {
+    padding-inline: var(--space-6);
+  }
+}

@@ -209,4 +209,27 @@ describe("createPortalSdk", () => {
     const sdk = await createPortalSdk(sdkOptions({ target: undefined }));
     await expect(sdk.dispose()).resolves.toBeUndefined();
   });
+
+  it("avisa o portal de cada evento, inclusive os do armazenamento (onEvent)", async () => {
+    const backend = createMemoryBackend();
+    await backend.set("example:main", {
+      v: 9,
+      sdk: 1,
+      gameId: "example",
+      slot: "main",
+      updatedAt: "2026-11-08T12:00:00.000Z",
+      data: {},
+    });
+    const onEvent = vi.fn();
+    const sdk = await createPortalSdk(sdkOptions({ backend, onEvent }));
+
+    await sdk.storage.load();
+    sdk.events.track("game_start", { level: 1 });
+
+    expect(onEvent).toHaveBeenCalledWith(
+      "save_discarded",
+      expect.objectContaining({ reason: "newer" }),
+    );
+    expect(onEvent).toHaveBeenCalledWith("game_start", { level: 1 });
+  });
 });
