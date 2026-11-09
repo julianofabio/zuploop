@@ -4,8 +4,8 @@
 | --- | --- |
 | Tipo | Rastreabilidade (transversal) |
 | Pergunta que responde | *De onde veio cada coisa e onde ela está no código?* |
-| Atualizado em | 8 de novembro de 2026 |
-| Estado do código | Nenhum código ainda; a coluna "Código" mostra os caminhos **planejados** no `tasks.md` |
+| Atualizado em | 9 de novembro de 2026 |
+| Estado do código | 001 implementada até a T040 (branch `feature/001-fundacao`); decisões em `specs/001-fundacao/notas.md` |
 
 Este arquivo liga cada item do projeto (requisito, decisão, regra, questão) à **origem** (sessão de definição, PRD, RFC, ADR, FDD) e ao **destino** (spec, tarefa, código e teste). Ele não repete o conteúdo dos documentos: só aponta para eles.
 
@@ -38,33 +38,33 @@ Cadeia de derivação: **S-DEF → PRD (com S-PLANO) → RFC-001 → ADRs → sp
 
 ## 2. Requisitos da feature 001 (detalhado)
 
-| Requisito | Origem | Spec | Tarefas | Código (planejado) | Teste que prova | Status |
+| Requisito | Origem | Spec | Tarefas | Código | Teste que prova | Status |
 | --- | --- | --- | --- | --- | --- | --- |
-| RF-I18N-01 Endereços por idioma | PRD · ADR-0013 | 001 | T015, T017, T018 | `apps/web/src/i18n/config.ts`, `apps/web/src/routes/registry.ts`, `apps/web/src/app/[locale]/[...slug]/page.tsx` | Unidade do registro (caminhos únicos, slugs sem conflito); build gera `out/es/juegos/` | Planejado |
-| RF-I18N-02 Escolha do idioma | PRD · ADR-0013 · FDD F1 | 001 | T019 | `apps/web/public/lang.js`, `apps/web/src/app/(root)/page.tsx` | Unidade de `lang.js`; e2e "Escolha de idioma pela raiz" (3 cenários) | Planejado |
-| RF-I18N-03 Seletor de idioma | PRD · FDD F2 | 001 | T020, T024 | `apps/web/src/components/LanguageSwitcher.tsx`, página `settings` | Componente; e2e "Mesma página em outro idioma" | Planejado |
-| RF-I18N-04 Sugestão de idioma | PRD · FDD F3 | 001 | T020 | `apps/web/src/components/LanguageSuggestion.tsx` (usa `Banner`) | Componente; e2e "Faixa de sugestão sem redirecionar" | Planejado |
-| RF-I18N-05 Textos traduzíveis | PRD · AGENTS | 001 | T015, T008, T025 | `apps/web/messages/{pt,es,en}.json`, `packages/games/example/messages/` | Teste de chaves pt/es ↔ en | Planejado |
-| RF-I18N-06 Idioma no jogo | PRD · ADR-0014 | 001 | T008 | `packages/sdk/src/i18n.ts` | Unidade de `getLocale` e `t()` com fallback | Planejado |
-| RF-SDK-01 Contrato único | PRD · ADR-0004 · ADR-0014 | 001 | T002, T005, T009 | `packages/sdk/src/types.ts`, `packages/sdk/src/create.ts`, regra `no-restricted-imports` | `expectTypeOf` do contrato; lint pega import proibido | Planejado |
-| RF-SDK-02 Salvamento automático | PRD · ADR-0005 · ADR-0014 | 001 | T006, T027 | `packages/sdk/src/storage/{envelope,idb,memory,index}.ts` | Unidade com `fake-indexeddb`; e2e "Continuar de onde parei" | Planejado |
-| RF-SDK-03 Versão do save | PRD · ADR-0014 · FDD F5 | 001 | T006, T007, T025, T027 | `packages/sdk/src/storage/migrate.ts`, `migrateSave` do jogo de exemplo | Unidade de migração e descarte; e2e "Save de versão mais nova" | Planejado |
-| RF-SDK-04 Regras separadas | PRD · ADR-0004 · AGENTS | 001 | T002, T025 | `packages/games/example/rules/` | Unidade: jogada válida, inválida e fim | Planejado |
-| RF-NAV-01 Página inicial (parcial) | PRD | 001, 007, 008 | T023 | Página `home` | Componente da home | Planejado |
-| RF-NAV-02 Catálogo | PRD | 001 | T013, T023 | `apps/web/src/games/registry.ts`, `GameCard`, `Badge` | Componente: `available`, `coming_soon` e `hidden` | Planejado (ver L-03) |
-| RF-NAV-03 Página por jogo | PRD · ADR-0001 | 001, 003 | T026, T027 | Página `game` | Teste do HTML (sem script do jogo); e2e "Jogo só carrega ao tocar em Jogar" | Planejado |
-| RF-NAV-04 Navegação no celular | PRD · DS 6 e 7 | 001 | T022, T027 | `packages/ui`: `BottomNav`, `SiteHeader`, `GameBar`; `apps/web/src/components/GameHost.tsx` | Componente: `aria-current`, pontos de quebra, foco | Planejado |
-| RF-AJ-03 "Como jogar" na página (estrutura) | PRD | 001 (estrutura), 002 | T026 | Página `game` a partir de `GameMessages` | Teste do HTML gerado | Planejado |
-| RNF-01 Desempenho | PRD · ADR-0001 | 001 | T027, T031 | `import()` do jogo no GameHost; Lighthouse CI | Lighthouse: LCP ≤ 2,5 s, CLS ≤ 0,1, JS ≤ 150 KB | Planejado |
-| RNF-02 Acessibilidade | PRD · DS 10 · AGENTS | 001, 009 | T010, T012, T013, T022, T030 | `packages/ui/src/tokens.css`, `base.css`, componentes | axe nos componentes e no e2e; Lighthouse 100 | Planejado |
-| RNF-03 SEO | PRD | 001, 003 | T026, T028, T029 | `generateMetadata`, `sitemap-*.xml`, `public/robots.txt` | `test:html`: `canonical`, 4 `hreflang`, mapas sem `hidden` | Planejado |
-| RNF-04 Segurança (base) | PRD · ADR-0009 · ADR-0015 | 001, 012 | T004, T034, T037, T039, T041 | gitleaks no CI, `app/errors.py`, CORS, `nginx/default.conf.template` (CSP), `.env.example` | gitleaks; pytest de CORS; `scripts/smoke-web.sh` | Planejado · **revisão humana** (CORS e cabeçalhos) |
-| RNF-06 Disponibilidade (base) | PRD · ADR-0005 | 001 | — (o site não chama a API na 001) | — | — | Planejado (ver L-05) |
-| RNF-07 Compatibilidade | PRD | 001 | T030 | `apps/web/playwright.config.ts` | e2e em Chromium e WebKit, 390 e 1280 px | Planejado (ver L-04) |
-| RNF-09 Qualidade | PRD · ADR-0012 | 001 | T004, T030, T036, T040 | `.github/workflows/ci.yml` | CI verde | Planejado |
-| RNF-10 Versões | PRD · ADR-0007 | 001 | T001, T032 | `package.json`, `.nvmrc`, `apps/api/pyproject.toml`, `.python-version` | `pnpm install` e `uv sync` numa máquina limpa | Planejado |
-| RNF-11 Infraestrutura | PRD · ADR-0003 · ADR-0009 | 001 | T037, T038, T041 | `apps/web/Dockerfile`, `apps/api/Dockerfile`, `docs/runbooks/publicar.md` | `curl -f https://zuploop.com/healthz` | Planejado |
-| Esqueleto da API (sem RF) | FDD-001 §2 | 001 (depende de F001-Q2) | T032 a T036 | `apps/api/app/{settings,logging,errors,db,main}.py`, `app/routes/health.py`, `migrations/` | pytest de `/health`, `/ready`, `/version` | Planejado · aguarda F001-Q2 |
+| RF-I18N-01 Endereços por idioma | PRD · ADR-0013 | 001 | T015, T017, T018 | `apps/web/src/i18n/config.ts`, `apps/web/src/routes/registry.ts`, `apps/web/src/app/[locale]/[...slug]/page.tsx` | Unidade do registro (caminhos únicos, slugs sem conflito); build gera `out/es/juegos/` | Feito |
+| RF-I18N-02 Escolha do idioma | PRD · ADR-0013 · FDD F1 | 001 | T019 | `apps/web/public/lang.js`, `apps/web/src/app/(root)/page.tsx` | Unidade de `lang.js`; e2e "Escolha de idioma pela raiz" (3 cenários) | Feito |
+| RF-I18N-03 Seletor de idioma | PRD · FDD F2 | 001 | T020, T024 | `apps/web/src/components/LanguageSwitcher.tsx`, página `settings` | Componente; e2e "Mesma página em outro idioma" | Feito |
+| RF-I18N-04 Sugestão de idioma | PRD · FDD F3 | 001 | T020 | `apps/web/src/components/LanguageSuggestion.tsx` (usa `Banner`) | Componente; e2e "Faixa de sugestão sem redirecionar" | Feito |
+| RF-I18N-05 Textos traduzíveis | PRD · AGENTS | 001 | T015, T008, T025 | `apps/web/messages/{pt,es,en}.json`, `packages/games/example/src/messages/` | Teste de chaves pt/es ↔ en | Feito |
+| RF-I18N-06 Idioma no jogo | PRD · ADR-0014 | 001 | T008 | `packages/sdk/src/i18n.ts` | Unidade de `getLocale` e `t()` com fallback | Feito |
+| RF-SDK-01 Contrato único | PRD · ADR-0004 · ADR-0014 | 001 | T002, T005, T009 | `packages/sdk/src/types.ts`, `packages/sdk/src/create.ts`, regra `no-restricted-imports` | `expectTypeOf` do contrato; lint pega import proibido | Feito |
+| RF-SDK-02 Salvamento automático | PRD · ADR-0005 · ADR-0014 | 001 | T006, T027 | `packages/sdk/src/storage/{envelope,idb,memory,index}.ts` | Unidade com `fake-indexeddb`; e2e "Continuar de onde parei" | Feito |
+| RF-SDK-03 Versão do save | PRD · ADR-0014 · FDD F5 | 001 | T006, T007, T025, T027 | `packages/sdk/src/storage/migrate.ts`, `migrateSave` do jogo de exemplo | Unidade de migração e descarte; e2e "Save de versão mais nova" | Feito |
+| RF-SDK-04 Regras separadas | PRD · ADR-0004 · AGENTS | 001 | T002, T025 | `packages/games/example/src/rules/` | Unidade: jogada válida, inválida e fim | Feito |
+| RF-NAV-01 Página inicial (parcial) | PRD | 001, 007, 008 | T023 | Página `home` | Componente da home | Feito |
+| RF-NAV-02 Catálogo | PRD | 001 | T013, T023 | `apps/web/src/games/registry.ts`, `GameCard`, `Badge` | Componente: `available`, `coming_soon` e `hidden` | Feito, sem busca e filtros (L-03) |
+| RF-NAV-03 Página por jogo | PRD · ADR-0001 | 001, 003 | T026, T027 | Página `game` | Teste do HTML (sem script do jogo); e2e "Jogo só carrega ao tocar em Jogar" | Feito |
+| RF-NAV-04 Navegação no celular | PRD · DS 6 e 7 | 001 | T022, T027 | `packages/ui`: `BottomNav`, `SiteHeader`, `GameBar`; `apps/web/src/components/GameHost.tsx` e `GameOverlay.tsx` | Componente: `aria-current`, pontos de quebra, foco | Feito |
+| RF-AJ-03 "Como jogar" na página (estrutura) | PRD | 001 (estrutura), 002 | T026 | Página `game` a partir de `GameMessages` | Teste do HTML gerado | Feito |
+| RNF-01 Desempenho | PRD · ADR-0001 | 001 | T027, T031 | `import()` do jogo no GameHost; Lighthouse CI | Lighthouse: LCP ≤ 2,5 s, CLS ≤ 0,1, JS ≤ 150 KB | Feito |
+| RNF-02 Acessibilidade | PRD · DS 10 · AGENTS | 001, 009 | T010, T012, T013, T022, T030 | `packages/ui/src/tokens.css`, `base.css`, componentes | axe nos componentes e no e2e; Lighthouse 100 | Feito |
+| RNF-03 SEO | PRD | 001, 003 | T026, T028, T029 | `generateMetadata`, `sitemap-*.xml`, `public/robots.txt` | `test:html`: `canonical`, 4 `hreflang`, mapas sem `hidden` | Feito |
+| RNF-04 Segurança (base) | PRD · ADR-0009 · ADR-0015 | 001, 012 | T004, T034, T037, T039, T041 | gitleaks no CI, `app/errors.py`, CORS, `nginx/default.conf.template` (CSP), `.env.example` | gitleaks; pytest de CORS; `scripts/smoke-web.sh` | Feito · **revisão humana** (CORS e cabeçalhos) |
+| RNF-06 Disponibilidade (base) | PRD · ADR-0005 | 001 | — (o site não chama a API na 001) | — | — | Sem teste próprio (L-05) |
+| RNF-07 Compatibilidade | PRD | 001 | T030 | `apps/web/playwright.config.ts` | e2e em Chromium e WebKit, 390 e 1280 px | Feito: Chromium e WebKit, 390 e 1280 px (L-04) |
+| RNF-09 Qualidade | PRD · ADR-0012 | 001 | T004, T030, T036, T040 | `.github/workflows/ci.yml` | CI verde | Feito |
+| RNF-10 Versões | PRD · ADR-0007 | 001 | T001, T032 | `package.json`, `.nvmrc`, `apps/api/pyproject.toml`, `.python-version` | `pnpm install` e `uv sync` numa máquina limpa | Feito |
+| RNF-11 Infraestrutura | PRD · ADR-0003 · ADR-0009 | 001 | T037, T038, T041 | `apps/web/Dockerfile`, `apps/api/Dockerfile`, `docs/runbooks/publicar.md` | `curl -f https://zuploop.com/healthz` | Feito |
+| Esqueleto da API (sem RF) | FDD-001 §2 | 001 (depende de F001-Q2) | T032 a T036 | `apps/api/app/{settings,logging,errors,db,main}.py`, `app/routes/health.py`, `migrations/` | pytest de `/health`, `/ready`, `/version` | Feito · F001-Q2 ainda aberta |
 
 ---
 

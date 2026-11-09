@@ -3,12 +3,16 @@ import os
 
 import pytest
 
-TEST_ENV = {
+# Padrões iguais aos do .env.example (o banco do docker compose); o CI define os próprios.
+_DEFAULTS = {
     "POSTGRES_USER": "zuploop",
-    "POSTGRES_PASSWORD": "senha-falsa-de-teste",
-    "POSTGRES_DB": "zuploop_test",
-    "DB_HOST": os.environ.get("DB_HOST", "127.0.0.1"),
-    "DB_PORT": os.environ.get("DB_PORT", "5432"),
+    "POSTGRES_PASSWORD": "troque-esta-senha",
+    "POSTGRES_DB": "zuploop",
+    "DB_HOST": "127.0.0.1",
+    "DB_PORT": "5432",
+}
+TEST_ENV = {
+    **{key: os.environ.get(key, value) for key, value in _DEFAULTS.items()},
     "API_ENV": "test",
     "API_LOG_LEVEL": "info",
     "API_CORS_ORIGINS": "http://localhost:8080",
@@ -17,11 +21,11 @@ TEST_ENV = {
 
 # O app.main cria a app ao ser importado; o ambiente precisa existir já na coleta dos testes.
 for _key, _value in TEST_ENV.items():
-    os.environ.setdefault(_key, os.environ.get(f"TEST_{_key}", _value))
+    os.environ.setdefault(_key, _value)
 
 
 @pytest.fixture(autouse=True)
 def test_env(monkeypatch: pytest.MonkeyPatch) -> dict[str, str]:
     for key, value in TEST_ENV.items():
-        monkeypatch.setenv(key, os.environ.get(f"TEST_{key}", value))
+        monkeypatch.setenv(key, value)
     return dict(TEST_ENV)

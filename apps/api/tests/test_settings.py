@@ -13,7 +13,9 @@ SECRET = "senha-secreta-que-nao-pode-vazar"
 
 
 def test_monta_a_url_do_banco_a_partir_das_variaveis(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setenv("POSTGRES_USER", "zuploop")
     monkeypatch.setenv("POSTGRES_PASSWORD", "p@ss/word")
+    monkeypatch.setenv("POSTGRES_DB", "zuploop_test")
     monkeypatch.setenv("DB_HOST", "db")
     monkeypatch.setenv("DB_PORT", "5432")
     url = load_settings().database_url()
