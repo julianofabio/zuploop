@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8">
+<title>Caça-palavras</title>
+
+
+
+<style>
+body{margin:0}
+a{color:#12645A}a:hover{color:#0C4A42}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@500;700&display=swap"></head>
+<body>
+
+
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F6F4EE; font-family: 'Atkinson Hyperlegible', system-ui, sans-serif; color: #1D2422; display: flex; flex-direction: column; overflow: hidden">
+
+  <header style="flex: none; display: flex; align-items: center; gap: 10px; padding: 14px 16px 8px">
+    <a href="Main.html" aria-label="Voltar ao início" style="flex: none; width: 44px; height: 44px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E4E0D6; display: flex; align-items: center; justify-content: center">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1D2422" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg>
+    </a>
+    <div style="flex: 1; min-width: 0">
+      <h1 style="margin: 0; font-family: Lexend, sans-serif; font-weight: 700; font-size: 17px">Frutas do Brasil</h1>
+      <div style="font-size: 14px; color: #555E5A">Desafio de hoje</div>
+    </div>
+    <span aria-label="Tempo: 2 minutos e 14 segundos" style="flex: none; padding: 8px 12px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E4E0D6; font-family: Lexend, sans-serif; font-weight: 500; font-size: 16px">2:14</span>
+    <button type="button" aria-label="Favoritar: Caça-palavras Frutas do Brasil" aria-pressed="false" style="flex: none; width: 44px; height: 44px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E4E0D6; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1D2422" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+    </button>
+    <button type="button" aria-label="Pausar" style="flex: none; width: 44px; height: 44px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E4E0D6; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#1D2422" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect></svg>
+    </button>
+  </header>
+
+  <main style="flex: 1; min-height: 0; overflow: hidden; padding: 8px 24px 16px; display: flex; flex-direction: column; gap: 16px">
+    <div role="grid" aria-label="Grade de letras" style="width: 342px; background: #FFFFFF; border: 1px solid #E4E0D6; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column">
+      
+        <div role="row" style="display: flex">
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #CDEBDD; color: #0C4A42">G</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #CDEBDD; color: #0C4A42">O</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #CDEBDD; color: #0C4A42">I</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #CDEBDD; color: #0C4A42">A</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #CDEBDD; color: #0C4A42">B</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #CDEBDD; color: #0C4A42">A</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">X</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">T</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">R</span>
+          
+        </div>
+      
+        <div role="row" style="display: flex">
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FBE2B4; color: #5C3D00">C</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FBE2B4; color: #5C3D00">A</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FBE2B4; color: #5C3D00">J</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FBE2B4; color: #5C3D00">U</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">L</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">M</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">E</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">P</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">S</span>
+          
+        </div>
+      
+        <div role="row" style="display: flex">
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">F</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">T</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">R</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">B</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">E</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">A</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">D</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">O</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">L</span>
+          
+        </div>
+      
+        <div role="row" style="display: flex">
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">J</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">U</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">K</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">S</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">I</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">N</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">H</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">E</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">V</span>
+          
+        </div>
+      
+        <div role="row" style="display: flex">
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">A</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">E</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">P</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">L</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">O</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">G</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">U</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">R</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">Z</span>
+          
+        </div>
+      
+        <div role="row" style="display: flex">
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">C</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">N</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">B</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">D</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">T</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">A</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">S</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">F</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">M</span>
+          
+        </div>
+      
+        <div role="row" style="display: flex">
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">A</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">Q</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #F8D3C8; color: #7A2A18">A</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #F8D3C8; color: #7A2A18">C</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #F8D3C8; color: #7A2A18">E</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #F8D3C8; color: #7A2A18">R</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #F8D3C8; color: #7A2A18">O</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #F8D3C8; color: #7A2A18">L</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #F8D3C8; color: #7A2A18">A</span>
+          
+        </div>
+      
+        <div role="row" style="display: flex">
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">R</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #12645A; color: #FFFFFF">P</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #12645A; color: #FFFFFF">I</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #12645A; color: #FFFFFF">T</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #12645A; color: #FFFFFF">A</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">N</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">G</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">A</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">U</span>
+          
+        </div>
+      
+        <div role="row" style="display: flex">
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">L</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">M</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">E</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">Z</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">O</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">C</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">U</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">V</span>
+          
+            <span role="gridcell" style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 500; font-size: 20px; background: #FFFFFF; color: #1D2422">D</span>
+          
+        </div>
+      
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 14px; background: #12645A; color: #FFFFFF">
+      <span style="font-size: 15px; color: #D6EEE8">Selecionando</span>
+      <span style="font-family: Lexend, sans-serif; font-weight: 700; font-size: 20px; letter-spacing: 0.12em">PITA…</span>
+    </div>
+
+    <section aria-labelledby="palavras" style="display: flex; flex-direction: column; gap: 10px">
+      <div style="display: flex; justify-content: space-between; align-items: baseline">
+        <h2 id="palavras" style="margin: 0; font-family: Lexend, sans-serif; font-weight: 500; font-size: 18px">Palavras</h2>
+        <span style="font-size: 15px; color: #555E5A">3 de 6 encontradas</span>
+      </div>
+      <ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+        
+          <li style="height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; letter-spacing: 0.04em; background: #CDEBDD; color: #0C4A42; text-decoration: line-through; border: 1px solid transparent">GOIABA</li>
+        
+          <li style="height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; letter-spacing: 0.04em; background: #FBE2B4; color: #5C3D00; text-decoration: line-through; border: 1px solid transparent">CAJU</li>
+        
+          <li style="height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; letter-spacing: 0.04em; background: #F8D3C8; color: #7A2A18; text-decoration: line-through; border: 1px solid transparent">ACEROLA</li>
+        
+          <li style="height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; letter-spacing: 0.04em; background: #FFFFFF; color: #1D2422; text-decoration: none; border: 1px solid #E4E0D6">MANGA</li>
+        
+          <li style="height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; letter-spacing: 0.04em; background: #FFFFFF; color: #1D2422; text-decoration: none; border: 1px solid #E4E0D6">PITANGA</li>
+        
+          <li style="height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; letter-spacing: 0.04em; background: #FFFFFF; color: #1D2422; text-decoration: none; border: 1px solid #E4E0D6">JACA</li>
+        
+      </ul>
+    </section>
+
+    <div style="display: flex; gap: 10px; margin-top: auto">
+      <button type="button" style="flex: 1; height: 56px; border-radius: 16px; border: 1px solid #D8D2C4; background: #FFFFFF; color: #1D2422; font: inherit; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6B4A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"></path></svg>
+        <span style="display: flex; flex-direction: column; align-items: flex-start"><span style="font-size: 17px; font-weight: 700">Dica</span><span style="font-size: 13px; color: #555E5A">assistindo a um anúncio curto</span></span>
+      </button>
+      <a href="ComoJogar.html" style="flex: none; height: 56px; padding: 0 16px; border-radius: 16px; border: 1px solid #D8D2C4; background: #FFFFFF; color: #1D2422; font-size: 16px; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 8px">
+        <span aria-hidden="true" style="width: 26px; height: 26px; border-radius: 999px; border: 2px solid #1D2422; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 14px">?</span>Como jogar</a>
+    </div>
+  </main>
+</div>
+
+
+
+
+</body></html>

@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8">
+<title>Jogos</title>
+
+
+
+<style>
+body{margin:0}
+a{color:#12645A}a:hover{color:#0C4A42}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@500;700&display=swap"></head>
+<body>
+
+
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F6F4EE; font-family: 'Atkinson Hyperlegible', system-ui, sans-serif; color: #1D2422; display: flex; flex-direction: column; overflow: hidden">
+
+  <main style="flex: 1; min-height: 0; overflow: hidden; padding: 22px 20px 12px; display: flex; flex-direction: column; gap: 16px">
+    <h1 style="margin: 0; font-family: Lexend, sans-serif; font-weight: 700; font-size: 28px; letter-spacing: -0.01em">Jogos</h1>
+
+    <form role="search" style="display: flex">
+      <label for="busca" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap">Buscar jogos</label>
+      <div style="flex: 1; display: flex; align-items: center; gap: 10px; height: 50px; padding: 0 16px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E4E0D6">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#555E5A" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+        <input id="busca" type="search" placeholder="Buscar jogos" style="flex: 1; min-width: 0; border: 0; outline: none; background: transparent; font: inherit; font-size: 17px; color: #1D2422">
+      </div>
+    </form>
+
+    <div role="group" aria-label="Filtrar por tipo" style="display: flex; gap: 8px; flex-wrap: wrap">
+      <button type="button" aria-pressed="true" style="height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #12645A; background: #12645A; color: #FFFFFF; font: inherit; font-size: 16px; font-weight: 700; cursor: pointer">Todos</button>
+      <button type="button" aria-pressed="false" style="height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #E4E0D6; background: #FFFFFF; color: #1D2422; font: inherit; font-size: 16px; font-weight: 700; cursor: pointer">Palavras</button>
+      <button type="button" aria-pressed="false" style="height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #E4E0D6; background: #FFFFFF; color: #1D2422; font: inherit; font-size: 16px; font-weight: 700; cursor: pointer">Tabuleiro</button>
+      <button type="button" aria-pressed="false" style="height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #E4E0D6; background: #FFFFFF; color: #1D2422; font: inherit; font-size: 16px; font-weight: 700; cursor: pointer">Números</button>
+    </div>
+
+    <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
+      
+        <li>
+          
+            <div style="display: flex; align-items: center; gap: 4px; background: #FFFFFF; border: 1px solid #E4E0D6; border-radius: 18px; padding: 10px 6px 10px 14px">
+              <a href="CacaPalavras.html" style="flex: 1; min-width: 0; display: flex; align-items: center; gap: 14px; text-decoration: none; color: #1D2422">
+                <span aria-hidden="true" style="flex: none; width: 50px; height: 50px; border-radius: 14px; background: #FCEFD2; color: #6B4A00; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 700; font-size: 18px">Aa</span>
+                <div style="flex: 1; min-width: 0">
+                  <div style="font-weight: 700; font-size: 17px">Caça-palavras</div>
+                  <div style="font-size: 15px; color: #555E5A">Palavras · temas novos toda semana</div>
+                </div>
+              </a>
+              <button type="button" aria-label="Favoritar: Caça-palavras" aria-pressed="false" style="flex: none; width: 44px; height: 44px; border-radius: 999px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#555E5A" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+              </button>
+            </div>
+          
+          
+        </li>
+      
+        <li>
+          
+          
+            <div style="display: flex; align-items: center; gap: 14px; background: #FBFAF6; border: 1px dashed #D8D2C4; border-radius: 18px; padding: 10px 14px; color: #1D2422">
+              <span aria-hidden="true" style="flex: none; width: 50px; height: 50px; border-radius: 14px; background: #EFECE4; color: #555E5A; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 700; font-size: 18px">Aa</span>
+              <div style="flex: 1; min-width: 0">
+                <div style="font-weight: 700; font-size: 17px">Cruzadinha</div>
+                <div style="font-size: 15px; color: #555E5A">Palavras · dicas fáceis e difíceis</div>
+              </div>
+              <span style="padding: 4px 10px; border-radius: 999px; background: #EFECE4; color: #555E5A; font-size: 14px; font-weight: 700">Em breve</span>
+            </div>
+          
+        </li>
+      
+        <li>
+          
+            <div style="display: flex; align-items: center; gap: 4px; background: #FFFFFF; border: 1px solid #E4E0D6; border-radius: 18px; padding: 10px 6px 10px 14px">
+              <a href="Damas.html" style="flex: 1; min-width: 0; display: flex; align-items: center; gap: 14px; text-decoration: none; color: #1D2422">
+                <span aria-hidden="true" style="flex: none; width: 50px; height: 50px; border-radius: 14px; background: #FBE3DC; color: #8A2F1C; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 700; font-size: 18px">●</span>
+                <div style="flex: 1; min-width: 0">
+                  <div style="font-weight: 700; font-size: 17px">Damas</div>
+                  <div style="font-size: 15px; color: #555E5A">Tabuleiro · contra o computador ou a dois</div>
+                </div>
+              </a>
+              <button type="button" aria-label="Remover dos favoritos: Damas" aria-pressed="true" style="flex: none; width: 44px; height: 44px; border-radius: 999px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#D9482B" stroke="#D9482B" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+              </button>
+            </div>
+          
+          
+        </li>
+      
+        <li>
+          
+          
+            <div style="display: flex; align-items: center; gap: 14px; background: #FBFAF6; border: 1px dashed #D8D2C4; border-radius: 18px; padding: 10px 14px; color: #1D2422">
+              <span aria-hidden="true" style="flex: none; width: 50px; height: 50px; border-radius: 14px; background: #EFECE4; color: #555E5A; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 700; font-size: 18px">●</span>
+              <div style="flex: 1; min-width: 0">
+                <div style="font-weight: 700; font-size: 17px">Trilha</div>
+                <div style="font-size: 15px; color: #555E5A">Tabuleiro · o clássico de três em linha</div>
+              </div>
+              <span style="padding: 4px 10px; border-radius: 999px; background: #EFECE4; color: #555E5A; font-size: 14px; font-weight: 700">Em breve</span>
+            </div>
+          
+        </li>
+      
+        <li>
+          
+            <div style="display: flex; align-items: center; gap: 4px; background: #FFFFFF; border: 1px solid #E4E0D6; border-radius: 18px; padding: 10px 6px 10px 14px">
+              <a href="Sudoku.html" style="flex: 1; min-width: 0; display: flex; align-items: center; gap: 14px; text-decoration: none; color: #1D2422">
+                <span aria-hidden="true" style="flex: none; width: 50px; height: 50px; border-radius: 14px; background: #DDEFEA; color: #12645A; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 700; font-size: 18px">9</span>
+                <div style="flex: 1; min-width: 0">
+                  <div style="font-weight: 700; font-size: 17px">Sudoku</div>
+                  <div style="font-size: 15px; color: #555E5A">Números · quatro níveis</div>
+                </div>
+              </a>
+              <button type="button" aria-label="Favoritar: Sudoku" aria-pressed="false" style="flex: none; width: 44px; height: 44px; border-radius: 999px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#555E5A" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+              </button>
+            </div>
+          
+          
+        </li>
+      
+        <li>
+          
+            <div style="display: flex; align-items: center; gap: 4px; background: #FFFFFF; border: 1px solid #E4E0D6; border-radius: 18px; padding: 10px 6px 10px 14px">
+              <a href="Jogo2048.html" style="flex: 1; min-width: 0; display: flex; align-items: center; gap: 14px; text-decoration: none; color: #1D2422">
+                <span aria-hidden="true" style="flex: none; width: 50px; height: 50px; border-radius: 14px; background: #DDEFEA; color: #12645A; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 700; font-size: 18px">9</span>
+                <div style="flex: 1; min-width: 0">
+                  <div style="font-weight: 700; font-size: 17px">2048</div>
+                  <div style="font-size: 15px; color: #555E5A">Números · partida salva sozinha</div>
+                </div>
+              </a>
+              <button type="button" aria-label="Favoritar: 2048" aria-pressed="false" style="flex: none; width: 44px; height: 44px; border-radius: 999px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#555E5A" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+              </button>
+            </div>
+          
+          
+        </li>
+      
+    </ul>
+  </main>
+
+  <nav aria-label="Navegação principal" style="flex: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); background: #FFFFFF; border-top: 1px solid #E4E0D6; padding: 6px 6px 14px">
+    <a href="Main.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; text-decoration: none; color: #555E5A; font-size: 14px; font-weight: 700">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#555E5A" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z"></path></svg>Início</a>
+    <a href="Jogos.html" aria-current="page" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; text-decoration: none; color: #12645A; font-size: 14px; font-weight: 700">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="#DDEFEA" stroke="#12645A" stroke-width="2" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="2"></rect><rect x="13" y="4" width="7" height="7" rx="2"></rect><rect x="4" y="13" width="7" height="7" rx="2"></rect><rect x="13" y="13" width="7" height="7" rx="2"></rect></svg>Jogos</a>
+    <a href="Desafio.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; text-decoration: none; color: #555E5A; font-size: 14px; font-weight: 700">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#555E5A" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="3"></rect><path d="M8 3v4M16 3v4M4 10h16"></path></svg>Desafio</a>
+    <a href="Ajustes.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 56px; text-decoration: none; color: #555E5A; font-size: 14px; font-weight: 700">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#555E5A" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"></path><circle cx="16" cy="7" r="2"></circle><circle cx="10" cy="17" r="2"></circle></svg>Ajustes</a>
+  </nav>
+</div>
+
+
+
+
+</body></html>

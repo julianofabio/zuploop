@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8">
+<title>2048</title>
+
+
+
+<style>
+body{margin:0}
+a{color:#12645A}a:hover{color:#0C4A42}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@500;700&display=swap"></head>
+<body>
+
+
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F6F4EE; font-family: 'Atkinson Hyperlegible', system-ui, sans-serif; color: #1D2422; display: flex; flex-direction: column; overflow: hidden">
+
+  <header style="flex: none; display: flex; align-items: center; gap: 10px; padding: 14px 16px 8px">
+    <a href="Main.html" aria-label="Voltar ao início" style="flex: none; width: 44px; height: 44px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E4E0D6; display: flex; align-items: center; justify-content: center">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1D2422" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg>
+    </a>
+    <div style="flex: 1; min-width: 0">
+      <h1 style="margin: 0; font-family: Lexend, sans-serif; font-weight: 700; font-size: 19px">2048</h1>
+      <div style="font-size: 14px; color: #555E5A">Partida salva automaticamente</div>
+    </div>
+    <button type="button" aria-label="Como jogar 2048" style="flex: none; width: 44px; height: 44px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E4E0D6; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0; font-family: Lexend, sans-serif; font-weight: 700; font-size: 18px; color: #1D2422">?</button>
+    <button type="button" aria-label="Favoritar: 2048" aria-pressed="false" style="flex: none; width: 44px; height: 44px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E4E0D6; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1D2422" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+    </button>
+  </header>
+
+  <main style="flex: 1; min-height: 0; overflow: hidden; padding: 8px 24px 16px; display: flex; flex-direction: column; gap: 16px">
+    <dl style="margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+      <div style="background: #FFFFFF; border: 1px solid #E4E0D6; border-radius: 16px; padding: 10px 14px">
+        <dt style="font-size: 14px; color: #555E5A">Pontos</dt>
+        <dd style="margin: 2px 0 0; font-family: Lexend, sans-serif; font-weight: 700; font-size: 24px">1.248</dd>
+      </div>
+      <div style="background: #FCEFD2; border-radius: 16px; padding: 10px 14px">
+        <dt style="font-size: 14px; color: #6B4A00">Seu recorde</dt>
+        <dd style="margin: 2px 0 0; font-family: Lexend, sans-serif; font-weight: 700; font-size: 24px; color: #5C3D00">3.560</dd>
+      </div>
+    </dl>
+
+    <div role="grid" aria-label="Tabuleiro do 2048" style="width: 342px; box-sizing: border-box; padding: 10px; border-radius: 18px; background: #D9D1C1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px">
+      
+        <span role="gridcell" style="aspect-ratio: 1 / 1; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 700; font-size: 30px; background: #FBF6EC; color: #3A4340">2</span>
+      
+        <span role="gridcell" style="aspect-ratio: 1 / 1; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 700; font-size: 30px; background: #E9E3D6; color: #1D2422"></span>
+      
+        <span role="gridcell" style="aspect-ratio: 1 / 1; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 700; font-size: 30px; background: #F6E7C8; color: #3A4340">4</span>
+      
+        <span role="gridcell" style="aspect-ratio: 1 / 1; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 700; font-size: 30px; background: #F2B33D; color: #3D2A00">8</span>
+      
+        <span role="gridcell" style="aspect-ratio: 1 / 1; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 700; font-size: 30px; background: #E9E3D6; color: #1D2422"></span>
+      
+        <span role="gridcell" style="aspect-ratio: 1 / 1; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 700; font-size: 30px; background: #EE9A3A; color: #3D2A00">16</span>
+      
+        <span role="gridcell" style="aspect-ratio: 1 / 1; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 700; font-size: 30px; background: #E2733A; color: #FFFFFF">32</span>
+      
+        <span role="gridcell" style="aspect-ratio: 1 / 1; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 700; font-size: 30px; background: #F6E7C8; color: #3A4340">4</span>
+      
+        <span role="gridcell" style="aspect-ratio: 1 / 1; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 700; font-size: 30px; background: #FBF6EC; color: #3A4340">2</span>
+      
+        <span role="gridcell" style="aspect-ratio: 1 / 1; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 700; font-size: 30px; background: #C2542B; color: #FFFFFF">64</span>
+      
+        <span role="gridcell" style="aspect-ratio: 1 / 1; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 700; font-size: 26px; background: #2A8A79; color: #FFFFFF">128</span>
+      
+        <span role="gridcell" style="aspect-ratio: 1 / 1; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 700; font-size: 30px; background: #F2B33D; color: #3D2A00">8</span>
+      
+        <span role="gridcell" style="aspect-ratio: 1 / 1; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 700; font-size: 30px; background: #F6E7C8; color: #3A4340">4</span>
+      
+        <span role="gridcell" style="aspect-ratio: 1 / 1; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 700; font-size: 30px; background: #FBF6EC; color: #3A4340">2</span>
+      
+        <span role="gridcell" style="aspect-ratio: 1 / 1; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 700; font-size: 26px; background: #1A7364; color: #FFFFFF">256</span>
+      
+        <span role="gridcell" style="aspect-ratio: 1 / 1; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-weight: 700; font-size: 26px; background: #12645A; color: #FFFFFF">512</span>
+      
+    </div>
+
+    <p style="margin: 0; font-size: 16px; color: #555E5A; text-align: center">Deslize para juntar números iguais e chegar a 2048.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: auto">
+      <button type="button" style="height: 56px; border-radius: 16px; border: 1px solid #D8D2C4; background: #FFFFFF; color: #1D2422; font: inherit; font-size: 16px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1D2422" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 14L4 9l5-5"></path><path d="M4 9h10a6 6 0 0 1 0 12h-3"></path></svg>Desfazer</button>
+      <button type="button" style="height: 56px; border-radius: 16px; border: 1px solid #D8D2C4; background: #FFFFFF; color: #1D2422; font: inherit; font-size: 16px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1D2422" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v5h-5"></path></svg>Nova partida</button>
+    </div>
+  </main>
+</div>
+
+
+
+
+</body></html>

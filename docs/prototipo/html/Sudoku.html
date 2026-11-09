@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8">
+<title>Sudoku</title>
+
+
+
+<style>
+body{margin:0}
+a{color:#12645A}a:hover{color:#0C4A42}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@500;700&display=swap"></head>
+<body>
+
+
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F6F4EE; font-family: 'Atkinson Hyperlegible', system-ui, sans-serif; color: #1D2422; display: flex; flex-direction: column; overflow: hidden">
+
+  <header style="flex: none; display: flex; align-items: center; gap: 10px; padding: 14px 16px 8px">
+    <a href="Main.html" aria-label="Voltar ao início" style="flex: none; width: 44px; height: 44px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E4E0D6; display: flex; align-items: center; justify-content: center">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1D2422" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg>
+    </a>
+    <div style="flex: 1; min-width: 0">
+      <h1 style="margin: 0; font-family: Lexend, sans-serif; font-weight: 700; font-size: 19px">Sudoku</h1>
+      <div style="font-size: 14px; color: #555E5A">Nível médio · salvo neste aparelho</div>
+    </div>
+    <button type="button" aria-label="Como jogar sudoku" style="flex: none; width: 44px; height: 44px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E4E0D6; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0; font-family: Lexend, sans-serif; font-weight: 700; font-size: 18px; color: #1D2422">?</button>
+    <button type="button" aria-label="Favoritar: Sudoku médio" aria-pressed="false" style="flex: none; width: 44px; height: 44px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E4E0D6; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1D2422" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>
+    </button>
+    <button type="button" aria-label="Pausar" style="flex: none; width: 44px; height: 44px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E4E0D6; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#1D2422" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect></svg>
+    </button>
+  </header>
+
+  <main style="flex: 1; min-height: 0; overflow: hidden; padding: 4px 24px 16px; display: flex; flex-direction: column; gap: 12px">
+    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 16px">
+      <span style="color: #555E5A">Erros: <strong style="color: #8A2F1C">1 de 3</strong></span>
+      <span style="font-family: Lexend, sans-serif; font-weight: 500">8:41</span>
+    </div>
+
+    <div role="grid" aria-label="Grade do sudoku" style="align-self: center; width: 337px; box-sizing: border-box; border: 2px solid #1D2422; border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; background: #FFFFFF">
+      
+        <div role="row" style="display: flex">
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700">5</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700">3</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 2px solid #1D2422; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #12645A; font-weight: 500">4</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #12645A; font-weight: 500">6</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #EAF4F1; color: #1D2422; font-weight: 700">7</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 2px solid #1D2422; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 0; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+        </div>
+      
+        <div role="row" style="display: flex">
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700">6</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #12645A; font-weight: 500">7</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 2px solid #1D2422; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700">1</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #EAF4F1; color: #1D2422; font-weight: 700">9</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 2px solid #1D2422; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700">5</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 0; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+        </div>
+      
+        <div role="row" style="display: flex">
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 2px solid #1D2422; background: #FBE3DC; color: #B3261E; font-weight: 500">7</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 2px solid #1D2422; background: #FFFFFF; color: #1D2422; font-weight: 700">9</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 2px solid #1D2422; border-bottom: 2px solid #1D2422; background: #FFFFFF; color: #1D2422; font-weight: 700">8</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 2px solid #1D2422; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 2px solid #1D2422; background: #EAF4F1; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 2px solid #1D2422; border-bottom: 2px solid #1D2422; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 2px solid #1D2422; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 2px solid #1D2422; background: #FFFFFF; color: #1D2422; font-weight: 700">6</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 0; border-bottom: 2px solid #1D2422; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+        </div>
+      
+        <div role="row" style="display: flex">
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700">8</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #12645A; font-weight: 500">5</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 2px solid #1D2422; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #EAF4F1; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #EAF4F1; color: #1D2422; font-weight: 700">6</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 2px solid #1D2422; border-bottom: 1px solid #D7D2C6; background: #EAF4F1; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 0; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700">3</span>
+          
+        </div>
+      
+        <div role="row" style="display: flex">
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #EAF4F1; color: #1D2422; font-weight: 700">4</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #EAF4F1; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 2px solid #1D2422; border-bottom: 1px solid #D7D2C6; background: #EAF4F1; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #EAF4F1; color: #1D2422; font-weight: 700">8</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #BFE3DA; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 2px solid #1D2422; border-bottom: 1px solid #D7D2C6; background: #EAF4F1; color: #1D2422; font-weight: 700">3</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #EAF4F1; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #EAF4F1; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 0; border-bottom: 1px solid #D7D2C6; background: #EAF4F1; color: #1D2422; font-weight: 700">1</span>
+          
+        </div>
+      
+        <div role="row" style="display: flex">
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 2px solid #1D2422; background: #FFFFFF; color: #1D2422; font-weight: 700">7</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 2px solid #1D2422; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 2px solid #1D2422; border-bottom: 2px solid #1D2422; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 2px solid #1D2422; background: #EAF4F1; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 2px solid #1D2422; background: #EAF4F1; color: #1D2422; font-weight: 700">2</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 2px solid #1D2422; border-bottom: 2px solid #1D2422; background: #EAF4F1; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 2px solid #1D2422; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 2px solid #1D2422; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 0; border-bottom: 2px solid #1D2422; background: #FFFFFF; color: #1D2422; font-weight: 700">6</span>
+          
+        </div>
+      
+        <div role="row" style="display: flex">
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700">6</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 2px solid #1D2422; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #EAF4F1; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 2px solid #1D2422; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700">2</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700">8</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 0; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+        </div>
+      
+        <div role="row" style="display: flex">
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 2px solid #1D2422; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700">4</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #EAF4F1; color: #1D2422; font-weight: 700">1</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 2px solid #1D2422; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700">9</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 0; border-bottom: 1px solid #D7D2C6; background: #FFFFFF; color: #1D2422; font-weight: 700">5</span>
+          
+        </div>
+      
+        <div role="row" style="display: flex">
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 0; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 0; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 2px solid #1D2422; border-bottom: 0; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 0; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 0; background: #EAF4F1; color: #1D2422; font-weight: 700">8</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 2px solid #1D2422; border-bottom: 0; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 0; background: #FFFFFF; color: #1D2422; font-weight: 700"></span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 1px solid #D7D2C6; border-bottom: 0; background: #FFFFFF; color: #1D2422; font-weight: 700">7</span>
+          
+            <span role="gridcell" style="width: 37px; height: 37px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: Lexend, sans-serif; font-size: 21px; border-right: 0; border-bottom: 0; background: #FFFFFF; color: #1D2422; font-weight: 700">9</span>
+          
+        </div>
+      
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px">
+      <button type="button" style="height: 60px; border-radius: 14px; border: 0; background: transparent; color: #1D2422; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D2422" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 14L4 9l5-5"></path><path d="M4 9h10a6 6 0 0 1 0 12h-3"></path></svg>Desfazer</button>
+      <button type="button" style="height: 60px; border-radius: 14px; border: 0; background: transparent; color: #1D2422; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D2422" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 5H9l-6 7 6 7h11a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1z"></path><path d="M12 9l6 6M18 9l-6 6"></path></svg>Apagar</button>
+      <button type="button" aria-pressed="false" style="height: 60px; border-radius: 14px; border: 0; background: transparent; color: #1D2422; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D2422" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"></path><path d="M13 7l4 4"></path></svg>Anotações</button>
+      <button type="button" style="height: 60px; border-radius: 14px; border: 0; background: transparent; color: #1D2422; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6B4A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"></path></svg>Dica</button>
+    </div>
+
+    <div role="group" aria-label="Números" style="display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 4px">
+      
+        <button type="button" style="height: 62px; border-radius: 12px; border: 1px solid #D8D2C4; background: #FFFFFF; color: #12645A; font-family: Lexend, sans-serif; font-weight: 500; font-size: 26px; cursor: pointer; padding: 0">1</button>
+      
+        <button type="button" style="height: 62px; border-radius: 12px; border: 1px solid #D8D2C4; background: #FFFFFF; color: #12645A; font-family: Lexend, sans-serif; font-weight: 500; font-size: 26px; cursor: pointer; padding: 0">2</button>
+      
+        <button type="button" style="height: 62px; border-radius: 12px; border: 1px solid #D8D2C4; background: #FFFFFF; color: #12645A; font-family: Lexend, sans-serif; font-weight: 500; font-size: 26px; cursor: pointer; padding: 0">3</button>
+      
+        <button type="button" style="height: 62px; border-radius: 12px; border: 1px solid #D8D2C4; background: #FFFFFF; color: #12645A; font-family: Lexend, sans-serif; font-weight: 500; font-size: 26px; cursor: pointer; padding: 0">4</button>
+      
+        <button type="button" style="height: 62px; border-radius: 12px; border: 1px solid #D8D2C4; background: #FFFFFF; color: #12645A; font-family: Lexend, sans-serif; font-weight: 500; font-size: 26px; cursor: pointer; padding: 0">5</button>
+      
+        <button type="button" style="height: 62px; border-radius: 12px; border: 1px solid #D8D2C4; background: #FFFFFF; color: #12645A; font-family: Lexend, sans-serif; font-weight: 500; font-size: 26px; cursor: pointer; padding: 0">6</button>
+      
+        <button type="button" style="height: 62px; border-radius: 12px; border: 1px solid #D8D2C4; background: #FFFFFF; color: #12645A; font-family: Lexend, sans-serif; font-weight: 500; font-size: 26px; cursor: pointer; padding: 0">7</button>
+      
+        <button type="button" style="height: 62px; border-radius: 12px; border: 1px solid #D8D2C4; background: #FFFFFF; color: #12645A; font-family: Lexend, sans-serif; font-weight: 500; font-size: 26px; cursor: pointer; padding: 0">8</button>
+      
+        <button type="button" style="height: 62px; border-radius: 12px; border: 1px solid #D8D2C4; background: #FFFFFF; color: #12645A; font-family: Lexend, sans-serif; font-weight: 500; font-size: 26px; cursor: pointer; padding: 0">9</button>
+      
+    </div>
+  </main>
+</div>
+
+
+
+
+</body></html>

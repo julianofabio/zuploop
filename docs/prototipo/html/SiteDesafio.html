@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8">
+<title>Site · Desafio do dia</title>
+
+
+
+<style>
+body{margin:0}
+a{color:#12645A}a:hover{color:#0C4A42}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@500;700&display=swap"></head>
+<body>
+
+
+<div style="min-height: 100vh; background: #F6F4EE; font-family: 'Atkinson Hyperlegible', system-ui, sans-serif; color: #1D2422; font-size: 18px">
+
+<header style="background: #FFFFFF; border-bottom: 1px solid #E4E0D6">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px">
+    <a href="SiteInicio.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #1D2422">
+      <svg width="36" height="36" viewBox="0 0 34 34" aria-hidden="true"><rect x="1" y="1" width="32" height="32" rx="9" fill="#12645A"></rect><path d="M12 1v32M22 1v32M1 12h32M1 22h32" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="1.2"></path><rect x="12" y="12" width="10" height="10" fill="#F2B33D"></rect></svg>
+      <span style="font-family: Lexend, sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -0.01em">ZupLoop</span>
+    </a>
+    <nav aria-label="Principal" style="display: flex; gap: 4px; flex-wrap: wrap">
+      <a href="SiteInicio.html" style="padding: 10px 16px; border-radius: 999px; color: #1D2422; font-weight: 700; font-size: 17px; text-decoration: none">Início</a>
+      <a href="SiteJogos.html" style="padding: 10px 16px; border-radius: 999px; color: #1D2422; font-weight: 700; font-size: 17px; text-decoration: none">Jogos</a>
+      <a href="SiteDesafio.html" aria-current="page" style="padding: 10px 16px; border-radius: 999px; background: #DDEFEA; color: #0C4A42; font-weight: 700; font-size: 17px; text-decoration: none">Desafio do dia</a>
+    </nav>
+    <form role="search" style="flex: 1 1 220px; display: flex">
+      <label for="busca" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap">Buscar jogos</label>
+      <div style="flex: 1; display: flex; align-items: center; gap: 10px; height: 46px; padding: 0 16px; border-radius: 999px; background: #F2EFE7">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#555E5A" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+        <input id="busca" type="search" placeholder="Buscar jogos" style="flex: 1; min-width: 0; border: 0; outline: none; background: transparent; font: inherit; font-size: 17px; color: #1D2422">
+      </div>
+    </form>
+    <label for="idioma" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap">Idioma</label>
+    <select id="idioma" style="height: 46px; padding: 0 12px; border-radius: 999px; border: 1px solid #E4E0D6; background: #FFFFFF; font: inherit; font-size: 16px; font-weight: 700; color: #1D2422">
+      <option selected="">Português</option>
+      <option>Español</option>
+      <option>English</option>
+    </select>
+  </div>
+</header>
+
+<main style="max-width: 1200px; margin: 0 auto; padding: 36px 24px 0">
+  <h1 style="margin: 0; font-family: Lexend, sans-serif; font-weight: 700; font-size: 44px; letter-spacing: -0.02em">Desafio do dia</h1>
+  <p style="margin: 8px 0 28px; font-size: 19px; color: #3A4340">Um passatempo novo por dia, igual para todo mundo. Volte amanhã para manter sua sequência.</p>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-start">
+    <div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+      <section aria-labelledby="hoje" style="background: #12645A; color: #FFFFFF; border-radius: 26px; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+        <h2 id="hoje" style="margin: 0; font-size: 17px; font-weight: 700; color: #D6EEE8">Sexta-feira, 6 de novembro</h2>
+        <div style="font-family: Lexend, sans-serif; font-weight: 700; font-size: 32px; line-height: 1.2">Caça-palavras: Frutas do Brasil</div>
+        <div style="font-size: 18px; color: #D6EEE8">Encontre seis frutas. Cerca de 5 minutos.</div>
+        <a href="SiteCacaPalavras.html" style="align-self: flex-start; margin-top: 8px; height: 56px; padding: 0 26px; border-radius: 999px; background: #FFFFFF; color: #12645A; display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 700; text-decoration: none">
+          <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10l8-5z" fill="#12645A"></path></svg>
+          Jogar agora
+        </a>
+      </section>
+
+      <section aria-label="Sua sequência" style="background: #FFFFFF; border: 1px solid #E4E0D6; border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 18px">
+        <div style="display: flex; align-items: center; gap: 14px">
+          <span aria-hidden="true" style="width: 48px; height: 48px; border-radius: 14px; background: #FCEFD2; display: flex; align-items: center; justify-content: center">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="#F2B33D" stroke="#6B4A00" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3c1 4 5 5.5 5 10a5 5 0 0 1-10 0c0-2.4 1.4-3.6 2.4-4.8C10.6 10 12 7.5 12 3z"></path></svg>
+          </span>
+          <div>
+            <div style="font-family: Lexend, sans-serif; font-weight: 700; font-size: 24px">5 dias seguidos</div>
+            <div style="font-size: 16px; color: #555E5A">Seu recorde: 12 dias · salvo neste navegador</div>
+          </div>
+        </div>
+        <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px">
+          
+            <li style="display: flex; flex-direction: column; align-items: center; gap: 8px">
+              <span style="font-size: 16px; font-weight: 700; color: #555E5A">Seg</span>
+              <span aria-label="segunda: concluído" style="width: 48px; height: 48px; border-radius: 999px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; background: #12645A; border: 2px solid #12645A">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+              </span>
+            </li>
+          
+            <li style="display: flex; flex-direction: column; align-items: center; gap: 8px">
+              <span style="font-size: 16px; font-weight: 700; color: #555E5A">Ter</span>
+              <span aria-label="terça: concluído" style="width: 48px; height: 48px; border-radius: 999px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; background: #12645A; border: 2px solid #12645A">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+              </span>
+            </li>
+          
+            <li style="display: flex; flex-direction: column; align-items: center; gap: 8px">
+              <span style="font-size: 16px; font-weight: 700; color: #555E5A">Qua</span>
+              <span aria-label="quarta: concluído" style="width: 48px; height: 48px; border-radius: 999px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; background: #12645A; border: 2px solid #12645A">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+              </span>
+            </li>
+          
+            <li style="display: flex; flex-direction: column; align-items: center; gap: 8px">
+              <span style="font-size: 16px; font-weight: 700; color: #555E5A">Qui</span>
+              <span aria-label="quinta: concluído" style="width: 48px; height: 48px; border-radius: 999px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; background: #12645A; border: 2px solid #12645A">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+              </span>
+            </li>
+          
+            <li style="display: flex; flex-direction: column; align-items: center; gap: 8px">
+              <span style="font-size: 16px; font-weight: 700; color: #1D2422">Sex</span>
+              <span aria-label="sexta: hoje, a fazer" style="width: 48px; height: 48px; border-radius: 999px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; background: #FFFFFF; border: 2px solid #F2B33D">
+                
+              </span>
+            </li>
+          
+            <li style="display: flex; flex-direction: column; align-items: center; gap: 8px">
+              <span style="font-size: 16px; font-weight: 700; color: #555E5A">Sáb</span>
+              <span aria-label="sábado: ainda não disponível" style="width: 48px; height: 48px; border-radius: 999px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; background: #F6F4EE; border: 2px solid #E4E0D6">
+                
+              </span>
+            </li>
+          
+            <li style="display: flex; flex-direction: column; align-items: center; gap: 8px">
+              <span style="font-size: 16px; font-weight: 700; color: #555E5A">Dom</span>
+              <span aria-label="domingo: ainda não disponível" style="width: 48px; height: 48px; border-radius: 999px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; background: #F6F4EE; border: 2px solid #E4E0D6">
+                
+              </span>
+            </li>
+          
+        </ol>
+      </section>
+    </div>
+
+    <aside style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 20px">
+      <section style="background: #FFFFFF; border: 1px solid #E4E0D6; border-radius: 22px; padding: 22px; display: flex; flex-direction: column; gap: 12px">
+        <h2 style="margin: 0; font-family: Lexend, sans-serif; font-weight: 500; font-size: 22px">Dias anteriores</h2>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
+          
+            <li style="display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #EFECE4">
+              <span aria-hidden="true" style="flex: none; width: 32px; height: 32px; border-radius: 999px; display: flex; align-items: center; justify-content: center; background: #12645A">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+              </span>
+              <div style="flex: 1; min-width: 0">
+                <div style="font-weight: 700; font-size: 17px">Sudoku fácil</div>
+                <div style="font-size: 15px; color: #555E5A">Quinta, 5 de novembro</div>
+              </div>
+              <span style="font-size: 16px; font-weight: 700; color: #12645A">6:12</span>
+              
+            </li>
+          
+            <li style="display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #EFECE4">
+              <span aria-hidden="true" style="flex: none; width: 32px; height: 32px; border-radius: 999px; display: flex; align-items: center; justify-content: center; background: #12645A">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+              </span>
+              <div style="flex: 1; min-width: 0">
+                <div style="font-weight: 700; font-size: 17px">Damas: vença em 30 lances</div>
+                <div style="font-size: 15px; color: #555E5A">Quarta, 4 de novembro</div>
+              </div>
+              <span style="font-size: 16px; font-weight: 700; color: #12645A">24 lances</span>
+              
+            </li>
+          
+            <li style="display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #EFECE4">
+              <span aria-hidden="true" style="flex: none; width: 32px; height: 32px; border-radius: 999px; display: flex; align-items: center; justify-content: center; background: #12645A">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+              </span>
+              <div style="flex: 1; min-width: 0">
+                <div style="font-weight: 700; font-size: 17px">Caça-palavras: Na cozinha</div>
+                <div style="font-size: 15px; color: #555E5A">Terça, 3 de novembro</div>
+              </div>
+              <span style="font-size: 16px; font-weight: 700; color: #12645A">3:58</span>
+              
+            </li>
+          
+            <li style="display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #EFECE4">
+              <span aria-hidden="true" style="flex: none; width: 32px; height: 32px; border-radius: 999px; display: flex; align-items: center; justify-content: center; background: #12645A">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+              </span>
+              <div style="flex: 1; min-width: 0">
+                <div style="font-weight: 700; font-size: 17px">Sudoku médio</div>
+                <div style="font-size: 15px; color: #555E5A">Segunda, 2 de novembro</div>
+              </div>
+              <span style="font-size: 16px; font-weight: 700; color: #12645A">9:40</span>
+              
+            </li>
+          
+            <li style="display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #EFECE4">
+              <span aria-hidden="true" style="flex: none; width: 32px; height: 32px; border-radius: 999px; display: flex; align-items: center; justify-content: center; background: #E4E0D6">
+                
+              </span>
+              <div style="flex: 1; min-width: 0">
+                <div style="font-weight: 700; font-size: 17px">Caça-palavras: Flores</div>
+                <div style="font-size: 15px; color: #555E5A">Sábado, 31 de outubro</div>
+              </div>
+              
+              <a href="#" style="font-size: 16px; font-weight: 700; text-decoration: none; padding: 8px 0">Jogar</a>
+            </li>
+          
+        </ul>
+      </section>
+      <div>
+        <p style="margin: 0 0 6px; font-size: 13px; font-weight: 700; color: #555E5A; letter-spacing: 0.04em">PUBLICIDADE</p>
+        <div style="height: 250px; max-width: 300px; border-radius: 14px; background: #EFECE4; border: 1px dashed #CFC8B8; display: flex; align-items: center; justify-content: center; font-size: 15px; color: #555E5A">Espaço de anúncio · 300 × 250</div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer style="margin-top: 56px; background: #FFFFFF; border-top: 1px solid #E4E0D6">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 32px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px">
+    <div>
+      <div style="font-family: Lexend, sans-serif; font-weight: 700; font-size: 20px">ZupLoop</div>
+      <div style="font-size: 16px; color: #555E5A">Passatempos clássicos, grátis, no navegador.</div>
+    </div>
+    <nav aria-label="Rodapé" style="display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 16px">
+      <a href="#" style="color: #1D2422; text-decoration: none">Sobre</a>
+      <a href="#" style="color: #1D2422; text-decoration: none">Privacidade</a>
+      <a href="#" style="color: #1D2422; text-decoration: none">Preferências de cookies</a>
+      <a href="#" style="color: #1D2422; text-decoration: none">Termos de uso</a>
+      <a href="#" style="color: #1D2422; text-decoration: none">Contato</a>
+    </nav>
+  </div>
+</footer>
+
+</div>
+
+
+
+
+</body></html>
