@@ -91,7 +91,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: os tokens batem com o padrão, inclusive alto contraste, tamanho de texto e modo tranquilo.
   - Verificar: `pnpm --filter @zuploop/ui test`
 
-- [ ] **T011 · Verificador de estilos** `[P]`
+- [x] **T011 · Verificador de estilos** (8/11/2026) `[P]`
   - Arquivos: `scripts/lint-styles.mjs`, script `lint:styles` na raiz, passo no CI.
   - Teste antes: um CSS de exemplo com `#fff` fora de `tokens.css` faz o script falhar; `tokens.css` passa.
   - Pronto quando: o script roda no CI.

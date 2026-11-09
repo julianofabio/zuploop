@@ -73,7 +73,7 @@ Na raiz:
 | `pnpm test` | Testes de unidade e componentes (Vitest) |
 | `pnpm test:e2e` | Testes de ponta a ponta (Playwright) contra o build (a partir de T030) |
 | `pnpm lint` | ESLint |
-| `pnpm lint:styles` | Procura cores, fontes e tamanhos fora de `tokens.css` (a partir de T011) |
+| `pnpm lint:styles` | Procura cores, fontes e tamanhos fora de `tokens.css` |
 | `pnpm typecheck` | Verificação de tipos |
 | `pnpm format` | Prettier |
 | `pnpm check` | Tudo o que o CI roda, incluindo a API (cresce a cada tarefa; a API entra na T036) |

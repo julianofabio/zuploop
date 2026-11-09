@@ -14,7 +14,8 @@
     "test": "pnpm -r --if-present test",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm format:check"
+    "check": "pnpm lint && pnpm lint:styles && pnpm typecheck && pnpm test && pnpm format:check",
+    "lint:styles": "node scripts/lint-styles.mjs"
   },
   "devDependencies": {
     "@zuploop/config": "workspace:*",
