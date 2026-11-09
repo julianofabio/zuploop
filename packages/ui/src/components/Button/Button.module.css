@@ -1,0 +1,102 @@
+/* Botão (padrão de interface §9.1 e §13.3). */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  min-block-size: var(--control-lg);
+  padding-inline: var(--space-5);
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+  background: transparent;
+  font: 700 var(--text-base) / var(--leading-tight) var(--font-text);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast) var(--ease-standard),
+    opacity var(--duration-fast) var(--ease-standard);
+}
+
+.button[data-variant="primary"] {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.button[data-variant="primary"]:hover,
+.button[data-variant="primary"]:active {
+  background: var(--color-primary-hover);
+}
+
+.button[data-variant="secondary"] {
+  background: var(--color-surface);
+  border-color: var(--color-border-strong);
+  color: var(--color-text);
+}
+
+.button[data-variant="ghost"] {
+  color: var(--color-primary);
+}
+
+.button[data-variant="danger"] {
+  background: var(--color-surface);
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
+.button[data-variant="secondary"]:hover,
+.button[data-variant="ghost"]:hover,
+.button[data-variant="danger"]:hover,
+.button[data-variant="secondary"]:active,
+.button[data-variant="ghost"]:active,
+.button[data-variant="danger"]:active {
+  background: var(--color-surface-muted);
+}
+
+.button[data-size="md"] {
+  min-block-size: calc(var(--control-sm) + var(--space-1));
+  padding-inline: var(--space-4);
+  font-size: var(--text-md);
+}
+
+.button[data-size="sm"] {
+  min-block-size: var(--control-sm);
+  padding-inline: var(--space-4);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-md);
+}
+
+.button[data-full-width="true"] {
+  inline-size: 100%;
+}
+
+.button[aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.button[aria-busy="true"] {
+  cursor: progress;
+}
+
+.icon {
+  display: inline-flex;
+}
+
+.label {
+  min-inline-size: 0;
+}
+
+.spinner {
+  inline-size: var(--icon-md);
+  block-size: var(--icon-md);
+  border: 2px solid currentColor;
+  border-inline-end-color: transparent;
+  border-radius: var(--radius-pill);
+  animation: spin calc(var(--duration-slow) * 3) linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,19 @@
+/* Link (padrão de interface §9.4). */
+.link {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+.link:hover {
+  color: var(--color-primary-hover);
+}
+
+.link[data-variant="menu"] {
+  text-decoration: none;
+}
+
+.link[data-variant="menu"]:hover {
+  text-decoration: underline;
+}

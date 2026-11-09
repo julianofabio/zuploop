@@ -103,7 +103,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: todos os ícones da lista existem.
   - Verificar: `pnpm --filter @zuploop/ui test`
 
-- [ ] **T013 · Componentes básicos**
+- [x] **T013 · Componentes básicos** (8/11/2026)
   - Arquivos: em `packages/ui/src/components/`: `Button`, `IconButton`, `Link`, `Badge`, `GameCard`, `Banner`, `Toast`, `Sheet` (cada um com `.tsx`, `.module.css`, teste e exemplo), seguindo a seção 9 do padrão.
   - Teste antes, por componente: variantes por `data-*`, estados (desabilitado, carregando), rótulos acessíveis, foco preso no `Sheet` e retorno ao fechar, `Toast` com `role="status"`, axe sem falhas.
   - Pronto quando: os oito componentes passam nos testes e no axe.

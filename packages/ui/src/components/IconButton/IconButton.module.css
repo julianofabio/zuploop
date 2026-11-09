@@ -1,0 +1,40 @@
+/* Botão de ícone (padrão de interface §9.2). */
+.iconButton {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  inline-size: var(--control-sm);
+  block-size: var(--control-sm);
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+.iconButton:hover,
+.iconButton:active {
+  background: var(--color-surface-muted);
+}
+
+.iconButton[data-variant="subtle"] {
+  border-color: transparent;
+  background: transparent;
+}
+
+.iconButton[data-variant="subtle"]:hover,
+.iconButton[data-variant="subtle"]:active {
+  background: var(--color-surface-muted);
+}
+
+.iconButton[aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.icon {
+  display: inline-flex;
+}

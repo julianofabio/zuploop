@@ -1,0 +1,24 @@
+/* Aviso temporário (padrão de interface §9.13): pílula escura no centro inferior,
+   acima da barra inferior e até do jogo (--z-toast). */
+.toast {
+  position: fixed;
+  inset-inline: var(--space-5);
+  inset-block-end: calc(var(--bottom-nav-height) + var(--space-4) + env(safe-area-inset-bottom, 0));
+  z-index: var(--z-toast);
+  inline-size: fit-content;
+  max-inline-size: var(--measure);
+  margin-inline: auto;
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-pill);
+  background: var(--color-text);
+  color: var(--color-surface);
+  box-shadow: var(--shadow-overlay);
+  font-size: var(--text-md);
+  text-align: center;
+}
+
+@media (min-width: 64rem) {
+  .toast {
+    inset-block-end: var(--space-8);
+  }
+}
