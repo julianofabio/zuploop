@@ -1,0 +1,5 @@
+# Fim de linha LF em todo o repositório (scripts de shell e imagens Docker quebram com CRLF).
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.woff2 binary

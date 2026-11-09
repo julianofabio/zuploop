@@ -2,10 +2,23 @@
   "name": "zuploop",
   "private": true,
   "description": "ZupLoop.com: classic pastimes for adults, in Portuguese, Spanish and English.",
+  "type": "module",
   "packageManager": "pnpm@10.34.9",
   "engines": {
     "node": ">=24 <25",
     "pnpm": ">=10 <11"
   },
-  "scripts": {}
+  "scripts": {
+    "lint": "eslint . --max-warnings=0",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "test": "pnpm -r --if-present test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@zuploop/config": "workspace:*",
+    "eslint": "9.39.5",
+    "prettier": "3.9.10",
+    "typescript": "5.9.3"
+  }
 }
