@@ -1,7 +1,7 @@
-// Instância do registro de rotas do site, a partir dos jogos registrados.
-import { allGames } from "../games/registry";
+// Instância do registro de rotas do site: só jogos com página própria (FDD 001 §6.1).
+import { routableGames } from "../games/registry";
 import { createRouteRegistry } from "./registry";
 
-export const routes = createRouteRegistry(allGames);
+export const routes = createRouteRegistry(routableGames());
 
 export type { PageRef, StaticPageId } from "./registry";

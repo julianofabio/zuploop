@@ -1,0 +1,31 @@
+/* Página do catálogo. */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  max-inline-size: var(--measure);
+}
+
+.title {
+  font-size: var(--text-3xl);
+}
+
+.intro {
+  color: var(--color-text-reading);
+}
+
+@media (min-width: 64rem) {
+  .page {
+    gap: var(--space-8);
+  }
+
+  .title {
+    font-size: var(--text-4xl);
+  }
+}

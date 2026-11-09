@@ -1,0 +1,28 @@
+/* Grade de cards de jogo (padrão §6.4): mínimo de 280 px por card. */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.grid > li {
+  display: flex;
+}
+
+.grid > li > * {
+  flex: 1;
+}
+
+.empty {
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 48rem) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(17.5rem, 1fr));
+    gap: var(--space-4);
+  }
+}

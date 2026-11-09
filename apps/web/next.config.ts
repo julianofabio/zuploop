@@ -12,6 +12,8 @@ const nextConfig: NextConfig = {
   // Pacotes do monorepo são publicados como código-fonte TypeScript (notas N-11).
   transpilePackages: ["@zuploop/ui", "@zuploop/sdk"],
   poweredByHeader: false,
+  // Lido no build; repassado ao código do navegador para o registro de rotas ser o mesmo nos dois.
+  env: { ZUPLOOP_SHOW_HIDDEN_GAMES: process.env.ZUPLOOP_SHOW_HIDDEN_GAMES ?? "false" },
   reactStrictMode: true,
   // Página 404 de fora dos idiomas com <html> próprio (há dois layouts raiz).
   experimental: { globalNotFound: true },

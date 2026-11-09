@@ -168,7 +168,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: bate com as telas [Início](../../prototipo/png/Main.png) e [Site · Início](../../prototipo/png/SiteInicio.png) na estrutura (conteúdo de desafio e favoritos fica para depois).
   - Verificar: `pnpm --filter @zuploop/ui test` e revisão visual.
 
-- [ ] **T023 · Página inicial e catálogo**
+- [x] **T023 · Página inicial e catálogo** (8/11/2026)
   - Arquivos: `src/games/registry.ts`; páginas `home` e `catalog` lendo os manifestos (`GameCard`; jogos `coming_soon` com selo "Em breve" e sem link; `hidden` só com `ZUPLOOP_SHOW_HIDDEN_GAMES=true`).
   - Teste antes: o catálogo lista jogos `available` e `coming_soon`, esconde `hidden` por padrão e mostra com a variável ligada.
   - Pronto quando: bate com as telas [Jogos](../../prototipo/png/Jogos.png) e [Site · Jogos](../../prototipo/png/SiteJogos.png) na estrutura.
