@@ -8,6 +8,7 @@ import { describe, expect, it, vi } from "vitest";
 const script = readFileSync(path.resolve(import.meta.dirname, "../public/lang.js"), "utf8");
 
 interface FakeBrowser {
+  path?: string;
   saved?: string | null;
   languages?: readonly string[] | undefined;
   language?: string;
@@ -15,7 +16,17 @@ interface FakeBrowser {
 }
 
 function run(browser: FakeBrowser): ReturnType<typeof vi.fn> {
+  return runWithDocument(browser).replace;
+}
+
+function runWithDocument(browser: FakeBrowser) {
   const replace = vi.fn();
+  const attributes = new Map<string, string>();
+  const document = {
+    documentElement: {
+      setAttribute: (name: string, value: string) => attributes.set(name, value),
+    },
+  };
   const storage = {
     getItem: (key: string) => (key === "zuploop.locale" ? (browser.saved ?? null) : null),
   };
@@ -24,11 +35,11 @@ function run(browser: FakeBrowser): ReturnType<typeof vi.fn> {
       if (browser.blockedStorage) throw new DOMException("blocked", "SecurityError");
       return storage;
     },
-    location: { replace },
+    location: { replace, pathname: browser.path ?? "/" },
   };
   const navigator = { languages: browser.languages, language: browser.language ?? "" };
-  vm.runInNewContext(script, { window, navigator });
-  return replace;
+  vm.runInNewContext(script, { window, navigator, document });
+  return { replace, attributes };
 }
 
 describe("lang.js", () => {
@@ -67,5 +78,37 @@ describe("lang.js", () => {
 
   it("não confunde prefixo parecido (ptx, english)", () => {
     expect(run({ languages: ["ptx", "english"] })).toHaveBeenCalledWith("/en/");
+  });
+});
+
+describe("lang.js nas páginas por idioma", () => {
+  it("nunca redireciona fora da raiz", () => {
+    const { replace } = runWithDocument({ path: "/en/games/", languages: ["pt-BR"] });
+    expect(replace).not.toHaveBeenCalled();
+  });
+
+  it("marca no html o idioma sugerido, para reservar o espaço da faixa antes da pintura", () => {
+    const { attributes } = runWithDocument({ path: "/en/games/", languages: ["pt-BR"] });
+    expect(attributes.get("data-lang-suggest")).toBe("pt");
+  });
+
+  it("não marca nada quando o idioma já é o da página", () => {
+    const { attributes } = runWithDocument({ path: "/pt/jogos/", languages: ["pt-BR"] });
+    expect(attributes.size).toBe(0);
+  });
+
+  it("a escolha salva igual à página não gera sugestão", () => {
+    const { attributes } = runWithDocument({
+      path: "/en/games/",
+      saved: "en",
+      languages: ["pt-BR"],
+    });
+    expect(attributes.size).toBe(0);
+  });
+
+  it("caminho fora dos idiomas não faz nada", () => {
+    const { replace, attributes } = runWithDocument({ path: "/404.html", languages: ["pt"] });
+    expect(replace).not.toHaveBeenCalled();
+    expect(attributes.size).toBe(0);
   });
 });

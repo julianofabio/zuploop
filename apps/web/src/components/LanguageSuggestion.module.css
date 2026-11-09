@@ -1,0 +1,39 @@
+/* Espaço da faixa de idioma: só existe quando o lang.js marcou o <html> antes da pintura
+   (ou quando a faixa está visível). Altura fixa, para nada se mexer quando ela aparece. */
+.slot {
+  display: none;
+}
+
+:root[data-lang-suggest] .slot,
+.slot[data-visible="true"] {
+  display: block;
+  block-size: 7rem;
+  overflow: hidden;
+}
+
+.slot > * {
+  block-size: 100%;
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--control-sm);
+  padding-inline: var(--space-4);
+  border-radius: var(--radius-pill);
+  color: var(--color-primary);
+  font-size: var(--text-md);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.action:hover {
+  background: var(--color-surface-muted);
+}
+
+@media (min-width: 48rem) {
+  :root[data-lang-suggest] .slot,
+  .slot[data-visible="true"] {
+    block-size: var(--banner-height);
+  }
+}

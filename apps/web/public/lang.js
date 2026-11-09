@@ -1,6 +1,8 @@
-// Escolha de idioma na raiz "/" (FDD 001 F1, RF-I18N-02). Roda antes da pintura.
-// Ordem: escolha salva > idioma do navegador > inglês. Só a raiz redireciona.
-// Sem JavaScript, ou se algo falhar aqui, a página mostra os três links.
+// Idioma antes da pintura (FDD 001 F1 e F3, RF-I18N-02 e RF-I18N-04).
+// Na raiz "/": escolhe o idioma (escolha salva > navegador > inglês) e redireciona.
+// Nas páginas por idioma: nunca redireciona; só marca no <html> o idioma a sugerir,
+// para a faixa "Ver em português?" ter o espaço reservado desde a primeira pintura.
+// A mesma regra está em src/i18n/detect.ts. Sem JavaScript, a raiz mostra os três links.
 (function () {
   "use strict";
   var SUPPORTED = ["pt", "es", "en"];
@@ -33,9 +35,17 @@
   }
 
   try {
-    var locale = savedChoice() || browserChoice() || "en";
-    window.location.replace("/" + locale + "/");
+    var preferred = savedChoice() || browserChoice();
+    var path = window.location.pathname || "/";
+    if (path === "/" || path === "/index.html") {
+      window.location.replace("/" + (preferred || "en") + "/");
+      return;
+    }
+    var pageLocale = path.split("/")[1];
+    if (isSupported(pageLocale) && preferred && preferred !== pageLocale) {
+      document.documentElement.setAttribute("data-lang-suggest", preferred);
+    }
   } catch {
-    // Fica na página de escolha.
+    // Fica como está.
   }
 })();

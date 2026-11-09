@@ -149,7 +149,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: abrir `/` redireciona com `location.replace`; sem JavaScript, os três links aparecem.
   - Verificar: `pnpm test`
 
-- [ ] **T020 · Seletor de idioma e faixa de sugestão**
+- [x] **T020 · Seletor de idioma e faixa de sugestão** (8/11/2026)
   - Arquivos: `components/LanguageSwitcher.tsx`, `components/LanguageSuggestion.tsx` (usa `Banner`).
   - Teste antes: trocar para espanhol em `/pt/jogos/` leva a `/es/juegos/` e salva `es`; a faixa aparece quando o idioma do navegador difere da página, não redireciona, e "Continuar" salva e esconde; espaço reservado (sem deslocar a página).
   - Pronto quando: testes de componente passam.

@@ -1,0 +1,32 @@
+/* Lista de idiomas (padrão §9.11: lista de opções, nunca um <select> pequeno). */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: 0;
+  list-style: none;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-block-size: var(--control-md);
+  padding-inline: var(--space-4);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  color: var(--color-text);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.option:hover {
+  background: var(--color-surface-muted);
+  color: var(--color-text);
+}
+
+.option[aria-current="true"] {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+  color: var(--color-primary-hover);
+}
