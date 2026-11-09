@@ -123,7 +123,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: `out/pt/index.html`, `out/es/index.html` e `out/en/index.html` existem com o `lang` certo.
   - Verificar: `pnpm test && pnpm build`
 
-- [ ] **T016 · Fontes e estilos globais** `[P]`
+- [x] **T016 · Fontes e estilos globais** (8/11/2026) `[P]`
   - Arquivos: fontes Atkinson Hyperlegible e Lexend via `next/font`; import de `@zuploop/ui/tokens.css` e `base.css` no layout.
   - Teste antes: —
   - Pronto quando: o build não faz nenhum pedido a `fonts.googleapis.com`; a página usa as duas fontes.
