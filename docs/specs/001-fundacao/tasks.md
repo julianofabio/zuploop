@@ -174,7 +174,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: bate com as telas [Jogos](../../prototipo/png/Jogos.png) e [Site · Jogos](../../prototipo/png/SiteJogos.png) na estrutura.
   - Verificar: `pnpm --filter @zuploop/web test`
 
-- [ ] **T024 · Ajustes (só idioma)** `[P]`
+- [x] **T024 · Ajustes (só idioma)** (8/11/2026) `[P]`
   - Arquivos: página `settings` com a escolha de idioma em lista de opções.
   - Pronto quando: trocar o idioma em Ajustes tem o mesmo efeito do seletor do cabeçalho.
   - Verificar: `pnpm --filter @zuploop/web test`

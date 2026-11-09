@@ -2,6 +2,7 @@
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { isLocale, locales, type Locale } from "@/i18n/config";
+import { languageTexts } from "@/i18n/language-texts";
 import { routes, type PageRef } from "@/routes";
 import { CatalogScreen } from "@/screens/CatalogScreen";
 import { GameScreen } from "@/screens/GameScreen";
@@ -40,7 +41,7 @@ export default async function SlugPage({ params }: { params: Promise<SlugParams>
     case "catalog":
       return <CatalogScreen />;
     case "settings":
-      return <SettingsScreen />;
+      return <SettingsScreen languageTexts={languageTexts()} />;
     case "not-found":
       return <NotFoundScreen />;
     case "game":
