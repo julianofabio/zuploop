@@ -17,10 +17,11 @@ export function LanguageSwitcher({ texts }: { texts: LanguageTexts }) {
         variant="secondary"
         size="sm"
         icon={<LanguageIcon />}
-        aria-label={`${t("label")} (${t("short")})`}
         aria-haspopup="dialog"
         onClick={() => setOpen(true)}
       >
+        {/* O nome acessível vem do conteúdo ("Idioma PT") e contém o texto visível (WCAG 2.5.3). */}
+        <span className="visually-hidden">{t("label")} </span>
         {t("short")}
       </Button>
       <Sheet

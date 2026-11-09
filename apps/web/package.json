@@ -9,7 +9,9 @@
     "typecheck": "next typegen && tsc -p tsconfig.json",
     "test": "vitest run",
     "build:hidden": "node scripts/build-with-hidden.mjs",
-    "test:html": "vitest run --config vitest.html.config.ts"
+    "test:html": "vitest run --config vitest.html.config.ts",
+    "test:e2e": "playwright test",
+    "serve:out": "node scripts/serve-out.mjs"
   },
   "dependencies": {
     "@zuploop/game-example": "workspace:*",
@@ -21,6 +23,8 @@
     "react-dom": "19.1.10"
   },
   "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@playwright/test": "1.65.0",
     "@testing-library/jest-dom": "7.0.1",
     "@testing-library/react": "16.3.3",
     "@testing-library/user-event": "14.6.8",

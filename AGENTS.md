@@ -71,7 +71,7 @@ Na raiz:
 | `pnpm dev` | Site em modo de desenvolvimento em `http://localhost:3000` |
 | `pnpm build` | Exportação estática em `apps/web/out` |
 | `pnpm test` | Testes de unidade e componentes (Vitest) |
-| `pnpm test:e2e` | Testes de ponta a ponta (Playwright) contra o build (a partir de T030) |
+| `pnpm test:e2e` | Testes de ponta a ponta (Playwright) contra o build |
 | `pnpm lint` | ESLint |
 | `pnpm lint:styles` | Procura cores, fontes e tamanhos fora de `tokens.css` |
 | `pnpm typecheck` | Verificação de tipos |

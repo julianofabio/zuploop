@@ -222,7 +222,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
 
 ## G10 · Testes de ponta a ponta
 
-- [ ] **T030 · Playwright e axe**
+- [x] **T030 · Playwright e axe** (8/11/2026)
   - Arquivos: `apps/web/playwright.config.ts` (Chromium e WebKit; viewports 390 × 844 e 1280 × 800; servidor estático de `out/`), `e2e/*.spec.ts` com todos os cenários da seção 11 do FDD; axe em início, catálogo, jogo e ajustes.
   - Pronto quando: todos os cenários passam nos dois navegadores; axe sem falhas A ou AA.
   - Verificar: `pnpm test:e2e`
