@@ -29,6 +29,7 @@ jobs:
       - run: pnpm lint:styles
       - run: pnpm typecheck
       - run: pnpm test
+      - run: pnpm build
       - run: pnpm format:check
 
   secrets:

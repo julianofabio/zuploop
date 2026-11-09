@@ -111,7 +111,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
 
 ## G5 · Site em Next.js
 
-- [ ] **T014 · App Next.js com exportação estática**
+- [x] **T014 · App Next.js com exportação estática** (8/11/2026)
   - Arquivos: `apps/web/package.json` (`@zuploop/web`), `next.config.ts` (`output: "export"`, `trailingSlash: true`, `images.unoptimized: true`), `tsconfig.json`.
   - Teste antes: —
   - Pronto quando: `pnpm build` gera `apps/web/out/` sem erros.

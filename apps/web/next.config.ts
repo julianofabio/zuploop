@@ -1,0 +1,15 @@
+// Next.js em exportação estática (ADR-0001, FDD 001 §8.1): o build vira arquivos em out/,
+// servidos pelo Nginx. Sem servidor Node em produção.
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  output: "export",
+  trailingSlash: true,
+  images: { unoptimized: true },
+  // Pacotes do monorepo são publicados como código-fonte TypeScript (notas N-11).
+  transpilePackages: ["@zuploop/ui", "@zuploop/sdk"],
+  poweredByHeader: false,
+  reactStrictMode: true,
+};
+
+export default nextConfig;

@@ -68,8 +68,8 @@ Na raiz:
 | Comando | O que faz |
 | --- | --- |
 | `pnpm install` | Instala as dependências TypeScript |
-| `pnpm dev` | Site em modo de desenvolvimento em `http://localhost:3000` (a partir de T014) |
-| `pnpm build` | Exportação estática em `apps/web/out` (a partir de T014) |
+| `pnpm dev` | Site em modo de desenvolvimento em `http://localhost:3000` |
+| `pnpm build` | Exportação estática em `apps/web/out` |
 | `pnpm test` | Testes de unidade e componentes (Vitest) |
 | `pnpm test:e2e` | Testes de ponta a ponta (Playwright) contra o build (a partir de T030) |
 | `pnpm lint` | ESLint |
