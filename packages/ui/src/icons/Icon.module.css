@@ -1,0 +1,21 @@
+/* Ícones de linha (padrão de interface §8): traço de 2 px, cor herdada. */
+.icon {
+  flex: none;
+  inline-size: var(--icon-md);
+  block-size: var(--icon-md);
+}
+
+.icon[data-size="sm"] {
+  inline-size: var(--icon-sm);
+  block-size: var(--icon-sm);
+}
+
+.icon[data-size="lg"] {
+  inline-size: var(--icon-lg);
+  block-size: var(--icon-lg);
+}
+
+/* Preenchimento só no estado ativo; quem usa pode trocar a cor por --icon-fill. */
+.icon[data-filled="true"] {
+  fill: var(--icon-fill, currentColor);
+}

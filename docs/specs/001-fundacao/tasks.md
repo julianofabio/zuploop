@@ -97,7 +97,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: o script roda no CI.
   - Verificar: `pnpm lint:styles`
 
-- [ ] **T012 · Ícones**
+- [x] **T012 · Ícones** (8/11/2026)
   - Arquivos: `packages/ui/src/icons/*.tsx` com o conjunto base da seção 8 do padrão (traço 2 px, grade 24, `currentColor`).
   - Teste antes: cada ícone renderiza com `aria-hidden` por padrão e aceita `title` quando usado sozinho.
   - Pronto quando: todos os ícones da lista existem.
