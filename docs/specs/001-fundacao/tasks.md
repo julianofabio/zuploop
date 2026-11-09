@@ -208,7 +208,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
 
 ## G9 · SEO
 
-- [ ] **T028 · Metadados e hreflang**
+- [x] **T028 · Metadados e hreflang** (8/11/2026)
   - Arquivos: `generateMetadata` em cada página (título e descrição únicos, `canonical`, `alternates.languages` com pt, es, en e `x-default` → `/`), a partir do registro e de `SITE_URL`.
   - Teste antes: teste que lê o HTML de `out/` e confere `canonical` e os quatro `hreflang` em três páginas.
   - Pronto quando: teste passa.

@@ -1,12 +1,32 @@
 // Página inicial de cada idioma (RF-NAV-01, parcial): título, jogos e "Ver todos os jogos".
 // Desafio do dia, favoritos e "Continue jogando" entram na 007, 008 e 013.
+import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { LocalizedLink } from "@/components/LocalizedLink";
 import { loadCatalogEntries } from "@/games/catalog";
 import { isLocale } from "@/i18n/config";
 import { GameList } from "@/screens/GameList";
+import { pageMetadata } from "@/seo/metadata";
 import styles from "./page.module.css";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+  const t = await getTranslations({ locale, namespace: "meta" });
+  return pageMetadata(
+    locale,
+    { id: "home" },
+    {
+      title: t("homeTitle"),
+      description: t("homeDescription"),
+    },
+  );
+}
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

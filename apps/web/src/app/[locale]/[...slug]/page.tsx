@@ -1,5 +1,6 @@
 // Todas as páginas por idioma, menos o início, geradas a partir do registro de rotas (FDD 001 §6.4).
-import { setRequestLocale } from "next-intl/server";
+import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { isLocale, locales, type Locale } from "@/i18n/config";
 import { languageTexts } from "@/i18n/language-texts";
@@ -8,6 +9,8 @@ import { CatalogScreen } from "@/screens/CatalogScreen";
 import { GameScreen } from "@/screens/GameScreen";
 import { NotFoundScreen } from "@/screens/NotFoundScreen";
 import { SettingsScreen } from "@/screens/SettingsScreen";
+import { findGame } from "@/games/registry";
+import { pageMetadata, withSiteName } from "@/seo/metadata";
 
 export const dynamicParams = false;
 
@@ -31,6 +34,46 @@ function resolvePage(params: SlugParams): { locale: Locale; page: PageRef } {
   const page = routes.resolve(params.locale, params.slug);
   if (!page || page.id === "home") notFound();
   return { locale: params.locale, page };
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<SlugParams>;
+}): Promise<Metadata> {
+  const { locale, page } = resolvePage(await params);
+  const t = await getTranslations({ locale, namespace: "meta" });
+  const site = t("siteName");
+
+  switch (page.id) {
+    case "catalog":
+      return pageMetadata(locale, page, {
+        title: withSiteName(t("catalogTitle"), site),
+        description: t("catalogDescription"),
+      });
+    case "settings":
+      return pageMetadata(locale, page, {
+        title: withSiteName(t("settingsTitle"), site),
+        description: t("settingsDescription"),
+      });
+    case "not-found":
+      return pageMetadata(locale, page, {
+        title: withSiteName(t("notFoundTitle"), site),
+        description: t("notFoundDescription"),
+        noindex: true,
+      });
+    case "game": {
+      const game = findGame(page.gameId);
+      if (!game) notFound();
+      const messages = await game.messages[locale]();
+      return pageMetadata(locale, page, {
+        title: withSiteName(messages.name, site),
+        description: messages.description,
+      });
+    }
+    default:
+      notFound();
+  }
 }
 
 export default async function SlugPage({ params }: { params: Promise<SlugParams> }) {

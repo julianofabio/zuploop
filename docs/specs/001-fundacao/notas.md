@@ -57,3 +57,5 @@ Decisões tomadas durante a implementação quando a spec, o FDD ou os ADRs não
 | N-51 | T027 | Erro dentro do jogo | Código `game_crashed`, registrado pelo error boundary do GameHost (além do `game_load_failed` do FDD) | O FDD diz "captura, registra e oferece voltar" sem nomear o código |
 | N-52 | T027 | `src/sdk/SdkProvider.tsx` da árvore do FDD | Não foi criado: o GameHost cria o SDK por jogo aberto e o entrega por propriedade | O ADR-0014 pede o SDK por propriedade e descartado ao fechar; um provider de contexto não teria uso |
 | N-53 | T027 | Registro de erros | `src/telemetry.ts`: console em desenvolvimento, nada em produção | O envio real depende da 005 e da decisão Q-04 (GlitchTip ou Sentry) |
+| N-54 | T028 | Títulos | Início usa `meta.homeTitle`; as outras páginas, "<título> · ZupLoop"; a página do jogo usa nome e descrição do próprio jogo; a 404 do idioma tem `noindex` | Títulos e descrições únicos (RNF-03), conferidos pelo `test:html` |
+| N-55 | T028 | Open Graph | Além do pedido, cada página tem `og:title`, `og:description` e `og:url` | Mesmo dado, custo zero, e a prévia de link (018) parte daqui |
