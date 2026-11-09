@@ -181,7 +181,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
 
 ## G8 · Jogo de exemplo e GameHost
 
-- [ ] **T025 · Pacote do jogo de exemplo**
+- [x] **T025 · Pacote do jogo de exemplo** (8/11/2026)
   - Arquivos: `packages/games/example/` com `manifest.ts` (`status: "hidden"`, `saveVersion: 2`, `migrateSave` de 1 para 2), `rules/` (um contador de jogadas com uma jogada inválida possível), `Game.tsx` (usa só `sdk` e `@zuploop/ui`), `messages/{pt,es,en}.ts`.
   - Teste antes (regras puras): jogada válida soma; inválida é recusada; fim do jogo em 10 jogadas.
   - Pronto quando: testes passam e o ESLint não acusa import proibido.

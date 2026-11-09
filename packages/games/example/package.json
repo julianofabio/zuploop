@@ -1,0 +1,29 @@
+{
+  "name": "@zuploop/game-example",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/manifest.ts",
+    "./Game": "./src/Game.tsx"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@zuploop/sdk": "workspace:*",
+    "@zuploop/ui": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/react": "19.3.0",
+    "@zuploop/config": "workspace:*",
+    "react": "19.1.10",
+    "typescript": "5.9.3",
+    "vitest": "3.2.7"
+  },
+  "peerDependencies": {
+    "react": "19.1.10"
+  }
+}
