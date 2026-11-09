@@ -43,7 +43,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
 
 ## G3 · SDK do portal
 
-- [ ] **T005 · Tipos e contrato do SDK**
+- [x] **T005 · Tipos e contrato do SDK** (8/11/2026)
   - Arquivos: `packages/sdk/package.json` (`@zuploop/sdk`), `src/types.ts` com `Locale`, `GameManifest`, `GameMessages`, `GameProps`, `PortalSdk`, `AdResult`, `FavoriteRef`, `GameEventName`, `SDK_VERSION` (FDD 6.1 e 6.2).
   - Teste antes: teste de tipos (`expectTypeOf`) garantindo a forma do contrato.
   - Pronto quando: os tipos compilam e são exportados por `src/index.ts`.
