@@ -14,7 +14,7 @@
     try {
       var value = window.localStorage.getItem(STORAGE_KEY);
       return isSupported(value) ? value : null;
-    } catch (_error) {
+    } catch {
       // localStorage bloqueado: segue sem a escolha salva.
       return null;
     }
@@ -35,7 +35,7 @@
   try {
     var locale = savedChoice() || browserChoice() || "en";
     window.location.replace("/" + locale + "/");
-  } catch (_error) {
+  } catch {
     // Fica na página de escolha.
   }
 })();
