@@ -179,6 +179,12 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: trocar o idioma em Ajustes tem o mesmo efeito do seletor do cabeçalho.
   - Verificar: `pnpm --filter @zuploop/web test`
 
+- [ ] **T043 · Busca e filtros do catálogo** (incluída em 9/11/2026)
+  - Arquivos: em `packages/ui`: `TextField` (padrão §9.10) e `Chip` (§9.8); no site: catálogo com campo de busca e filtros por categoria (grupo de chips com `aria-pressed`), filtrando no navegador; textos nos arquivos de idioma.
+  - Teste antes: busca por parte do nome ou da descrição, sem diferenciar maiúsculas e acentos; filtro por categoria; busca e filtro juntos; estado vazio com "Limpar"; resultado anunciado a leitores de tela; sem JavaScript, a lista inteira aparece.
+  - Pronto quando: testes de componente e e2e passam e o Lighthouse do catálogo continua dentro das metas.
+  - Verificar: `pnpm test && pnpm build:hidden && pnpm test:e2e && pnpm test:lighthouse`
+
 ## G8 · Jogo de exemplo e GameHost
 
 - [x] **T025 · Pacote do jogo de exemplo** (8/11/2026)
@@ -232,7 +238,13 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: metas da seção 9 do FDD cumpridas (LCP ≤ 2,5 s, CLS ≤ 0,1, acessibilidade 100, JS inicial ≤ 150 KB).
   - Verificar: CI verde.
 
-## G11 · API (ver decisão F001-Q2 na spec)
+- [ ] **T044 · Site e jogos funcionam com a API fora do ar** (incluída em 9/11/2026)
+  - Arquivos: `apps/web/e2e/offline-api.spec.ts`.
+  - Teste antes: com todo pedido à API bloqueado, as páginas abrem, o jogo de exemplo salva e continua, e nenhum pedido é feito à API (RNF-06).
+  - Pronto quando: o teste passa nos quatro projetos do Playwright.
+  - Verificar: `pnpm build:hidden && pnpm test:e2e`
+
+## G11 · API (F001-Q2: fica na 001)
 
 - [x] **T032 · Projeto Python** (8/11/2026)
   - Arquivos: `apps/api/pyproject.toml`, `.python-version` (3.13), `uv.lock`, `app/__init__.py`; Ruff, mypy e pytest configurados.

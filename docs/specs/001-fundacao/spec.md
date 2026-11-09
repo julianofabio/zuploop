@@ -41,6 +41,10 @@ Nesta spec, as seções de desafio, favoritos e "Continue jogando" aparecem só 
 
 Os cenários e o checklist estão na [seção 11 do FDD](plan.md#11-critérios-de-aceite). A spec está pronta quando todos passam e o site responde em `https://zuploop.com/` publicado pelo roteiro.
 
-## Decisão pendente
+## Decisões
 
-**F001-Q2:** o esqueleto da API fica nesta spec (proposta do FDD). Se você decidir movê-lo para a 012, o grupo G11 do `tasks.md` sai daqui inteiro, e o docker-compose sobe só o site.
+**F001-Q2 (decidida em 9/11/2026):** o esqueleto da API fica nesta spec, como o FDD propôs (grupo G11 do `tasks.md`).
+
+**Busca e filtros do catálogo (9/11/2026):** entram nesta spec (RF-NAV-02 completo), na tarefa T043.
+
+**API fora do ar (9/11/2026):** um teste de ponta a ponta prova que o site e os jogos funcionam sem a API (RNF-06), na tarefa T044.

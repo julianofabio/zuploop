@@ -64,7 +64,7 @@ Cadeia de derivação: **S-DEF → PRD (com S-PLANO) → RFC-001 → ADRs → sp
 | RNF-09 Qualidade | PRD · ADR-0012 | 001 | T004, T030, T036, T040 | `.github/workflows/ci.yml` | CI verde | Feito |
 | RNF-10 Versões | PRD · ADR-0007 | 001 | T001, T032 | `package.json`, `.nvmrc`, `apps/api/pyproject.toml`, `.python-version` | `pnpm install` e `uv sync` numa máquina limpa | Feito |
 | RNF-11 Infraestrutura | PRD · ADR-0003 · ADR-0009 | 001 | T037, T038, T041 | `apps/web/Dockerfile`, `apps/api/Dockerfile`, `docs/runbooks/publicar.md` | `curl -f https://zuploop.com/healthz` | Feito |
-| Esqueleto da API (sem RF) | FDD-001 §2 | 001 (depende de F001-Q2) | T032 a T036 | `apps/api/app/{settings,logging,errors,db,main}.py`, `app/routes/health.py`, `migrations/` | pytest de `/health`, `/ready`, `/version` | Feito · F001-Q2 ainda aberta |
+| Esqueleto da API (sem RF) | FDD-001 §2 | 001 (F001-Q2 decidida) | T032 a T036 | `apps/api/app/{settings,logging,errors,db,main}.py`, `app/routes/health.py`, `migrations/` | pytest de `/health`, `/ready`, `/version` | Feito · F001-Q2 ainda aberta |
 
 ---
 
@@ -177,7 +177,7 @@ Na coluna S-DEF entra só o que o RFC-001 registra explicitamente como discutido
 | Q-08 | Quando ligar "Mais jogados" | S-DEF → RFC-001 | Volume relevante | — | Aberta |
 | Q-09 | Validação das damas no servidor (TS × Python) | RFC-001 (ponto novo) | 018 | — | Aberta |
 | F001-Q1 | Registro de imagens Docker | FDD-001 | T041 | — | Aberta |
-| F001-Q2 | Esqueleto da API na 001 | FDD-001 · spec 001 | Revisão do FDD | — | Aberta (decide se T032 a T036 ficam na 001) |
+| F001-Q2 | Esqueleto da API na 001 | FDD-001 · spec 001 | Revisão do FDD | Fica na 001 | Decidida em 9/11/2026: a API fica na 001 |
 | F001-Q3 | Nome e permanência do jogo de exemplo | FDD-001 | Fim da 002 | — | Aberta |
 
 ---

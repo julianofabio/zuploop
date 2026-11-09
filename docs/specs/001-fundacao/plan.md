@@ -41,7 +41,7 @@ A partir daqui, cada feature nova só acrescenta: um jogo, uma página, uma rota
 | Rotas por idioma com nomes traduzidos, raiz com escolha de idioma, seletor e faixa de sugestão | RF-I18N-01 a RF-I18N-05 |
 | Textos de interface em arquivos por idioma | RF-I18N-05 |
 | Layout: barra inferior no celular, cabeçalho no computador, jogo em tela cheia | RF-NAV-04 |
-| Página inicial e catálogo em versão inicial, a partir dos manifestos | RF-NAV-01 (parcial), RF-NAV-02 |
+| Página inicial e catálogo a partir dos manifestos; catálogo com busca e filtros por categoria | RF-NAV-01 (parcial), RF-NAV-02 |
 | Página de jogo genérica com "Como jogar" e "Jogar" | RF-NAV-03, RF-AJ-03 (estrutura) |
 | SDK do portal: contrato completo; salvar, carregar, idioma e eventos | RF-SDK-01 a RF-SDK-03, RF-I18N-06 |
 | Estrutura de pacote de jogo com regras separadas e testadas | RF-SDK-04 |
@@ -660,5 +660,5 @@ Base para o `tasks.md`; cada item deve caber em uma sessão com a IA.
 | ID | Questão | Proposta | Decidir antes de |
 | --- | --- | --- | --- |
 | F001-Q1 | Registro de imagens Docker para o cluster | GitHub Container Registry (gratuito para o seu uso) ou registro no próprio cluster | Tarefa 13 |
-| F001-Q2 | Esqueleto da API já na fase 1 | Proposto aqui para provar compose e publicação cedo; se preferir, a API sai da 001 e entra só na 012 | Revisão deste FDD |
+| F001-Q2 | Esqueleto da API já na fase 1 | **Decidido em 9/11/2026:** fica na 001 (G11 do `tasks.md`) | — |
 | F001-Q3 | Nome final do jogo de exemplo e se ele fica no repositório depois da 002 | Mantê-lo oculto como jogo de referência para testes do SDK | Fim da 002 |
