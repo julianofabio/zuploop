@@ -92,4 +92,40 @@ describe("configuração do ESLint", () => {
     );
     expect(rules).toContain("no-restricted-imports");
   });
+
+  it("recusa href com idioma escrito à mão (use LocalizedLink)", async () => {
+    const jsx = await violations(
+      "apps/web/src/components/Example.tsx",
+      'export const A = () => <a href="/pt/jogos/">Jogos</a>;\n',
+    );
+    const object = await violations(
+      "apps/web/src/components/Example.tsx",
+      'export const link = { href: "/es/juegos/" };\n',
+    );
+    const template = await violations(
+      "packages/ui/src/components/Example.tsx",
+      "export const A = () => <a href={`/en/games/${1}`}>x</a>;\n",
+    );
+    expect(jsx).toContain("no-restricted-syntax");
+    expect(object).toContain("no-restricted-syntax");
+    expect(template).toContain("no-restricted-syntax");
+  });
+
+  it("aceita href externo, âncora e raiz", async () => {
+    const rules = await violations(
+      "apps/web/src/components/Example.tsx",
+      [
+        "export const A = () => (",
+        "  <>",
+        '    <a href="https://zuploop.com/">a</a>',
+        '    <a href="#main">b</a>',
+        '    <a href="/">c</a>',
+        '    <a href="/portal/">d</a>',
+        "  </>",
+        ");",
+        "",
+      ].join("\n"),
+    );
+    expect(rules).toEqual([]);
+  });
 });

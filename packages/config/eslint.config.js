@@ -33,6 +33,11 @@ const reactImports = {
   message: "Regras de jogo são TypeScript puro, sem React e sem interface (RF-SDK-04).",
 };
 
+// Caminho que começa com um idioma: /pt, /pt/…, /es…, /en….
+const LOCALE_PATH = String.raw`/^\/(pt|es|en)(\/|$)/`;
+const HREF_MESSAGE =
+  "Links internos usam <LocalizedLink page=…>, nunca um caminho com idioma escrito à mão (ADR-0013).";
+
 // Globais do navegador proibidos nas regras dos jogos (sem DOM, RF-SDK-04).
 const domGlobals = [
   "window",
@@ -99,6 +104,30 @@ export default tseslint.config(
     files: ["apps/web/**/*.{ts,tsx,js,mjs}"],
     ...nextPlugin.configs["core-web-vitals"],
     settings: { next: { rootDir: "apps/web/" } },
+  },
+
+  // Links internos só pelo LocalizedLink (ADR-0013): nada de href começando com /pt/, /es/ ou /en/.
+  // Testes, exemplos e e2e ficam de fora, porque conferem justamente esses caminhos.
+  {
+    files: ["apps/web/**/*.{ts,tsx}", "packages/**/*.{ts,tsx}"],
+    ignores: ["**/*.test.{ts,tsx}", "**/*.examples.tsx", "**/e2e/**"],
+    rules: {
+      "no-restricted-syntax": [
+        "error",
+        ...[
+          "JSXAttribute[name.name='href'] > Literal",
+          "JSXAttribute[name.name='href'] > JSXExpressionContainer > Literal",
+          "Property[key.name='href'] > Literal",
+        ].map((selector) => ({
+          selector: `${selector}[value=${LOCALE_PATH}]`,
+          message: HREF_MESSAGE,
+        })),
+        {
+          selector: `JSXAttribute[name.name='href'] TemplateLiteral > TemplateElement:first-child[value.raw=${LOCALE_PATH}]`,
+          message: HREF_MESSAGE,
+        },
+      ],
+    },
   },
 
   // Jogos: nada do site, do Next.js ou de outro jogo.

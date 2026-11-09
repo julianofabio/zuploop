@@ -3,8 +3,15 @@
   "compilerOptions": {
     "allowJs": false,
     "incremental": true,
-    "plugins": [{ "name": "next" }],
-    "paths": { "@/*": ["./src/*"] }
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "types": ["node", "vitest/globals", "@testing-library/jest-dom/vitest"]
   },
   "include": ["next-env.d.ts", "src", "e2e", "*.ts", ".next/types/**/*.ts"],
   "exclude": ["node_modules", "out"]

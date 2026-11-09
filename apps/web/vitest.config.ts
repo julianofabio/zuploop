@@ -9,6 +9,8 @@ export default defineConfig({
     globals: true,
     include: ["test/**/*.test.{ts,tsx}", "src/**/*.test.{ts,tsx}"],
     setupFiles: ["./test/setup.ts"],
+    // O build define isto a partir de trailingSlash: true; o next/link lê em tempo de execução.
+    env: { __NEXT_TRAILING_SLASH: "true" },
     css: { modules: { classNameStrategy: "non-scoped" } },
   },
 });

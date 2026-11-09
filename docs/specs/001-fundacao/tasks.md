@@ -137,7 +137,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: testes passam.
   - Verificar: `pnpm --filter @zuploop/web test`
 
-- [ ] **T018 · Rota `[...slug]` e `LocalizedLink`**
+- [x] **T018 · Rota `[...slug]` e `LocalizedLink`** (8/11/2026)
   - Arquivos: `app/[locale]/[...slug]/page.tsx` com `generateStaticParams` a partir do registro; `components/LocalizedLink.tsx`; regra de lint proibindo `href` iniciado por `/pt/`, `/es/` ou `/en/`.
   - Teste antes: `LocalizedLink page="catalog"` gera `/es/juegos/` em espanhol; a regra de lint pega um `href="/pt/jogos/"`.
   - Pronto quando: `out/pt/jogos/index.html`, `out/es/juegos/index.html` e `out/en/games/index.html` existem.
