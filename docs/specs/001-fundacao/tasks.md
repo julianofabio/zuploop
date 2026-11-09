@@ -239,7 +239,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: `uv sync` funciona e as ferramentas rodam sem arquivos para checar.
   - Verificar: `cd apps/api && uv sync && uv run ruff check . && uv run mypy app`
 
-- [ ] **T033 · Configurações e logs**
+- [x] **T033 · Configurações e logs** (8/11/2026)
   - Arquivos: `app/settings.py` (pydantic-settings; monta a URL do banco a partir de `POSTGRES_*`, `DB_HOST` e `DB_PORT`), `app/logging.py` (JSON com `requestId`).
   - Teste antes: variável obrigatória faltando para o processo com mensagem que diz qual; o valor da senha nunca aparece no erro nem no log.
   - Pronto quando: testes passam.
