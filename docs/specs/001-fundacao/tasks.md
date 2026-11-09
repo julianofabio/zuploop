@@ -71,7 +71,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: todos os testes passam.
   - Verificar: `pnpm --filter @zuploop/sdk test`
 
-- [ ] **T008 · Idioma e textos do jogo**
+- [x] **T008 · Idioma e textos do jogo** (8/11/2026)
   - Arquivos: `src/i18n.ts`.
   - Teste antes: `getLocale` devolve o idioma recebido; `t()` substitui parâmetros; chave ausente cai no inglês; ausente nos dois devolve a chave e avisa só em desenvolvimento.
   - Pronto quando: testes passam.
