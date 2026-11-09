@@ -1,3 +1,4 @@
+"use client";
 // Botão de ícone (padrão de interface §9.2): círculo de 44 px, sempre com rótulo acessível.
 import type { ButtonHTMLAttributes, MouseEvent, ReactNode, Ref } from "react";
 import styles from "./IconButton.module.css";

@@ -1,3 +1,4 @@
+"use client";
 // Botão (padrão de interface §9.1). Uma ação principal (primary) por tela.
 import type { ButtonHTMLAttributes, MouseEvent, ReactNode, Ref } from "react";
 import styles from "./Button.module.css";

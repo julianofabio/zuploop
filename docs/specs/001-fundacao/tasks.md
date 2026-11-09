@@ -187,7 +187,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: testes passam e o ESLint não acusa import proibido.
   - Verificar: `pnpm --filter @zuploop/game-example test && pnpm lint`
 
-- [ ] **T026 · Página de jogo genérica**
+- [x] **T026 · Página de jogo genérica** (8/11/2026)
   - Arquivos: página `game` no registro, com título, descrição e "Como jogar" (regras, controles e dica) em HTML, a partir de `GameMessages`, e o botão "Jogar".
   - Teste antes: o HTML gerado da página contém o "Como jogar" no idioma e nenhum script do jogo.
   - Pronto quando: `out/pt/jogos/exemplo/index.html` existe quando o build mostra ocultos.

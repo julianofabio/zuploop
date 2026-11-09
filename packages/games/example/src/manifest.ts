@@ -1,6 +1,9 @@
 // Manifesto do jogo de exemplo (FDD 001 §6.1). Oculto em produção: aparece só com
 // ZUPLOOP_SHOW_HIDDEN_GAMES=true, para testar o caminho inteiro (abrir, salvar, voltar, continuar).
 import type { GameManifest } from "@zuploop/sdk";
+// "#load" aponta para o jogo só no navegador; no servidor (react-server), para um módulo vazio.
+// Assim o chunk do jogo nunca entra na página antes de tocar em "Jogar" (RNF-01).
+import { loadGame } from "#load";
 import type { ExampleState } from "./rules";
 
 /** Save da versão 1, antes de haver pontos: só a contagem de jogadas. */
@@ -31,7 +34,7 @@ export const manifest: GameManifest = {
     en: () => import("./messages/en").then((m) => m.default),
   },
   // Chunk separado: o jogo só é baixado ao tocar em "Jogar" (RNF-01).
-  load: () => import("./Game"),
+  load: loadGame,
 };
 
 export default manifest;

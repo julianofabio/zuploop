@@ -23,6 +23,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@zuploop/game-example':
+        specifier: workspace:*
+        version: link:../../packages/games/example
       '@zuploop/sdk':
         specifier: workspace:*
         version: link:../../packages/sdk

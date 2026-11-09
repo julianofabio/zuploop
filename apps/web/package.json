@@ -7,9 +7,12 @@
     "dev": "next dev",
     "build": "next build",
     "typecheck": "next typegen && tsc -p tsconfig.json",
-    "test": "vitest run"
+    "test": "vitest run",
+    "build:hidden": "node scripts/build-with-hidden.mjs",
+    "test:html": "vitest run --config vitest.html.config.ts"
   },
   "dependencies": {
+    "@zuploop/game-example": "workspace:*",
     "@zuploop/sdk": "workspace:*",
     "@zuploop/ui": "workspace:*",
     "next": "16.4.5",

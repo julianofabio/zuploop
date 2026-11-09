@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   images: { unoptimized: true },
   // Pacotes do monorepo são publicados como código-fonte TypeScript (notas N-11).
-  transpilePackages: ["@zuploop/ui", "@zuploop/sdk"],
+  transpilePackages: ["@zuploop/ui", "@zuploop/sdk", "@zuploop/game-example"],
   poweredByHeader: false,
   // Lido no build; repassado ao código do navegador para o registro de rotas ser o mesmo nos dois.
   env: { ZUPLOOP_SHOW_HIDDEN_GAMES: process.env.ZUPLOOP_SHOW_HIDDEN_GAMES ?? "false" },

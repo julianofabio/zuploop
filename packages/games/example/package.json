@@ -8,6 +8,12 @@
     ".": "./src/manifest.ts",
     "./Game": "./src/Game.tsx"
   },
+  "imports": {
+    "#load": {
+      "react-server": "./src/load.server.ts",
+      "default": "./src/load.ts"
+    }
+  },
   "scripts": {
     "test": "vitest run",
     "typecheck": "tsc -p tsconfig.json"
