@@ -5,6 +5,7 @@ import { examples as badge } from "../src/components/Badge/Badge.examples";
 import { examples as bottomNav } from "../src/components/BottomNav/BottomNav.examples";
 import { examples as banner } from "../src/components/Banner/Banner.examples";
 import { examples as button } from "../src/components/Button/Button.examples";
+import { examples as chip } from "../src/components/Chip/Chip.examples";
 import { examples as gameBar } from "../src/components/GameBar/GameBar.examples";
 import { examples as gameCard } from "../src/components/GameCard/GameCard.examples";
 import { examples as iconButton } from "../src/components/IconButton/IconButton.examples";
@@ -13,6 +14,7 @@ import { examples as logo } from "../src/components/Logo/Logo.examples";
 import { examples as sheet } from "../src/components/Sheet/Sheet.examples";
 import { examples as siteFooter } from "../src/components/SiteFooter/SiteFooter.examples";
 import { examples as siteHeader } from "../src/components/SiteHeader/SiteHeader.examples";
+import { examples as textField } from "../src/components/TextField/TextField.examples";
 import { examples as toast } from "../src/components/Toast/Toast.examples";
 import { expectNoAxeViolations } from "./axe";
 
@@ -21,6 +23,7 @@ const all = {
   banner,
   bottomNav,
   button,
+  chip,
   gameBar,
   gameCard,
   iconButton,
@@ -29,6 +32,7 @@ const all = {
   sheet,
   siteFooter,
   siteHeader,
+  textField,
   toast,
 };
 

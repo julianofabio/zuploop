@@ -33,6 +33,12 @@
     "intro": "Classic pastimes to play on your phone or computer.",
     "comingSoon": "Coming soon",
     "empty": "No games here yet.",
+    "searchLabel": "Search games",
+    "filterLabel": "Categories",
+    "allCategories": "All",
+    "results": "{count, plural, =0 {No games} one {# game} other {# games}}",
+    "noResults": "No games found.",
+    "clear": "Clear search and filters",
     "categories": {
       "words": "Words",
       "board": "Board",

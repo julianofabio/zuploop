@@ -7,16 +7,24 @@ import type { Locale } from "./config";
 
 export type Messages = typeof en;
 
-type Tree = { [key: string]: string | Tree };
+// Com o precompile do next-intl, uma mensagem pode ser texto ou um array já compilado (plural etc.).
+type Leaf = string | readonly unknown[];
+type Tree = { [key: string]: Leaf | Tree };
+
+function isTree(value: Leaf | Tree | undefined): value is Tree {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
 
 const byLocale: Record<Locale, Tree> = { en, es, pt };
+
+export { merge as mergeMessages };
 
 function merge(base: Tree, override: Tree): Tree {
   const result: Tree = { ...base };
   for (const [key, value] of Object.entries(override)) {
     const current = result[key];
-    result[key] =
-      typeof value === "object" && typeof current === "object" ? merge(current, value) : value;
+    // Arrays são mensagens compiladas: valem inteiras, nunca são mescladas.
+    result[key] = isTree(value) && isTree(current) ? merge(current, value) : value;
   }
   return result;
 }

@@ -40,7 +40,7 @@ Cadeia de derivação: **S-DEF → PRD (com S-PLANO) → RFC-001 → ADRs → sp
 
 | Requisito | Origem | Spec | Tarefas | Código | Teste que prova | Status |
 | --- | --- | --- | --- | --- | --- | --- |
-| RF-I18N-01 Endereços por idioma | PRD · ADR-0013 | 001 | T015, T017, T018 | `apps/web/src/i18n/config.ts`, `apps/web/src/routes/registry.ts`, `apps/web/src/app/[locale]/[...slug]/page.tsx` | Unidade do registro (caminhos únicos, slugs sem conflito); build gera `out/es/juegos/` | Feito |
+| RF-I18N-01 Endereços por idioma | PRD · ADR-0013 | 001 | T015, T017, T018 | `apps/web/src/i18n/config.ts`, `apps/web/src/routes/registry.ts`, `apps/web/src/app/[locale]/[section]/page.tsx` e `[section]/[item]/page.tsx` | Unidade do registro (caminhos únicos, slugs sem conflito); build gera `out/es/juegos/` | Feito |
 | RF-I18N-02 Escolha do idioma | PRD · ADR-0013 · FDD F1 | 001 | T019 | `apps/web/public/lang.js`, `apps/web/src/app/(root)/page.tsx` | Unidade de `lang.js`; e2e "Escolha de idioma pela raiz" (3 cenários) | Feito |
 | RF-I18N-03 Seletor de idioma | PRD · FDD F2 | 001 | T020, T024 | `apps/web/src/components/LanguageSwitcher.tsx`, página `settings` | Componente; e2e "Mesma página em outro idioma" | Feito |
 | RF-I18N-04 Sugestão de idioma | PRD · FDD F3 | 001 | T020 | `apps/web/src/components/LanguageSuggestion.tsx` (usa `Banner`) | Componente; e2e "Faixa de sugestão sem redirecionar" | Feito |
@@ -51,7 +51,7 @@ Cadeia de derivação: **S-DEF → PRD (com S-PLANO) → RFC-001 → ADRs → sp
 | RF-SDK-03 Versão do save | PRD · ADR-0014 · FDD F5 | 001 | T006, T007, T025, T027 | `packages/sdk/src/storage/migrate.ts`, `migrateSave` do jogo de exemplo | Unidade de migração e descarte; e2e "Save de versão mais nova" | Feito |
 | RF-SDK-04 Regras separadas | PRD · ADR-0004 · AGENTS | 001 | T002, T025 | `packages/games/example/src/rules/` | Unidade: jogada válida, inválida e fim | Feito |
 | RF-NAV-01 Página inicial (parcial) | PRD | 001, 007, 008 | T023 | Página `home` | Componente da home | Feito |
-| RF-NAV-02 Catálogo | PRD | 001 | T013, T023 | `apps/web/src/games/registry.ts`, `GameCard`, `Badge` | Componente: `available`, `coming_soon` e `hidden` | Feito, sem busca e filtros (L-03) |
+| RF-NAV-02 Catálogo | PRD | 001 | T013, T023 | `apps/web/src/games/registry.ts`, `GameCard`, `Badge` | Componente: `available`, `coming_soon` e `hidden` | Feito, com busca e filtros (T043) |
 | RF-NAV-03 Página por jogo | PRD · ADR-0001 | 001, 003 | T026, T027 | Página `game` | Teste do HTML (sem script do jogo); e2e "Jogo só carrega ao tocar em Jogar" | Feito |
 | RF-NAV-04 Navegação no celular | PRD · DS 6 e 7 | 001 | T022, T027 | `packages/ui`: `BottomNav`, `SiteHeader`, `GameBar`; `apps/web/src/components/GameHost.tsx` e `GameOverlay.tsx` | Componente: `aria-current`, pontos de quebra, foco | Feito |
 | RF-AJ-03 "Como jogar" na página (estrutura) | PRD | 001 (estrutura), 002 | T026 | Página `game` a partir de `GameMessages` | Teste do HTML gerado | Feito |
@@ -59,7 +59,7 @@ Cadeia de derivação: **S-DEF → PRD (com S-PLANO) → RFC-001 → ADRs → sp
 | RNF-02 Acessibilidade | PRD · DS 10 · AGENTS | 001, 009 | T010, T012, T013, T022, T030 | `packages/ui/src/tokens.css`, `base.css`, componentes | axe nos componentes e no e2e; Lighthouse 100 | Feito |
 | RNF-03 SEO | PRD | 001, 003 | T026, T028, T029 | `generateMetadata`, `sitemap-*.xml`, `public/robots.txt` | `test:html`: `canonical`, 4 `hreflang`, mapas sem `hidden` | Feito |
 | RNF-04 Segurança (base) | PRD · ADR-0009 · ADR-0015 | 001, 012 | T004, T034, T037, T039, T041 | gitleaks no CI, `app/errors.py`, CORS, `nginx/default.conf.template` (CSP), `.env.example` | gitleaks; pytest de CORS; `scripts/smoke-web.sh` | Feito · **revisão humana** (CORS e cabeçalhos) |
-| RNF-06 Disponibilidade (base) | PRD · ADR-0005 | 001 | — (o site não chama a API na 001) | — | — | Sem teste próprio (L-05) |
+| RNF-06 Disponibilidade (base) | PRD · ADR-0005 | 001 | T044 | — (o site não chama a API na 001) | `e2e/offline-api.spec.ts` | Feito: e2e com a API bloqueada (T044) |
 | RNF-07 Compatibilidade | PRD | 001 | T030 | `apps/web/playwright.config.ts` | e2e em Chromium e WebKit, 390 e 1280 px | Feito: Chromium e WebKit, 390 e 1280 px (L-04) |
 | RNF-09 Qualidade | PRD · ADR-0012 | 001 | T004, T030, T036, T040 | `.github/workflows/ci.yml` | CI verde | Feito |
 | RNF-10 Versões | PRD · ADR-0007 | 001 | T001, T032 | `package.json`, `.nvmrc`, `apps/api/pyproject.toml`, `.python-version` | `pnpm install` e `uv sync` numa máquina limpa | Feito |
@@ -190,8 +190,8 @@ Pontos que este levantamento achou entre os documentos. Cada um precisa de uma d
 | --- | --- | --- | --- |
 | L-01 | **RF-NAV-05 (Fim da partida, fase 1)** e **RNF-08 (Observabilidade)** não aparecem em nenhuma linha do índice de specs. O protótipo liga a tela FimPartida às specs 002 e 007, e a Q-04 deve ser decidida antes da 005 | [specs/README.md](specs/README.md) | Incluir RF-NAV-05 na 002 e RNF-08 na 005 (ou criar uma spec) |
 | L-02 | O `spec.md` da 001 cita RNF-04, RNF-06, RNF-07 e RF-NAV-01 (parcial), mas a linha da 001 no índice de specs não cita | [specs/README.md](specs/README.md) × [001/spec.md](specs/001-fundacao/spec.md) | Alinhar a linha do índice com o `spec.md` |
-| L-03 | O RF-NAV-02 pede busca e filtros por categoria, e a tela Jogos mostra os dois, mas a T023 só lista os jogos e o FDD fala em "versão inicial" sem dizer o que fica de fora | [tasks.md T023](specs/001-fundacao/tasks.md) × [prd.md](prd.md) | Dizer no FDD se busca e filtros ficam na 001 ou vão para outra spec |
+| L-03 | **Resolvida em 9/11/2026:** busca e filtros entraram na 001 (T043). O RF-NAV-02 pede busca e filtros por categoria, e a tela Jogos mostra os dois, mas a T023 só lista os jogos e o FDD fala em "versão inicial" sem dizer o que fica de fora | [tasks.md T023](specs/001-fundacao/tasks.md) × [prd.md](prd.md) | Dizer no FDD se busca e filtros ficam na 001 ou vão para outra spec |
 | L-04 | O RNF-07 pede Chrome, Safari, Firefox e Edge e telas a partir de 360 px, mas a T030 testa só Chromium e WebKit, em 390 e 1280 px | [tasks.md T030](specs/001-fundacao/tasks.md) × [prd.md](prd.md) | Acrescentar Firefox e a largura de 360 px, ou registrar que a 001 cobre só parte do RNF-07 |
-| L-05 | O FDD liga o RNF-06 à 001, mas nenhuma tarefa prova que o site funciona com a API fora do ar | [plan.md §2](specs/001-fundacao/plan.md) | Um cenário de e2e ou de smoke com a API parada |
+| L-05 | **Resolvida em 9/11/2026:** teste T044. O FDD liga o RNF-06 à 001, mas nenhuma tarefa prova que o site funciona com a API fora do ar | [plan.md §2](specs/001-fundacao/plan.md) | Um cenário de e2e ou de smoke com a API parada |
 | L-06 | O RF-I18N-03 diz que, sem página equivalente, o seletor leva "à lista daquele jogo"; o FDD (F2) leva ao catálogo do idioma | [prd.md](prd.md) × [plan.md F2](specs/001-fundacao/plan.md) | Confirmar qual vale. Na 001 dá no mesmo, mas diverge a partir da 003 (temas) |
 | L-07 | A transcrição das sessões de definição (S-DEF) não está no repositório; a origem de cada decisão só pode ser rastreada até o resumo do RFC-001 | — | Se quiser rastrear até a conversa, guardar um resumo datado em `docs/sessoes/` |

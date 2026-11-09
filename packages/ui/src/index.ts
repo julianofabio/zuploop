@@ -10,6 +10,7 @@ export {
   type ButtonSize,
   type ButtonVariant,
 } from "./components/Button/Button";
+export { Chip, type ChipProps } from "./components/Chip/Chip";
 export { GameBar, type GameBarProps } from "./components/GameBar/GameBar";
 export {
   GameCard,
@@ -23,4 +24,5 @@ export type { NavItem } from "./components/nav-item";
 export { Sheet, type SheetProps } from "./components/Sheet/Sheet";
 export { SiteFooter, type SiteFooterProps } from "./components/SiteFooter/SiteFooter";
 export { SiteHeader, type SiteHeaderProps } from "./components/SiteHeader/SiteHeader";
+export { TextField, type TextFieldProps } from "./components/TextField/TextField";
 export { TOAST_DURATION_MS, Toast, type ToastProps } from "./components/Toast/Toast";

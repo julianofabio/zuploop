@@ -33,6 +33,12 @@
     "intro": "Pasatiempos clásicos para jugar en el móvil o en el ordenador.",
     "comingSoon": "Próximamente",
     "empty": "Todavía no hay juegos aquí.",
+    "searchLabel": "Buscar juegos",
+    "filterLabel": "Categorías",
+    "allCategories": "Todas",
+    "results": "{count, plural, =0 {Ningún juego} one {# juego} other {# juegos}}",
+    "noResults": "No se encontró ningún juego.",
+    "clear": "Borrar búsqueda y filtros",
     "categories": {
       "words": "Palabras",
       "board": "Tablero",

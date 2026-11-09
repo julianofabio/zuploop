@@ -33,6 +33,12 @@
     "intro": "Passatempos clássicos para jogar no celular ou no computador.",
     "comingSoon": "Em breve",
     "empty": "Ainda não há jogos aqui.",
+    "searchLabel": "Buscar jogos",
+    "filterLabel": "Categorias",
+    "allCategories": "Todas",
+    "results": "{count, plural, =0 {Nenhum jogo} one {# jogo} other {# jogos}}",
+    "noResults": "Nenhum jogo encontrado.",
+    "clear": "Limpar busca e filtros",
     "categories": {
       "words": "Palavras",
       "board": "Tabuleiro",
