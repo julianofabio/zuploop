@@ -1,0 +1,27 @@
+/* Área de conteúdo (padrão §6.1 a §6.3): margem de 20 px no celular, 24 px a partir do tablet,
+   até 1200 px no computador. No celular, espaço embaixo para a barra inferior não cobrir nada. */
+.main {
+  display: block;
+  max-inline-size: var(--content-max);
+  min-block-size: 60vh;
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+  padding-block: var(--space-6)
+    calc(var(--bottom-nav-height) + var(--space-8) + env(safe-area-inset-bottom, 0));
+}
+
+.main:focus {
+  outline: none;
+}
+
+@media (min-width: 48rem) {
+  .main {
+    padding-inline: var(--space-6);
+  }
+}
+
+@media (min-width: 64rem) {
+  .main {
+    padding-block: var(--space-10) var(--space-16);
+  }
+}

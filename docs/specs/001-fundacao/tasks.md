@@ -162,7 +162,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
 
 ## G7 · Layout e páginas
 
-- [ ] **T022 · Barra inferior, cabeçalho e rodapé**
+- [x] **T022 · Barra inferior, cabeçalho e rodapé** (8/11/2026)
   - Arquivos: em `packages/ui`: `BottomNav`, `SiteHeader`, `SiteFooter`; montagem no `app/[locale]/layout.tsx` do site.
   - Teste antes: item ativo com `aria-current="page"`; barra inferior só abaixo de 1024 px e cabeçalho com navegação a partir de 1024 px; área segura do iPhone respeitada.
   - Pronto quando: bate com as telas [Início](../../prototipo/png/Main.png) e [Site · Início](../../prototipo/png/SiteInicio.png) na estrutura (conteúdo de desafio e favoritos fica para depois).

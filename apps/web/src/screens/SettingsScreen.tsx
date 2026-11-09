@@ -4,8 +4,8 @@ import { getTranslations } from "next-intl/server";
 export async function SettingsScreen() {
   const t = await getTranslations("settings");
   return (
-    <main>
+    <div>
       <h1>{t("title")}</h1>
-    </main>
+    </div>
   );
 }

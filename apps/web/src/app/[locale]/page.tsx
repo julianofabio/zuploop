@@ -10,9 +10,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const t = await getTranslations("home");
 
   return (
-    <main>
+    <div>
       <h1>{t("title")}</h1>
       <p>{t("intro")}</p>
-    </main>
+    </div>
   );
 }
