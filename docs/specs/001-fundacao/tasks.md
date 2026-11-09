@@ -143,7 +143,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: `out/pt/jogos/index.html`, `out/es/juegos/index.html` e `out/en/games/index.html` existem.
   - Verificar: `pnpm test && pnpm build`
 
-- [ ] **T019 · Raiz `/` com escolha de idioma**
+- [x] **T019 · Raiz `/` com escolha de idioma** (8/11/2026)
   - Arquivos: `app/(root)/layout.tsx`, `app/(root)/page.tsx` (logotipo e três links, `hreflang="x-default"`), `public/lang.js`.
   - Teste antes (unidade de `lang.js`): escolha salva vence; `es-MX` vai para `es`; `fr-FR` vai para `en`; `localStorage` bloqueado não quebra.
   - Pronto quando: abrir `/` redireciona com `location.replace`; sem JavaScript, os três links aparecem.
