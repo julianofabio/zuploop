@@ -60,7 +60,7 @@ Cadeia de derivação: **S-DEF → PRD (com S-PLANO) → RFC-001 → ADRs → sp
 | RNF-03 SEO | PRD | 001, 003 | T026, T028, T029 | `generateMetadata`, `sitemap-*.xml`, `public/robots.txt` | `test:html`: `canonical`, 4 `hreflang`, mapas sem `hidden` | Feito |
 | RNF-04 Segurança (base) | PRD · ADR-0009 · ADR-0015 | 001, 012 | T004, T034, T037, T039, T041 | gitleaks no CI, `app/errors.py`, CORS, `nginx/default.conf.template` (CSP), `.env.example` | gitleaks; pytest de CORS; `scripts/smoke-web.sh` | Feito · **revisão humana** (CORS e cabeçalhos) |
 | RNF-06 Disponibilidade (base) | PRD · ADR-0005 | 001 | T044 | — (o site não chama a API na 001) | `e2e/offline-api.spec.ts` | Feito: e2e com a API bloqueada (T044) |
-| RNF-07 Compatibilidade | PRD | 001 | T030 | `apps/web/playwright.config.ts` | e2e em Chromium e WebKit, 390 e 1280 px | Feito: Chromium e WebKit, 390 e 1280 px (L-04) |
+| RNF-07 Compatibilidade | PRD | 001 | T030 | `apps/web/playwright.config.ts`, `apps/web/e2e/layout.spec.ts` | e2e em Chromium, WebKit e Firefox, 390 e 1280 px; sem rolagem horizontal a 360 px | Feito (T045, L-04). Edge usa o motor do Chromium |
 | RNF-09 Qualidade | PRD · ADR-0012 | 001 | T004, T030, T036, T040 | `.github/workflows/ci.yml` | CI verde | Feito |
 | RNF-10 Versões | PRD · ADR-0007 | 001 | T001, T032 | `package.json`, `.nvmrc`, `apps/api/pyproject.toml`, `.python-version` | `pnpm install` e `uv sync` numa máquina limpa | Feito |
 | RNF-11 Infraestrutura | PRD · ADR-0003 · ADR-0009 | 001 | T037, T038, T041 | `apps/web/Dockerfile`, `apps/api/Dockerfile`, `docs/runbooks/publicar.md` | `curl -f https://zuploop.com/healthz` | Feito |
@@ -136,7 +136,7 @@ Todos os ADRs estão como **Proposto**. Eles passam a Aceito quando o RFC-001 fo
 | 0012 | Qualidade e testes | FDD-001 | — | 001 | `ci.yml`, Vitest, Playwright, pytest (T004, T030, T036) |
 | 0013 | Rotas traduzidas, sem middleware | FDD-001 | — | 001 | `routes/registry.ts`, `LocalizedLink`, `lang.js` (T017 a T019) |
 | 0014 | Contrato do SDK e IndexedDB | FDD-001 | — | 001 | `packages/sdk/` (T005 a T009) |
-| 0015 | Docker, compose e `/config.json` | FDD-001 | — | 001 | Dockerfiles, `config.json.template`, `docker-compose.yml` (T037 a T039) |
+| 0015 | Docker, compose e `/config.json` | FDD-001 | — | 001 | Dockerfiles, `config.json.template`, `docker-compose.yml` (T037 a T039). O site passa a ler `/config.json` na 005 (S-05) |
 | 0016 | Erros em Problem Details | FDD-001 | — | 001, 012+ | `apps/api/app/errors.py` (T034) |
 | 0017 | CSS Modules e variáveis | FDD-001 | — | 001+ | `*.module.css`, `scripts/lint-styles.mjs` (T011) |
 | 0018 | Biblioteca `packages/ui` | DS | — | 001+ | `packages/ui/` (T010 a T013, T022) |
@@ -191,7 +191,7 @@ Pontos que este levantamento achou entre os documentos. Cada um precisa de uma d
 | L-01 | **RF-NAV-05 (Fim da partida, fase 1)** e **RNF-08 (Observabilidade)** não aparecem em nenhuma linha do índice de specs. O protótipo liga a tela FimPartida às specs 002 e 007, e a Q-04 deve ser decidida antes da 005 | [specs/README.md](specs/README.md) | Incluir RF-NAV-05 na 002 e RNF-08 na 005 (ou criar uma spec) |
 | L-02 | O `spec.md` da 001 cita RNF-04, RNF-06, RNF-07 e RF-NAV-01 (parcial), mas a linha da 001 no índice de specs não cita | [specs/README.md](specs/README.md) × [001/spec.md](specs/001-fundacao/spec.md) | Alinhar a linha do índice com o `spec.md` |
 | L-03 | **Resolvida em 9/11/2026:** busca e filtros entraram na 001 (T043). O RF-NAV-02 pede busca e filtros por categoria, e a tela Jogos mostra os dois, mas a T023 só lista os jogos e o FDD fala em "versão inicial" sem dizer o que fica de fora | [tasks.md T023](specs/001-fundacao/tasks.md) × [prd.md](prd.md) | Dizer no FDD se busca e filtros ficam na 001 ou vão para outra spec |
-| L-04 | O RNF-07 pede Chrome, Safari, Firefox e Edge e telas a partir de 360 px, mas a T030 testa só Chromium e WebKit, em 390 e 1280 px | [tasks.md T030](specs/001-fundacao/tasks.md) × [prd.md](prd.md) | Acrescentar Firefox e a largura de 360 px, ou registrar que a 001 cobre só parte do RNF-07 |
+| L-04 | **Resolvida em 9/11/2026:** Firefox e 360 px entraram no e2e (T045). O RNF-07 pede Chrome, Safari, Firefox e Edge e telas a partir de 360 px, mas a T030 testa só Chromium e WebKit, em 390 e 1280 px | [tasks.md T030](specs/001-fundacao/tasks.md) × [prd.md](prd.md) | Acrescentar Firefox e a largura de 360 px, ou registrar que a 001 cobre só parte do RNF-07 |
 | L-05 | **Resolvida em 9/11/2026:** teste T044. O FDD liga o RNF-06 à 001, mas nenhuma tarefa prova que o site funciona com a API fora do ar | [plan.md §2](specs/001-fundacao/plan.md) | Um cenário de e2e ou de smoke com a API parada |
 | L-06 | O RF-I18N-03 diz que, sem página equivalente, o seletor leva "à lista daquele jogo"; o FDD (F2) leva ao catálogo do idioma | [prd.md](prd.md) × [plan.md F2](specs/001-fundacao/plan.md) | Confirmar qual vale. Na 001 dá no mesmo, mas diverge a partir da 003 (temas) |
 | L-07 | A transcrição das sessões de definição (S-DEF) não está no repositório; a origem de cada decisão só pode ser rastreada até o resumo do RFC-001 | — | Se quiser rastrear até a conversa, guardar um resumo datado em `docs/sessoes/` |

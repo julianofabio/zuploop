@@ -396,7 +396,7 @@ O site é o mesmo arquivo em teste e em produção. O que muda por ambiente, e n
 }
 ```
 
-- Lido uma vez pelo SDK, com cache `no-store`.
+- Lido uma vez pelo SDK, com cache `no-store`. Na 001 o arquivo é gerado e servido, mas nada o lê ainda: a leitura entra na 005, a primeira spec com algo a configurar (analytics), e a 012 a usa para a API (decisão de 9/11/2026, S-05).
 - Se não carregar, o site usa valores seguros: sem analytics, sem API.
 - Nunca contém segredos: tudo que está nele é visível para qualquer visitante.
 - A URL pública do site (`SITE_URL`) é a única configuração do site definida no build, porque entra no HTML (`canonical`, `hreflang`, mapa do site). Ela vale sempre `https://zuploop.com`, inclusive no teste local.
@@ -563,7 +563,7 @@ Nada é publicado pelo CI (ADR-0009).
 | Componentes | LanguageSwitcher, faixa de sugestão, GameHost (abrir, fechar, erro de carga, error boundary) | Vitest com Testing Library |
 | Mensagens | Toda chave de pt e es existe em en, e vice-versa | Vitest |
 | API | `/health`, `/ready` com banco de pé e fora, `/version`, formato de erro, `X-Request-ID`, CORS | pytest com httpx e PostgreSQL de teste |
-| Ponta a ponta | Fluxos F1 a F5 e critérios abaixo, em viewport de celular e de computador | Playwright (Chromium e WebKit) |
+| Ponta a ponta | Fluxos F1 a F5 e critérios abaixo, em viewport de celular e de computador | Playwright (Chromium, WebKit e Firefox); sem rolagem horizontal a 360 px |
 | Acessibilidade | Páginas geradas | axe com Playwright |
 
 ## 11. Critérios de aceite
