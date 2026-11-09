@@ -82,11 +82,11 @@ Em `apps/api`:
 
 | Comando | O que faz |
 | --- | --- |
-| `uv sync` | Instala as dependências Python (a partir de T032) |
-| `uv run uvicorn app.main:app --reload` | API em `http://localhost:8000` (a partir de T032) |
-| `uv run pytest` | Testes da API (precisa do PostgreSQL do compose) (a partir de T032) |
-| `uv run ruff check . && uv run ruff format --check .` | Lint e formatação (a partir de T032) |
-| `uv run mypy app` | Verificação de tipos (a partir de T032) |
+| `uv sync` | Instala as dependências Python |
+| `uv run uvicorn app.main:app --reload` | API em `http://localhost:8000` |
+| `uv run pytest` | Testes da API (precisa do PostgreSQL do compose) |
+| `uv run ruff check . && uv run ruff format --check .` | Lint e formatação |
+| `uv run mypy app` | Verificação de tipos |
 | `uv run alembic revision --autogenerate -m "descricao"` | Nova migração (a partir de T035) |
 | `uv run alembic upgrade head` | Aplica as migrações (a partir de T035) |
 

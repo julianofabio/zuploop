@@ -234,7 +234,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
 
 ## G11 · API (ver decisão F001-Q2 na spec)
 
-- [ ] **T032 · Projeto Python**
+- [x] **T032 · Projeto Python** (8/11/2026)
   - Arquivos: `apps/api/pyproject.toml`, `.python-version` (3.13), `uv.lock`, `app/__init__.py`; Ruff, mypy e pytest configurados.
   - Pronto quando: `uv sync` funciona e as ferramentas rodam sem arquivos para checar.
   - Verificar: `cd apps/api && uv sync && uv run ruff check . && uv run mypy app`
