@@ -94,9 +94,9 @@ Ambiente completo:
 
 | Comando | O que faz |
 | --- | --- |
-| `cp .env.example .env` | Cria o `.env` local (preencha os valores) (a partir de T039) |
-| `docker compose up --build` | Sobe `web` (8080), `api` (8000) e `db` (5432) (a partir de T039) |
-| `docker compose down` | Para tudo e preserva os dados do banco (a partir de T039) |
+| `cp .env.example .env` | Cria o `.env` local (preencha os valores) |
+| `docker compose up --build` | Sobe `web` (8080), `api` (8000) e `db` (5432) |
+| `docker compose down` | Para tudo e preserva os dados do banco |
 
 ## Como trabalhar
 

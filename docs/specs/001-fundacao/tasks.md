@@ -275,7 +275,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: a imagem sobe e responde `/health` com um banco disponível.
   - Verificar: `docker compose up api` (após T039)
 
-- [ ] **T039 · docker-compose e .env.example**
+- [x] **T039 · docker-compose e .env.example** (8/11/2026)
   - Arquivos: `docker-compose.yml` (`web`, `api`, `db` com verificações de saúde, `db` só em `127.0.0.1`, volume `db-data`), `.env.example` com as variáveis da seção 6.8 do FDD e valores falsos.
   - Teste antes: —
   - Pronto quando: o cenário "Subir tudo com um comando" do FDD passa numa máquina limpa.

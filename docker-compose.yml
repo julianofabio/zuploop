@@ -1,0 +1,78 @@
+# Ambiente local completo (FDD 001 §8.4, ADR-0015): site, API e banco, com os valores do .env.
+#   cp .env.example .env      # preencha os valores; o .env nunca vai para o Git
+#   docker compose up --build # web em :8080, api em :8000, db em 127.0.0.1:5432
+#   docker compose down       # para tudo e preserva os dados (o volume db-data continua)
+name: zuploop
+
+services:
+  db:
+    image: postgres:17.11
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:?defina POSTGRES_USER no .env}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?defina POSTGRES_PASSWORD no .env}
+      POSTGRES_DB: ${POSTGRES_DB:?defina POSTGRES_DB no .env}
+    # Só nesta máquina: o banco nunca fica exposto na rede.
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      DB_HOST: db
+      DB_PORT: "5432"
+      API_ENV: ${API_ENV:-local}
+      API_LOG_LEVEL: ${API_LOG_LEVEL:-info}
+      API_CORS_ORIGINS: ${API_CORS_ORIGINS:-http://localhost:8080}
+      APP_VERSION: ${APP_VERSION:-local}
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3)"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 15s
+    restart: unless-stopped
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+      args:
+        ZUPLOOP_SHOW_HIDDEN_GAMES: ${ZUPLOOP_SHOW_HIDDEN_GAMES:-false}
+    environment:
+      PUBLIC_ENVIRONMENT: ${PUBLIC_ENVIRONMENT:-local}
+      PUBLIC_API_BASE_URL: ${PUBLIC_API_BASE_URL:-http://localhost:8000}
+      PUBLIC_ANALYTICS_ENABLED: ${PUBLIC_ANALYTICS_ENABLED:-false}
+      APP_VERSION: ${APP_VERSION:-local}
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:8080/healthz"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+volumes:
+  db-data:
