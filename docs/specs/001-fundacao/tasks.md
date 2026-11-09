@@ -49,7 +49,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: os tipos compilam e são exportados por `src/index.ts`.
   - Verificar: `pnpm --filter @zuploop/sdk test`
 
-- [ ] **T006 · Salvamento com envelope e IndexedDB**
+- [x] **T006 · Salvamento com envelope e IndexedDB** (8/11/2026)
   - Arquivos: `src/storage/envelope.ts`, `src/storage/idb.ts` (`idb-keyval`), `src/storage/memory.ts`, `src/storage/index.ts`.
   - Teste antes (com `fake-indexeddb`):
     - grava e lê no slot `main` e em slot nomeado;
