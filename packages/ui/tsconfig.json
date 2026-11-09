@@ -1,0 +1,7 @@
+{
+  "extends": "@zuploop/config/tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["vitest/globals", "@testing-library/jest-dom/vitest"]
+  },
+  "include": ["src", "test", "vitest.config.ts"]
+}

@@ -1,0 +1,174 @@
+/*
+ * Tokens do padrão de interface (docs/design-system.md, seções 3 a 5).
+ * Único arquivo onde cores, fontes e medidas aparecem como valor. O resto usa var(--…).
+ * Tamanhos em rem (ADR-0017): o ajuste "Tamanho do texto" troca só o font-size da raiz.
+ */
+
+:root {
+  font-size: 100%;
+
+  /* 3.1 Base */
+  --color-bg: #f6f4ee;
+  --color-surface: #ffffff;
+  --color-surface-muted: #efece4;
+  --color-text: #1d2422;
+  --color-text-reading: #3a4340;
+  --color-text-muted: #555e5a;
+  --color-border: #e4e0d6;
+  --color-border-strong: #d8d2c4;
+  --color-border-control: #8c8478;
+
+  /* 3.2 Marca e ação */
+  --color-primary: #12645a;
+  --color-primary-hover: #0c4a42;
+  --color-primary-soft: #ddefea;
+  --color-on-primary: #ffffff;
+  --color-on-primary-muted: #d6eee8;
+  --color-accent: #f2b33d;
+  --color-on-accent: #3d2a00;
+  --color-accent-soft: #fcefd2;
+  --color-on-accent-soft: #6b4a00;
+
+  /* 3.3 Estados */
+  --color-favorite: #d9482b;
+  --color-favorite-soft: #fbe3dc;
+  --color-success: #12645a;
+  --color-danger: #b42318;
+  --color-danger-soft: #fef3f2;
+  --color-focus: #12645a;
+  --color-focus-on-dark: #f2b33d;
+
+  /* Fundo escurecido atrás de folhas e diálogos (seção 9.14). */
+  --color-scrim: rgb(29 36 34 / 0.4);
+
+  /* 3.4 Cores dos jogos */
+  --game-select-bg: #12645a;
+  --game-select-fg: #ffffff;
+  --game-mark-1-bg: #cdebdd;
+  --game-mark-1-fg: #0c4a42;
+  --game-mark-2-bg: #fbe2b4;
+  --game-mark-2-fg: #5c3d00;
+  --game-mark-3-bg: #f8d3c8;
+  --game-mark-3-fg: #7a2a18;
+  --game-board-light: #f1e4cc;
+  --game-board-dark: #b07f52;
+  --game-board-frame: #6e4b2e;
+  --game-piece-dark: #2a2f2d;
+  --game-piece-dark-ring: #4a524f;
+  --game-piece-light: #ffffff;
+  --game-piece-light-ring: #d8d2c4;
+
+  /* 4.1 Fontes: o site injeta --font-atkinson e --font-lexend pelo next/font. */
+  --font-text:
+    var(--font-atkinson, "Atkinson Hyperlegible"), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--font-lexend, "Lexend"), system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* 4.2 Escala (base de 17 px) */
+  --text-xs: 0.8125rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.75rem;
+  --text-4xl: 2.75rem;
+  --text-5xl: 3.25rem;
+
+  --leading-tight: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.6;
+  --tracking-tight: -0.01em;
+
+  /* Largura máxima de texto corrido: 70 caracteres (seção 4.3). */
+  --measure: 38rem;
+
+  /* 5.1 Espaçamento (grade de 4 px) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* 5.2 Raios */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-pill: 999px;
+
+  /* 5.3 Sombras: só o que flutua */
+  --shadow-overlay: 0 8px 24px rgb(29 36 34 / 0.14);
+
+  /* 5.4 Tamanhos de controle */
+  --control-lg: 3.5rem;
+  --control-md: 3.25rem;
+  --control-sm: 2.75rem;
+  --icon-sm: 1rem;
+  --icon-md: 1.25rem;
+  --icon-lg: 1.5rem;
+
+  /* Medidas de layout (seção 6) */
+  --content-max: 75rem;
+  --header-height: 4.5rem;
+  --bottom-nav-height: 3.5rem;
+  --game-bar-height: 3.5rem;
+  --banner-height: 3.5rem;
+
+  /* 5.5 Camadas */
+  --z-base: 0;
+  --z-sticky: 10;
+  --z-nav: 20;
+  --z-banner: 30;
+  --z-overlay: 40;
+  --z-game: 50;
+  --z-toast: 60;
+
+  /* 5.6 Movimento */
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 320ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* 3.5 Alto contraste (Ajustes, RF-NAV-06): só os tokens mudam. */
+:root[data-contrast="high"] {
+  --color-bg: #ffffff;
+  --color-text: #000000;
+  --color-text-reading: #000000;
+  --color-text-muted: #1d2422;
+  --color-border: #1d2422;
+  --color-border-strong: #1d2422;
+  --color-border-control: #1d2422;
+  --color-primary: #0a3d36;
+  --color-surface-muted: #ffffff;
+}
+
+/* 4.2 Tamanho do texto (Ajustes): 100%, 112,5% e 125%. */
+:root[data-text-size="md"] {
+  font-size: 112.5%;
+}
+
+:root[data-text-size="lg"] {
+  font-size: 125%;
+}
+
+/* 5.6 Modo tranquilo: nada se move. */
+:root[data-calm="true"] {
+  --duration-fast: 0ms;
+  --duration-base: 0ms;
+  --duration-slow: 0ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+  }
+}

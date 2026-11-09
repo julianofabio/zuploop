@@ -85,7 +85,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
 
 ## G4 · Biblioteca de interface
 
-- [ ] **T010 · Pacote `@zuploop/ui` com tokens e base**
+- [x] **T010 · Pacote `@zuploop/ui` com tokens e base** (8/11/2026)
   - Arquivos: `packages/ui/package.json`, `src/tokens.css` (todos os valores das seções 3 a 5 do [padrão de interface](../../design-system.md)), `src/base.css` (normalização, foco, `.visually-hidden`, link "Pular para o conteúdo").
   - Teste antes: teste que lê `tokens.css` e confere que cada token citado no padrão existe.
   - Pronto quando: os tokens batem com o padrão, inclusive alto contraste, tamanho de texto e modo tranquilo.
