@@ -3,7 +3,13 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 
-const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
+const withNextIntl = createNextIntlPlugin({
+  requestConfig: "./src/i18n/request.ts",
+  experimental: {
+    // Mensagens ICU compiladas no build: o navegador não baixa o interpretador (RNF-01, T031).
+    messages: { path: "./messages", format: "json", locales: ["pt", "es", "en"], precompile: true },
+  },
+});
 
 const nextConfig: NextConfig = {
   output: "export",

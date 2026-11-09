@@ -5,6 +5,7 @@ import { createReadStream, existsSync, statSync } from "node:fs";
 import { createServer } from "node:http";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { createGzip } from "node:zlib";
 
 const OUT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../out");
 const PORT = Number(process.argv[2] ?? process.env.PORT ?? 4173);
@@ -44,14 +45,23 @@ function notFoundFile(urlPath) {
   return path.join(OUT, "404.html");
 }
 
-function send(res, status, file) {
+// Compressão como no Nginx: HTML, CSS, JS, JSON, XML e SVG.
+const COMPRESSIBLE = new Set([".html", ".css", ".js", ".json", ".xml", ".svg", ".txt"]);
+
+function send(req, res, status, file) {
+  const gzip =
+    COMPRESSIBLE.has(path.extname(file)) && /\bgzip\b/.test(req.headers["accept-encoding"] ?? "");
   res.writeHead(status, {
     "Content-Type": TYPES[path.extname(file)] ?? "application/octet-stream",
     "Cache-Control": file.includes(`${path.sep}_next${path.sep}static`)
       ? "public, max-age=31536000, immutable"
       : "no-cache",
+    Vary: "Accept-Encoding",
+    ...(gzip ? { "Content-Encoding": "gzip" } : {}),
   });
-  createReadStream(file).pipe(res);
+  const stream = createReadStream(file);
+  if (gzip) stream.pipe(createGzip()).pipe(res);
+  else stream.pipe(res);
 }
 
 createServer((req, res) => {
@@ -63,8 +73,8 @@ createServer((req, res) => {
     return;
   }
   const file = resolveFile(urlPath);
-  if (file) send(res, 200, file);
-  else send(res, 404, notFoundFile(urlPath));
+  if (file) send(req, res, 200, file);
+  else send(req, res, 404, notFoundFile(urlPath));
 }).listen(PORT, () => {
   console.log(`out/ em http://localhost:${PORT}`);
 });

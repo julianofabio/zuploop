@@ -227,7 +227,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: todos os cenários passam nos dois navegadores; axe sem falhas A ou AA.
   - Verificar: `pnpm test:e2e`
 
-- [ ] **T031 · Lighthouse no CI** `[P]`
+- [x] **T031 · Lighthouse no CI** (8/11/2026) `[P]`
   - Arquivos: configuração do Lighthouse CI para `/pt/`, `/pt/jogos/` e a página do jogo de exemplo; jobs `web` do CI com build e e2e.
   - Pronto quando: metas da seção 9 do FDD cumpridas (LCP ≤ 2,5 s, CLS ≤ 0,1, acessibilidade 100, JS inicial ≤ 150 KB).
   - Verificar: CI verde.

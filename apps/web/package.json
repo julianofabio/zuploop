@@ -11,7 +11,8 @@
     "build:hidden": "node scripts/build-with-hidden.mjs",
     "test:html": "vitest run --config vitest.html.config.ts",
     "test:e2e": "playwright test",
-    "serve:out": "node scripts/serve-out.mjs"
+    "serve:out": "node scripts/serve-out.mjs",
+    "test:lighthouse": "lhci autorun --config=lighthouserc.cjs"
   },
   "dependencies": {
     "@zuploop/game-example": "workspace:*",
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",
+    "@lhci/cli": "0.16.0",
     "@playwright/test": "1.65.0",
     "@testing-library/jest-dom": "7.0.1",
     "@testing-library/react": "16.3.3",

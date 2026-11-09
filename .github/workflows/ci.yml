@@ -16,7 +16,7 @@ jobs:
   web:
     name: web
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
@@ -29,8 +29,26 @@ jobs:
       - run: pnpm lint:styles
       - run: pnpm typecheck
       - run: pnpm test
-      - run: pnpm build
       - run: pnpm format:check
+      # Build de produção (sem jogos ocultos): precisa passar sozinho.
+      - run: pnpm build
+      # Build com o jogo de exemplo, usado pelos testes de HTML, e2e e Lighthouse.
+      - run: pnpm build:hidden
+      - run: pnpm test:html
+      - run: pnpm --filter @zuploop/web exec playwright install --with-deps chromium webkit
+      - run: pnpm test:e2e
+      # Metas do FDD §9: LCP ≤ 2,5 s, CLS ≤ 0,1, acessibilidade 100, JS inicial ≤ 150 KB.
+      - run: pnpm --filter @zuploop/web test:lighthouse
+      - name: Relatórios dos testes
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: web-reports
+          path: |
+            apps/web/playwright-report
+            apps/web/test-results
+            apps/web/.lighthouseci
+          retention-days: 7
 
   secrets:
     name: secrets

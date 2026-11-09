@@ -20,7 +20,8 @@
     "lint:styles": "node scripts/lint-styles.mjs",
     "test:e2e": "pnpm --filter @zuploop/web test:e2e",
     "test:html": "pnpm --filter @zuploop/web test:html",
-    "build:hidden": "pnpm --filter @zuploop/web build:hidden"
+    "build:hidden": "pnpm --filter @zuploop/web build:hidden",
+    "test:lighthouse": "pnpm --filter @zuploop/web test:lighthouse"
   },
   "devDependencies": {
     "@zuploop/config": "workspace:*",
