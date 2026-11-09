@@ -1,0 +1,39 @@
+# Segredos: nunca no Git (ADR-0009). Só o .env.example vai para o repositório.
+.env
+.env.*
+!.env.example
+
+# Dependências
+node_modules/
+.pnpm-store/
+
+# Saídas de build
+out/
+.next/
+dist/
+*.tsbuildinfo
+next-env.d.ts
+
+# Testes
+coverage/
+playwright-report/
+test-results/
+.lighthouseci/
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Sistema e editores
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Configuração local do Claude Code
+.claude/settings.local.json
