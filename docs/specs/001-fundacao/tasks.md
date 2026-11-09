@@ -131,7 +131,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
 
 ## G6 · Rotas e idiomas
 
-- [ ] **T017 · Registro de rotas**
+- [x] **T017 · Registro de rotas** (8/11/2026)
   - Arquivos: `src/routes/registry.ts` (`home`, `catalog`, `game`, `settings`, `not-found` com slugs por idioma), `getPath`, `getAlternates`.
   - Teste antes: caminhos únicos em cada idioma; `getAlternates` devolve a mesma página nos três idiomas; página de jogo usa os slugs do manifesto; conflito de slug entre jogos falha o teste.
   - Pronto quando: testes passam.
