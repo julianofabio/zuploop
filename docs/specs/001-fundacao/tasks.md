@@ -214,7 +214,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: teste passa.
   - Verificar: `pnpm build && pnpm --filter @zuploop/web test:html`
 
-- [ ] **T029 · Mapas do site e robots.txt** `[P]`
+- [x] **T029 · Mapas do site e robots.txt** (8/11/2026) `[P]`
   - Arquivos: geração no build de `sitemap.xml` (índice) e `sitemap-pt.xml`, `sitemap-es.xml`, `sitemap-en.xml` com alternates; `public/robots.txt` apontando para o índice.
   - Teste antes: os mapas listam todas as páginas públicas, sem jogos `hidden`.
   - Pronto quando: teste passa.
