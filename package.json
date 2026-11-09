@@ -16,12 +16,13 @@
     "test": "pnpm -r --if-present test",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "check": "pnpm lint && pnpm lint:styles && pnpm typecheck && pnpm test && pnpm format:check",
+    "check": "pnpm lint && pnpm lint:styles && pnpm typecheck && pnpm test && pnpm format:check && pnpm check:api",
     "lint:styles": "node scripts/lint-styles.mjs",
     "test:e2e": "pnpm --filter @zuploop/web test:e2e",
     "test:html": "pnpm --filter @zuploop/web test:html",
     "build:hidden": "pnpm --filter @zuploop/web build:hidden",
-    "test:lighthouse": "pnpm --filter @zuploop/web test:lighthouse"
+    "test:lighthouse": "pnpm --filter @zuploop/web test:lighthouse",
+    "check:api": "cd apps/api && uv run ruff check . && uv run ruff format --check . && uv run mypy app tests migrations && uv run pytest"
   },
   "devDependencies": {
     "@zuploop/config": "workspace:*",

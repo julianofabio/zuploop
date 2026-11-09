@@ -80,3 +80,4 @@ Decisões tomadas durante a implementação quando a spec, o FDD ou os ADRs não
 | N-74 | T035 | `/version` | `commit` é o trecho depois do último hífen de `APP_VERSION` (`2026.11.08-abc1234` → `abc1234`); com `local`, fica `local` | O formato da versão é `AAAA.MM.DD-<commit>` (T041); sem variável nova |
 | N-75 | T035 | `/ready` | `SELECT 1` com limite de 2 s (`asyncio.timeout` e `timeout` de conexão do asyncpg); falhou, 503 `database_unavailable` e log com o tipo do erro, sem detalhes da conexão | FDD §6.7 |
 | N-76 | T035 | `DB_HOST` padrão | `127.0.0.1`, não `localhost` | No Windows, `localhost` tenta antes `::1`, e o banco do compose só escuta em 127.0.0.1 |
+| N-77 | T036 | `pnpm check` com a API | `pnpm check` roda também `pnpm check:api` (Ruff, formatação, mypy e pytest). Os testes da API precisam do PostgreSQL: `docker compose up -d db` antes | `AGENTS.md`: "tudo o que o CI roda, incluindo a API" |

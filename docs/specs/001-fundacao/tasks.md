@@ -257,7 +257,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: testes passam contra o PostgreSQL do compose.
   - Verificar: `docker compose up -d db && uv run alembic upgrade head && uv run pytest`
 
-- [ ] **T036 · Job da API no CI** `[P]`
+- [x] **T036 · Job da API no CI** (8/11/2026) `[P]`
   - Arquivos: job `api` em `ci.yml` (uv, Ruff, mypy, pytest com serviço PostgreSQL 17).
   - Pronto quando: CI verde.
   - Verificar: aba Actions.

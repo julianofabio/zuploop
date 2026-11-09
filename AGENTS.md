@@ -76,7 +76,7 @@ Na raiz:
 | `pnpm lint:styles` | Procura cores, fontes e tamanhos fora de `tokens.css` |
 | `pnpm typecheck` | Verificação de tipos |
 | `pnpm format` | Prettier |
-| `pnpm check` | Tudo o que o CI roda, incluindo a API (cresce a cada tarefa; a API entra na T036) |
+| `pnpm check` | Tudo o que o CI roda, incluindo a API |
 
 Em `apps/api`:
 
@@ -84,7 +84,7 @@ Em `apps/api`:
 | --- | --- |
 | `uv sync` | Instala as dependências Python |
 | `uv run uvicorn app.main:app --reload` | API em `http://localhost:8000` |
-| `uv run pytest` | Testes da API (precisa do PostgreSQL do compose) |
+| `uv run pytest` | Testes da API (precisa do PostgreSQL do compose: `docker compose up -d db`) |
 | `uv run ruff check . && uv run ruff format --check .` | Lint e formatação |
 | `uv run mypy app` | Verificação de tipos |
 | `uv run alembic revision --autogenerate -m "descricao"` | Nova migração |
