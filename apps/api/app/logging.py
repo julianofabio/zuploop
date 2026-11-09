@@ -12,7 +12,12 @@ _HANDLER_NAME = "zuploop-json"
 request_id_var: ContextVar[str | None] = ContextVar("request_id", default=None)
 
 # Atributos que todo LogRecord tem; o resto veio de `extra=` e entra no JSON.
-_STANDARD_ATTRIBUTES = set(vars(logging.makeLogRecord({}))) | {"message", "asctime"}
+_STANDARD_ATTRIBUTES = set(vars(logging.makeLogRecord({}))) | {
+    "message",
+    "asctime",
+    # O Uvicorn acrescenta a mensagem com cores de terminal; no JSON ela só atrapalha.
+    "color_message",
+}
 
 
 class JsonFormatter(logging.Formatter):

@@ -270,7 +270,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: o script passa.
   - Verificar: `scripts/smoke-web.sh`
 
-- [ ] **T038 · Imagem da API** `[P]`
+- [x] **T038 · Imagem da API** (8/11/2026) `[P]`
   - Arquivos: `apps/api/Dockerfile` (`python:3.13-slim`, uv, usuário sem privilégios, porta 8000, `alembic upgrade head` antes do Uvicorn).
   - Pronto quando: a imagem sobe e responde `/health` com um banco disponível.
   - Verificar: `docker compose up api` (após T039)
