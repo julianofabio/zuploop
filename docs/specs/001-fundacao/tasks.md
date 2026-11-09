@@ -35,7 +35,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
 
 ## G2 · Integração contínua mínima
 
-- [ ] **T004 · CI com lint, tipos e segredos**
+- [x] **T004 · CI com lint, tipos e segredos** (8/11/2026)
   - Arquivos: `.github/workflows/ci.yml` com os jobs `web` (install, lint, typecheck) e `secrets` (gitleaks).
   - Teste antes: um commit numa branch de teste com um segredo falso (`AKIA…`) faz o job `secrets` falhar.
   - Pronto quando: o CI fica verde no push da `main`.
