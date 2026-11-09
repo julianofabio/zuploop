@@ -15,6 +15,10 @@ TEST_ENV = {
     "APP_VERSION": "2026.11.08-abc1234",
 }
 
+# O app.main cria a app ao ser importado; o ambiente precisa existir já na coleta dos testes.
+for _key, _value in TEST_ENV.items():
+    os.environ.setdefault(_key, os.environ.get(f"TEST_{_key}", _value))
+
 
 @pytest.fixture(autouse=True)
 def test_env(monkeypatch: pytest.MonkeyPatch) -> dict[str, str]:

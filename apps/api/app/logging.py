@@ -7,6 +7,8 @@ from contextvars import ContextVar
 from datetime import UTC, datetime
 from typing import Any, TextIO
 
+_HANDLER_NAME = "zuploop-json"
+
 request_id_var: ContextVar[str | None] = ContextVar("request_id", default=None)
 
 # Atributos que todo LogRecord tem; o resto veio de `extra=` e entra no JSON.
@@ -33,8 +35,11 @@ class JsonFormatter(logging.Formatter):
 def configure_logging(*, level: str, stream: TextIO = sys.stdout) -> None:
     handler = logging.StreamHandler(stream)
     handler.setFormatter(JsonFormatter())
+    handler.set_name(_HANDLER_NAME)
     root = logging.getLogger()
-    root.handlers[:] = [handler]
+    # Troca só o nosso handler; outros (por exemplo, o do pytest) continuam.
+    root.handlers[:] = [h for h in root.handlers if h.get_name() != _HANDLER_NAME]
+    root.addHandler(handler)
     root.setLevel(level.upper())
     # O Uvicorn tem logs próprios de acesso; os nossos já registram cada pedido.
     for name in ("uvicorn", "uvicorn.error", "uvicorn.access"):

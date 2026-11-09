@@ -245,7 +245,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: testes passam.
   - Verificar: `uv run pytest`
 
-- [ ] **T034 · Erros e X-Request-ID**
+- [x] **T034 · Erros e X-Request-ID** (8/11/2026)
   - Arquivos: `app/errors.py` (Problem Details, ADR-0016, catálogo de `code`), middleware de `X-Request-ID`, CORS a partir de `API_CORS_ORIGINS`.
   - Teste antes: erro inesperado vira `500` `internal_error` sem detalhes; `X-Request-ID` recebido é devolvido; sem ele, um novo é criado; origem fora da lista não recebe cabeçalhos de CORS.
   - Pronto quando: testes passam.
