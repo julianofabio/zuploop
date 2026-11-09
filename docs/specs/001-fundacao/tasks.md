@@ -77,7 +77,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: testes passam.
   - Verificar: `pnpm --filter @zuploop/sdk test`
 
-- [ ] **T009 · Implementações provisórias e `createPortalSdk`** `[P]`
+- [x] **T009 · Implementações provisórias e `createPortalSdk`** (8/11/2026) `[P]`
   - Arquivos: `src/ads.ts`, `src/favorites.ts`, `src/events.ts`, `src/create.ts`.
   - Teste antes: `commercialBreak` e `rewardedBreak` resolvem `{ shown: false, rewarded: true }`; favoritos em memória ligam e desligam; `track` escreve no console só em desenvolvimento; nenhuma função rejeita; `createPortalSdk` monta tudo e faz `flush` em `pagehide`.
   - Pronto quando: testes passam e o pacote tem cobertura acima de 90%.
