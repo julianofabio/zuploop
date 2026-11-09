@@ -61,7 +61,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: todos os testes passam.
   - Verificar: `pnpm --filter @zuploop/sdk test`
 
-- [ ] **T007 · Migração e descarte de saves** `[P]`
+- [x] **T007 · Migração e descarte de saves** (8/11/2026) `[P]`
   - Arquivos: `src/storage/migrate.ts`.
   - Teste antes:
     - save com `v` menor chama `migrateSave` e regrava com a versão nova;
