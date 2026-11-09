@@ -7,7 +7,7 @@ TEST_ENV = {
     "POSTGRES_USER": "zuploop",
     "POSTGRES_PASSWORD": "senha-falsa-de-teste",
     "POSTGRES_DB": "zuploop_test",
-    "DB_HOST": os.environ.get("DB_HOST", "localhost"),
+    "DB_HOST": os.environ.get("DB_HOST", "127.0.0.1"),
     "DB_PORT": os.environ.get("DB_PORT", "5432"),
     "API_ENV": "test",
     "API_LOG_LEVEL": "info",

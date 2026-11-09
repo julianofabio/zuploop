@@ -20,7 +20,9 @@ class Settings(BaseSettings):
     postgres_user: str
     postgres_password: SecretStr
     postgres_db: str
-    db_host: str = "localhost"
+    # 127.0.0.1 e não "localhost": no Windows, "localhost" tenta antes o IPv6 (::1), e o banco
+    # do compose só escuta em 127.0.0.1.
+    db_host: str = "127.0.0.1"
     db_port: int = Field(default=5_432, ge=1, le=65_535)
 
     api_env: Environment = "local"

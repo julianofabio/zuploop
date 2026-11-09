@@ -251,7 +251,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: testes passam.
   - Verificar: `uv run pytest`
 
-- [ ] **T035 · Banco, Alembic e rotas de saúde**
+- [x] **T035 · Banco, Alembic e rotas de saúde** (8/11/2026)
   - Arquivos: `app/db.py` (SQLAlchemy 2.0 assíncrono com asyncpg), `alembic.ini`, `migrations/` com revisão inicial vazia, `app/routes/health.py` (`/health`, `/ready`, `/version`), `app/main.py`.
   - Teste antes: `/health` 200; `/ready` 200 com banco e 503 `database_unavailable` sem banco (em até 2 s); `/version` devolve `APP_VERSION`.
   - Pronto quando: testes passam contra o PostgreSQL do compose.

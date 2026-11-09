@@ -87,8 +87,8 @@ Em `apps/api`:
 | `uv run pytest` | Testes da API (precisa do PostgreSQL do compose) |
 | `uv run ruff check . && uv run ruff format --check .` | Lint e formatação |
 | `uv run mypy app` | Verificação de tipos |
-| `uv run alembic revision --autogenerate -m "descricao"` | Nova migração (a partir de T035) |
-| `uv run alembic upgrade head` | Aplica as migrações (a partir de T035) |
+| `uv run alembic revision --autogenerate -m "descricao"` | Nova migração |
+| `uv run alembic upgrade head` | Aplica as migrações |
 
 Ambiente completo:
 
