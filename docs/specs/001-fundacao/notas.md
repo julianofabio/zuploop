@@ -91,3 +91,4 @@ Decisões tomadas durante a implementação quando a spec, o FDD ou os ADRs não
 | N-85 | T039 | Portas | `db` só em `127.0.0.1:5432`; `web` (8080) e `api` (8000) em todas as interfaces, para testar no celular na mesma rede | FDD §8.4 pede só o banco restrito |
 | N-86 | T039 | Imagem do banco | `postgres:17.11` (versão exata da linha 17) | ADR-0007 |
 | N-87 | T039 | `ZUPLOOP_SHOW_HIDDEN_GAMES` no `.env.example` | Variável nova, só de build do site (argumento do Docker), `false` por padrão | Permite subir o jogo de exemplo no ambiente local; o FDD §6.8 deve ganhar a linha |
+| N-88 | T040 | Job `docker` | Gera as duas imagens sem publicar e roda `scripts/smoke-web.sh` na imagem do site | Além do pedido, o smoke da T037 passa a rodar a cada push |

@@ -281,7 +281,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: o cenário "Subir tudo com um comando" do FDD passa numa máquina limpa.
   - Verificar: `cp .env.example .env && docker compose up --build`, depois `curl -f localhost:8080/pt/ && curl -f localhost:8000/ready`
 
-- [ ] **T040 · Build das imagens no CI** `[P]`
+- [x] **T040 · Build das imagens no CI** (8/11/2026) `[P]`
   - Arquivos: job `docker` em `ci.yml` (build das duas imagens, sem publicar).
   - Pronto quando: CI verde.
   - Verificar: aba Actions.
