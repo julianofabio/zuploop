@@ -98,6 +98,8 @@ Decisões tomadas durante a implementação quando a spec, o FDD ou os ADRs não
 | N-92 | T043 | Build sem nenhum jogo público | A exportação estática exige ao menos uma página na rota de jogos. Enquanto não houver jogo público (antes da 002), ela gera só `/<idioma>/<catálogo>/404/`, com a página 404 do idioma, `noindex` e fora do mapa do site | Sem isso, `pnpm build` de produção falha |
 | N-93 | T044 | Site sem a API | Teste de ponta a ponta bloqueia todo pedido a `localhost:8000` e `api.zuploop.com`: as páginas abrem, o jogo salva e continua depois de recarregar, e nenhum pedido à API acontece | RNF-06; L-05 do tracker |
 | N-94 | — | F001-Q2 | Decidida por você em 9/11/2026: a API fica na 001 | Registrada na spec, no FDD e no tracker |
+| N-95 | T045 | Firefox derruba a página no axe com o jogo aberto | No Firefox 159, o teste "o jogo aberto passa no axe" falhava com "Page crashed" em cerca de 2 de 3 execuções. Isolado: sem o axe a página fica estável; o axe só no diálogo do jogo passa; o axe no fundo da página com o jogo aberto derruba o processo, com ou sem `overflow: hidden`, com ou sem `aria-modal` e com o diálogo escondido. Regras que derrubam: `aria-allowed-attr`, `aria-conditional-attr`, `aria-prohibited-attr`, `label-content-name-mismatch`, `nested-interactive`, `target-size`. No Firefox, a análise do jogo aberto fica restrita ao diálogo; Chromium e WebKit continuam analisando a página inteira, e o fundo é analisado com o jogo fechado em todos os navegadores | Uma página não deveria conseguir derrubar o navegador: é defeito do Firefox ou da interação dele com o axe. Parei na terceira hipótese, como pede o prompt. Rever ao atualizar o Playwright |
+| N-96 | — | L-04 e S-05 | Decididas por você em 9/11/2026: Firefox e 360 px entram no e2e (T045); o site passa a ler `/config.json` na 005 | Registradas no tracker e no FDD |
 
 ## Revisão de código (fim da 001)
 
@@ -111,4 +113,4 @@ Revisão feita com a skill `code-review` (nível médio) sobre a branch inteira.
 | S-02 | **Feito** (`scripts/smoke-api.sh`). Subir a imagem da API no CI com um PostgreSQL e chamar `/health` e `/ready` | Hoje um erro de import ou de `PATH` na imagem passa no build e só aparece no `compose` ou no cluster |
 | S-03 | **Feito.** Cache de camadas do Docker no CI (`docker/setup-buildx-action` com `cache-from: type=gha`) | Cada push refaz `pnpm install`, `next build` e `uv sync` do zero |
 | S-04 | **Feito.** Atualizar o FDD 001: `GameCategory` em inglês (N-09), `ZUPLOOP_SHOW_HIDDEN_GAMES` no §6.8 (N-87), `try_files $uri $uri/` no §8.5 (N-80) e o `SdkProvider` fora da árvore do §4 (N-52) | O FDD ficou para trás em quatro pontos decididos na implementação |
-| S-05 | Decidir quando o site passa a ler `/config.json` (N-82) | Hoje é servido, mas nada o usa |
+| S-05 | **Decidido** (N-96): o site passa a ler `/config.json` na 005, a primeira spec com algo a configurar (analytics); a 012 usa o mesmo leitor para a API | Hoje é servido, mas nada o usa |

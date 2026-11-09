@@ -27,11 +27,16 @@ for (const { name, path, lang } of pages) {
   });
 }
 
-test("o jogo aberto passa no axe", async ({ page }) => {
+test("o jogo aberto passa no axe", async ({ page, browserName }) => {
   await page.goto("/pt/jogos/exemplo/");
   await page.getByRole("button", { name: "Jogar" }).click();
   await expect(page.getByTestId("example-moves")).toBeVisible();
-  const results = await new AxeBuilder({ page }).withTags(WCAG_TAGS).analyze();
+  let axe = new AxeBuilder({ page }).withTags(WCAG_TAGS);
+  // No Firefox, o axe derruba o processo da página ao percorrer o fundo com o jogo aberto
+  // (defeito do navegador, notas N-95). Lá a análise fica no diálogo do jogo; o fundo já é
+  // analisado com o jogo fechado no teste "jogo" acima.
+  if (browserName === "firefox") axe = axe.include('[role="dialog"]');
+  const results = await axe.analyze();
   expect(results.violations.map((v) => `${v.id}: ${v.help}`)).toEqual([]);
 });
 

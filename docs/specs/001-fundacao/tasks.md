@@ -244,6 +244,12 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: o teste passa nos quatro projetos do Playwright.
   - Verificar: `pnpm build:hidden && pnpm test:e2e`
 
+- [x] **T045 · Firefox e largura de 360 px no e2e** (incluída e feita em 9/11/2026)
+  - Arquivos: `apps/web/playwright.config.ts` (projetos `firefox-mobile` e `firefox-desktop`), `apps/web/e2e/layout.spec.ts`, `.github/workflows/ci.yml` (instala o Firefox).
+  - Teste antes: a 360 px, início, catálogo, jogo, ajustes, 404 e o jogo aberto não rolam na horizontal; todos os cenários rodam também no Firefox (RNF-07).
+  - Pronto quando: o e2e passa nos seis projetos do Playwright.
+  - Verificar: `pnpm build:hidden && pnpm test:e2e`
+
 ## G11 · API (F001-Q2: fica na 001)
 
 - [x] **T032 · Projeto Python** (8/11/2026)

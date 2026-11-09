@@ -35,7 +35,7 @@ jobs:
       # Build com o jogo de exemplo, usado pelos testes de HTML, e2e e Lighthouse.
       - run: pnpm build:hidden
       - run: pnpm test:html
-      - run: pnpm --filter @zuploop/web exec playwright install --with-deps chromium webkit
+      - run: pnpm --filter @zuploop/web exec playwright install --with-deps chromium webkit firefox
       - run: pnpm test:e2e
       # Metas do FDD §9: LCP ≤ 2,5 s, CLS ≤ 0,1, acessibilidade 100, JS inicial ≤ 150 KB.
       - run: pnpm --filter @zuploop/web test:lighthouse

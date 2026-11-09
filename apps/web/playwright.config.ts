@@ -1,5 +1,6 @@
 // Testes de ponta a ponta contra o build estático (FDD 001 §10, ADR-0012).
-// Chromium e WebKit (o público usa muito iPhone), em celular (390 × 844) e computador (1280 × 800).
+// Chromium, WebKit (o público usa muito iPhone) e Firefox, em celular (390 × 844) e computador
+// (1280 × 800); a largura de 360 px é conferida em layout.spec.ts (T045).
 // Antes: `pnpm --filter @zuploop/web build:hidden` (os cenários usam o jogo de exemplo).
 import { defineConfig, devices } from "@playwright/test";
 
@@ -23,6 +24,8 @@ export default defineConfig({
     { name: "chromium-desktop", use: { ...devices["Desktop Chrome"], ...desktop } },
     { name: "webkit-mobile", use: { ...devices["Desktop Safari"], ...mobile } },
     { name: "webkit-desktop", use: { ...devices["Desktop Safari"], ...desktop } },
+    { name: "firefox-mobile", use: { ...devices["Desktop Firefox"], ...mobile } },
+    { name: "firefox-desktop", use: { ...devices["Desktop Firefox"], ...desktop } },
   ],
   webServer: {
     command: `node scripts/serve-out.mjs ${PORT}`,
