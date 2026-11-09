@@ -264,7 +264,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
 
 ## G12 · Docker e ambiente local
 
-- [ ] **T037 · Imagem do site**
+- [x] **T037 · Imagem do site** (8/11/2026)
   - Arquivos: `apps/web/Dockerfile` (Node 24 gera `out/`; final `nginxinc/nginx-unprivileged` na porta 8080), `nginx/default.conf.template` (`try_files`, 404 por idioma, cache, gzip, cabeçalhos de segurança e CSP do FDD 8.5, `/healthz`), `nginx/config.json.template`.
   - Teste antes: script `scripts/smoke-web.sh` que sobe a imagem e confere `/healthz`, `/pt/`, um 404 em `/pt/nao-existe/`, `Cache-Control` de um arquivo em `/_next/static/` e de `/config.json`, e a presença da CSP.
   - Pronto quando: o script passa.

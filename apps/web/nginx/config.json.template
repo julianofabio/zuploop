@@ -1,0 +1,1 @@
+{"environment":"${PUBLIC_ENVIRONMENT}","apiBaseUrl":"${PUBLIC_API_BASE_URL}","analyticsEnabled":${PUBLIC_ANALYTICS_ENABLED},"version":"${APP_VERSION}"}

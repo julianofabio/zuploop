@@ -1,0 +1,67 @@
+# Nginx do site (FDD 001 §8.5). Vira /etc/nginx/conf.d/default.conf ao iniciar o contêiner.
+# Variáveis de ambiente não são usadas aqui; o que muda por ambiente é gerado pelo
+# 40-zuploop-runtime.sh em /tmp/zuploop (config.json e HSTS).
+
+server {
+    listen 8080;
+    server_name _;
+    root /usr/share/nginx/html;
+    index index.html;
+
+    server_tokens off;
+    # Redirecionamentos relativos: funcionam atrás do Ingress e em qualquer porta.
+    absolute_redirect off;
+    charset utf-8;
+
+    gzip on;
+    gzip_comp_level 6;
+    gzip_min_length 512;
+    gzip_vary on;
+    gzip_types text/css application/javascript text/javascript application/json
+               application/xml image/svg+xml text/plain;
+
+    # Fora dos idiomas, a 404 geral (gerada pelo global-not-found do site).
+    error_page 404 /404.html;
+
+    location = /healthz {
+        access_log off;
+        default_type text/plain;
+        return 200 "ok\n";
+    }
+
+    # Configuração pública por ambiente: nunca em cache (FDD 001 §6.6).
+    location = /config.json {
+        alias /tmp/zuploop/config.json;
+        default_type application/json;
+        include /etc/nginx/snippets/security-headers.conf;
+        add_header Cache-Control "no-store" always;
+    }
+
+    # Arquivos com hash no nome (JS, CSS e fontes do next/font): cache de um ano.
+    location ^~ /_next/static/ {
+        include /etc/nginx/snippets/security-headers.conf;
+        add_header Cache-Control "public, max-age=31536000, immutable" always;
+        try_files $uri =404;
+    }
+
+    # Páginas por idioma, com a 404 do próprio idioma.
+    location ~ ^/(pt|es|en)/ {
+        error_page 404 /$1/404/index.html;
+        include /etc/nginx/snippets/security-headers.conf;
+        add_header Cache-Control "no-cache" always;
+        # Sem barra no fim, o Nginx redireciona para o diretório com barra (trailingSlash).
+        try_files $uri $uri/ =404;
+    }
+
+    location = /404.html {
+        internal;
+        include /etc/nginx/snippets/security-headers.conf;
+        add_header Cache-Control "no-cache" always;
+    }
+
+    location / {
+        include /etc/nginx/snippets/security-headers.conf;
+        add_header Cache-Control "no-cache" always;
+        try_files $uri $uri/ =404;
+    }
+}

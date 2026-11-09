@@ -1,0 +1,21 @@
+# O contexto do Docker é a raiz do monorepo; só vai o que as imagens precisam.
+.git
+.github
+.claude
+.env
+.env.*
+!.env.example
+**/node_modules
+**/.next
+**/out
+**/coverage
+**/playwright-report
+**/test-results
+**/.lighthouseci
+**/*.tsbuildinfo
+apps/api/.venv
+**/__pycache__
+**/.pytest_cache
+**/.mypy_cache
+**/.ruff_cache
+docs
