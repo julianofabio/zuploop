@@ -130,7 +130,7 @@ zuploop/
 │   │       ├── routes/registry.ts                    ← páginas e slugs por idioma
 │   │       ├── games/registry.ts                     ← lista de manifestos
 │   │       ├── components/                           ← layout, GameHost, LanguageSwitcher…
-│   │       ├── sdk/SdkProvider.tsx
+│   │       ├── seo/{metadata.ts,sitemap.ts}                  ← metadados e mapas do site
 │   │       └── styles/              ← só estilos de montagem; tokens vêm de @zuploop/ui
 │   └── api/
 │       ├── pyproject.toml · uv.lock · .python-version (3.13)
@@ -144,7 +144,7 @@ zuploop/
 │   ├── sdk/src/{index.ts,types.ts,storage/,i18n.ts,ads.ts,favorites.ts,events.ts}
 │   ├── ui/src/{tokens.css,base.css,components/,icons/}   ← padrão de interface (ADR-0018)
 │   ├── games/example/            ← jogo de exemplo, oculto em produção
-│   │   └── src/{manifest.ts,rules/,Game.tsx,messages/}
+│   │   └── src/{manifest.ts,load.ts,load.server.ts,rules/,Game.tsx,messages/}
 │   └── config/                   ← tsconfig, eslint e prettier compartilhados
 ├── content/themes/{pt,es,en}/    ← vazio por enquanto (usado na 002/003)
 └── docs/                         ← PRD, RFC, ADRs, specs, runbooks
@@ -233,7 +233,7 @@ sequenceDiagram
 // packages/sdk/src/types.ts
 export type Locale = "pt" | "es" | "en";
 
-export type GameCategory = "palavras" | "tabuleiro" | "numeros" | "logica";
+export type GameCategory = "words" | "board" | "numbers" | "logic"; // rótulo vem dos arquivos de idioma
 
 export interface GameManifest {
   id: string;                          // "word-search"; em inglês, estável, nunca muda
@@ -244,7 +244,7 @@ export interface GameManifest {
   saveVersion: number;                 // começa em 1
   migrateSave?: (fromVersion: number, data: unknown) => unknown;
   messages: Record<Locale, () => Promise<GameMessages>>;
-  load: () => Promise<{ default: React.ComponentType<GameProps> }>;
+  load: () => Promise<{ default: React.ComponentType<GameProps> }>; // via "#load" (ver abaixo)
 }
 
 export interface GameMessages {
@@ -263,6 +263,7 @@ export interface GameProps {
 Regras:
 
 - `id` e `slugs` são únicos entre todos os jogos; um teste do registro garante isso.
+- O `load` de cada jogo vem de `import { loadGame } from "#load"`, com *subpath imports* no `package.json` do jogo: a condição `react-server` aponta para `load.server.ts` (não importa a tela) e a padrão para `load.ts` (`() => import("./Game")`). Sem isso, o servidor veria o `import("./Game")` e o Next mandaria o chunk do jogo em toda página, antes de "Jogar" (RNF-01). Decisão registrada em `notas.md` (N-46).
 - Jogos `hidden` não entram no catálogo, no mapa do site nem nas páginas geradas quando `ZUPLOOP_SHOW_HIDDEN_GAMES` não é `true` no build.
 - Jogos `coming_soon` aparecem no catálogo com o selo "Em breve" e sem página própria.
 
@@ -443,6 +444,7 @@ Formato de erro:
 | `PUBLIC_API_BASE_URL` | web (`/config.json`) | `http://localhost:8000` | Não |
 | `PUBLIC_ANALYTICS_ENABLED` | web (`/config.json`) | `false` | Não |
 | `APP_VERSION` | api, web (build) | `local` | Não |
+| `ZUPLOOP_SHOW_HIDDEN_GAMES` | web (argumento do build) | `false` | Não |
 
 - A API monta a URL do banco a partir de `POSTGRES_*` e de `DB_HOST` e `DB_PORT` (no compose, `db` e `5432`), para a senha existir num só lugar.
 - A API valida as variáveis ao iniciar (pydantic-settings). Faltou uma obrigatória: o processo para com uma mensagem que diz qual. Ela nunca imprime o valor de um segredo.
@@ -513,7 +515,7 @@ Formato de erro:
 
 ### 8.5 Nginx
 
-- `try_files $uri $uri/index.html =404`.
+- `try_files $uri $uri/ =404`, com `absolute_redirect off`: `/pt/jogos` redireciona (301) para `/pt/jogos/`, para a mesma página não ter dois endereços.
 - 404 por idioma: em `/pt/`, `/es/` e `/en/`, o erro aponta para `/<idioma>/404/index.html`; fora deles, para `/404.html`.
 - Cache:
   - `/_next/static/` e fontes com `Cache-Control: public, max-age=31536000, immutable`;

@@ -101,8 +101,8 @@ Revisão feita com a skill `code-review` (nível médio) sobre a branch inteira.
 
 | ID | Sugestão | Por quê |
 | --- | --- | --- |
-| S-01 | Rodar `scripts/smoke-web.sh` no job `docker` do CI (`SMOKE_IMAGE=zuploop-web:ci`) | Confere cabeçalhos de segurança, cache e `/config.json` a cada push |
-| S-02 | Subir a imagem da API no CI com um PostgreSQL e chamar `/health` e `/ready` | Hoje um erro de import ou de `PATH` na imagem passa no build e só aparece no `compose` ou no cluster |
-| S-03 | Cache de camadas do Docker no CI (`docker/setup-buildx-action` com `cache-from: type=gha`) | Cada push refaz `pnpm install`, `next build` e `uv sync` do zero |
-| S-04 | Atualizar o FDD 001: `GameCategory` em inglês (N-09), `ZUPLOOP_SHOW_HIDDEN_GAMES` no §6.8 (N-87), `try_files $uri $uri/` no §8.5 (N-80) e o `SdkProvider` fora da árvore do §4 (N-52) | O FDD ficou para trás em quatro pontos decididos na implementação |
+| S-01 | **Feito.** Rodar `scripts/smoke-web.sh` no job `docker` do CI (`SMOKE_IMAGE=zuploop-web:ci`) | Confere cabeçalhos de segurança, cache e `/config.json` a cada push |
+| S-02 | **Feito** (`scripts/smoke-api.sh`). Subir a imagem da API no CI com um PostgreSQL e chamar `/health` e `/ready` | Hoje um erro de import ou de `PATH` na imagem passa no build e só aparece no `compose` ou no cluster |
+| S-03 | **Feito.** Cache de camadas do Docker no CI (`docker/setup-buildx-action` com `cache-from: type=gha`) | Cada push refaz `pnpm install`, `next build` e `uv sync` do zero |
+| S-04 | **Feito.** Atualizar o FDD 001: `GameCategory` em inglês (N-09), `ZUPLOOP_SHOW_HIDDEN_GAMES` no §6.8 (N-87), `try_files $uri $uri/` no §8.5 (N-80) e o `SdkProvider` fora da árvore do §4 (N-52) | O FDD ficou para trás em quatro pontos decididos na implementação |
 | S-05 | Decidir quando o site passa a ler `/config.json` (N-82) | Hoje é servido, mas nada o usa |
