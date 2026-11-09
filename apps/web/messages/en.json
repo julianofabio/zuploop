@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "siteName": "ZupLoop",
+    "homeTitle": "ZupLoop · Classic pastimes",
+    "homeDescription": "Word search, sudoku and more classic pastimes, free, calm and easy to read. Play right away, no sign-up.",
+    "catalogTitle": "Games",
+    "catalogDescription": "All ZupLoop games: words, numbers and board games. Free and no sign-up.",
+    "settingsTitle": "Settings",
+    "settingsDescription": "Choose the language of ZupLoop.",
+    "notFoundTitle": "Page not found",
+    "notFoundDescription": "This page does not exist on ZupLoop."
+  },
+  "common": {
+    "skipToContent": "Skip to content",
+    "logoLabel": "ZupLoop, home"
+  },
+  "nav": {
+    "mainLabel": "Main",
+    "home": "Home",
+    "games": "Games",
+    "challenge": "Daily challenge",
+    "settings": "Settings",
+    "footerLabel": "Site links"
+  },
+  "home": {
+    "title": "Classic pastimes, calm and easy to read",
+    "intro": "Pick a game and play right away. Your progress is saved on this device.",
+    "gamesTitle": "Games",
+    "seeAllGames": "See all games"
+  },
+  "catalog": {
+    "title": "Games",
+    "intro": "Classic pastimes to play on your phone or computer.",
+    "comingSoon": "Coming soon",
+    "empty": "No games here yet.",
+    "categories": {
+      "words": "Words",
+      "board": "Board",
+      "numbers": "Numbers",
+      "logic": "Logic"
+    }
+  },
+  "game": {
+    "play": "Play",
+    "howToPlay": "How to play",
+    "rules": "Rules",
+    "controls": "Controls",
+    "tip": "Tip",
+    "back": "Back",
+    "loading": "Opening the game…",
+    "loadFailed": "We couldn't open the game. Check your connection and try again.",
+    "crashed": "Something went wrong in this game.",
+    "retry": "Try again",
+    "saveDiscarded": "We couldn't recover your previous game.",
+    "notPersistent": "Your progress won't be saved in this browser mode.",
+    "noticeLabel": "Notice"
+  },
+  "lang": {
+    "label": "Language",
+    "chooseTitle": "Choose your language",
+    "selfName": "English",
+    "short": "EN",
+    "suggest": "View in English?",
+    "switchTo": "View in English",
+    "continueIn": "Continue in English",
+    "suggestionLabel": "Language suggestion",
+    "close": "Close"
+  },
+  "settings": {
+    "title": "Settings",
+    "languageTitle": "Language",
+    "languageHint": "The site and the games will appear in this language."
+  },
+  "errors": {
+    "notFoundTitle": "Page not found",
+    "notFoundText": "The address may be wrong, or the page has moved.",
+    "goHome": "Go to the home page",
+    "goGames": "See the games"
+  },
+  "footer": {
+    "rights": "ZupLoop. Classic pastimes for adults."
+  }
+}

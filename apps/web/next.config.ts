@@ -1,6 +1,9 @@
 // Next.js em exportação estática (ADR-0001, FDD 001 §8.1): o build vira arquivos em out/,
 // servidos pelo Nginx. Sem servidor Node em produção.
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
+
+const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const nextConfig: NextConfig = {
   output: "export",
@@ -12,4 +15,4 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

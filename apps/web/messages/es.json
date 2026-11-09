@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "siteName": "ZupLoop",
+    "homeTitle": "ZupLoop · Pasatiempos clásicos",
+    "homeDescription": "Sopa de letras, sudoku y otros pasatiempos clásicos, gratis, tranquilos y fáciles de leer. Juega al instante, sin registro.",
+    "catalogTitle": "Juegos",
+    "catalogDescription": "Todos los juegos de ZupLoop: palabras, números y tablero. Gratis y sin registro.",
+    "settingsTitle": "Ajustes",
+    "settingsDescription": "Elige el idioma de ZupLoop.",
+    "notFoundTitle": "Página no encontrada",
+    "notFoundDescription": "Esta página no existe en ZupLoop."
+  },
+  "common": {
+    "skipToContent": "Saltar al contenido",
+    "logoLabel": "ZupLoop, inicio"
+  },
+  "nav": {
+    "mainLabel": "Principal",
+    "home": "Inicio",
+    "games": "Juegos",
+    "challenge": "Desafío del día",
+    "settings": "Ajustes",
+    "footerLabel": "Enlaces del sitio"
+  },
+  "home": {
+    "title": "Pasatiempos clásicos, tranquilos y fáciles de leer",
+    "intro": "Elige un juego y juega al instante. Tu progreso se guarda en este dispositivo.",
+    "gamesTitle": "Juegos",
+    "seeAllGames": "Ver todos los juegos"
+  },
+  "catalog": {
+    "title": "Juegos",
+    "intro": "Pasatiempos clásicos para jugar en el móvil o en el ordenador.",
+    "comingSoon": "Próximamente",
+    "empty": "Todavía no hay juegos aquí.",
+    "categories": {
+      "words": "Palabras",
+      "board": "Tablero",
+      "numbers": "Números",
+      "logic": "Lógica"
+    }
+  },
+  "game": {
+    "play": "Jugar",
+    "howToPlay": "Cómo jugar",
+    "rules": "Reglas",
+    "controls": "Controles",
+    "tip": "Consejo",
+    "back": "Volver",
+    "loading": "Abriendo el juego…",
+    "loadFailed": "No se pudo abrir el juego. Revisa la conexión e inténtalo de nuevo.",
+    "crashed": "Algo salió mal en este juego.",
+    "retry": "Intentar de nuevo",
+    "saveDiscarded": "No se pudo recuperar tu partida anterior.",
+    "notPersistent": "Tu progreso no se guardará en este modo del navegador.",
+    "noticeLabel": "Aviso"
+  },
+  "lang": {
+    "label": "Idioma",
+    "chooseTitle": "Elige el idioma",
+    "selfName": "Español",
+    "short": "ES",
+    "suggest": "¿Ver en español?",
+    "switchTo": "Ver en español",
+    "continueIn": "Continuar en español",
+    "suggestionLabel": "Sugerencia de idioma",
+    "close": "Cerrar"
+  },
+  "settings": {
+    "title": "Ajustes",
+    "languageTitle": "Idioma",
+    "languageHint": "El sitio y los juegos aparecen en este idioma."
+  },
+  "errors": {
+    "notFoundTitle": "Página no encontrada",
+    "notFoundText": "La dirección puede estar mal, o la página cambió de lugar.",
+    "goHome": "Ir al inicio",
+    "goGames": "Ver los juegos"
+  },
+  "footer": {
+    "rights": "ZupLoop. Pasatiempos clásicos para adultos."
+  }
+}

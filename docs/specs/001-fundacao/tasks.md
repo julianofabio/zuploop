@@ -117,7 +117,7 @@ Base: [spec.md](spec.md) e [plan.md (FDD)](plan.md). Faça **uma tarefa por vez*
   - Pronto quando: `pnpm build` gera `apps/web/out/` sem erros.
   - Verificar: `pnpm build && ls apps/web/out`
 
-- [ ] **T015 · Idiomas com next-intl, sem middleware**
+- [x] **T015 · Idiomas com next-intl, sem middleware** (8/11/2026)
   - Arquivos: `src/i18n/config.ts` (`pt`, `es`, `en`), `src/i18n/request.ts`, `messages/{pt,es,en}.json` com as chaves iniciais (`nav.*`, `catalog.*`, `game.*`, `lang.*`, `errors.*`), `app/[locale]/layout.tsx` com `generateStaticParams` e `setRequestLocale`, `<html lang>`.
   - Teste antes: teste de mensagens: toda chave de `pt` e `es` existe em `en` e vice-versa.
   - Pronto quando: `out/pt/index.html`, `out/es/index.html` e `out/en/index.html` existem com o `lang` certo.

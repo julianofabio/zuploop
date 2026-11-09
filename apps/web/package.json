@@ -6,20 +6,28 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "typecheck": "next typegen && tsc -p tsconfig.json"
+    "typecheck": "next typegen && tsc -p tsconfig.json",
+    "test": "vitest run"
   },
   "dependencies": {
     "@zuploop/sdk": "workspace:*",
     "@zuploop/ui": "workspace:*",
     "next": "16.4.5",
+    "next-intl": "4.14.9",
     "react": "19.1.10",
     "react-dom": "19.1.10"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "14.6.8",
     "@types/node": "24.19.2",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@zuploop/config": "workspace:*",
-    "typescript": "5.9.3"
+    "axe-core": "4.14.0",
+    "jsdom": "29.1.1",
+    "typescript": "5.9.3",
+    "vitest": "3.2.7"
   }
 }
