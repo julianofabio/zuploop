@@ -91,4 +91,18 @@ Decisões tomadas durante a implementação quando a spec, o FDD ou os ADRs não
 | N-85 | T039 | Portas | `db` só em `127.0.0.1:5432`; `web` (8080) e `api` (8000) em todas as interfaces, para testar no celular na mesma rede | FDD §8.4 pede só o banco restrito |
 | N-86 | T039 | Imagem do banco | `postgres:17.11` (versão exata da linha 17) | ADR-0007 |
 | N-87 | T039 | `ZUPLOOP_SHOW_HIDDEN_GAMES` no `.env.example` | Variável nova, só de build do site (argumento do Docker), `false` por padrão | Permite subir o jogo de exemplo no ambiente local; o FDD §6.8 deve ganhar a linha |
-| N-88 | T040 | Job `docker` | Gera as duas imagens sem publicar e roda `scripts/smoke-web.sh` na imagem do site | Além do pedido, o smoke da T037 passa a rodar a cada push |
+| N-88 | T040 | Job `docker` | Só gera as duas imagens, sem publicar. O `scripts/smoke-web.sh` não entrou no CI: ficou como sugestão (ver o fim deste arquivo) | Escopo da T040 (revisão de código) |
+
+## Revisão de código (fim da 001)
+
+Revisão feita com a skill `code-review` (nível médio) sobre a branch inteira. Corrigido: o `smoke-web.sh` agora não para sem diagnóstico quando uma busca não acha nada, remove também o contêiner de produção ao sair, para logo (mostrando o log) se o contêiner não subir, e aceita uma imagem pronta (`SMOKE_IMAGE`). Tirado do CI o passo que rodava o smoke, porque ia além da T040.
+
+## Sugestões fora do escopo (não implementadas)
+
+| ID | Sugestão | Por quê |
+| --- | --- | --- |
+| S-01 | Rodar `scripts/smoke-web.sh` no job `docker` do CI (`SMOKE_IMAGE=zuploop-web:ci`) | Confere cabeçalhos de segurança, cache e `/config.json` a cada push |
+| S-02 | Subir a imagem da API no CI com um PostgreSQL e chamar `/health` e `/ready` | Hoje um erro de import ou de `PATH` na imagem passa no build e só aparece no `compose` ou no cluster |
+| S-03 | Cache de camadas do Docker no CI (`docker/setup-buildx-action` com `cache-from: type=gha`) | Cada push refaz `pnpm install`, `next build` e `uv sync` do zero |
+| S-04 | Atualizar o FDD 001: `GameCategory` em inglês (N-09), `ZUPLOOP_SHOW_HIDDEN_GAMES` no §6.8 (N-87), `try_files $uri $uri/` no §8.5 (N-80) e o `SdkProvider` fora da árvore do §4 (N-52) | O FDD ficou para trás em quatro pontos decididos na implementação |
+| S-05 | Decidir quando o site passa a ler `/config.json` (N-82) | Hoje é servido, mas nada o usa |

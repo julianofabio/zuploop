@@ -97,8 +97,6 @@ jobs:
       # Só gera as imagens, sem publicar (ADR-0009); a publicação é manual.
       - run: docker build -f apps/web/Dockerfile -t zuploop-web:ci .
       - run: docker build -f apps/api/Dockerfile -t zuploop-api:ci .
-      # Confere cabeçalhos, cache, 404 por idioma e /config.json na imagem do site.
-      - run: scripts/smoke-web.sh
 
   secrets:
     name: secrets
